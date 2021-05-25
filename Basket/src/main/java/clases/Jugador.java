@@ -29,6 +29,8 @@ public class Jugador extends CosaConNombre {
 	private byte inteligencia;
 	private byte tecnica;
 	private byte numero;
+	private byte mediaAtaque;
+	private byte mediaDefensa;
 
 	public Jugador(String nombre) {
 		super(nombre);
@@ -104,9 +106,9 @@ public class Jugador extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Nombre" + super.getNombre() + ", posicion=" + posicion + ", manoDominante="
-				+ manoDominante + ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad
-				+ ", inteligencia=" + inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + "]";
+		return "Nombre" + super.getNombre() + ", posicion=" + posicion + ", manoDominante=" + manoDominante
+				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
+				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + "]";
 	}
 
 	public Jugador() {
@@ -116,17 +118,18 @@ public class Jugador extends CosaConNombre {
 				"Steve Campos", "Makelele William", "Marcos William", "Davies Johnson", "Cristiano Smith",
 				"Pablo Miller", "Eduardo Wilson", "Alvaro Lopez", "Stephen Lewis", "Manolo King", "Eugenio Adams",
 				"Mario Baker", "Jose Manuel Green", "Benito Kimpembe", "Rashford Robert", "Rashe Simonl",
-				"Marcus Dembele", "Lebron Martin", "Pau Duran","Jaime Terron","Paco sales","Antonio Miranda","Vicente Salas","Manolo Donaire",
-				"Andres ojeda","Pepe serrano","David farried","Sergio Conde","Jhon Cortes","Felipe Reyes","Sergio Llul","Pau cortes",
-				"Juampi Maroto","Javier reyes","Pepe Varo","Benji Amstrom","Alejandro alvarez","Fran cuesta","Enrrique ferrer","Alex gordo",
-				"Manolo cortes","Joselito Perez","Pepe Conde","Miguel Lopez","Fernando Molina"};
+				"Marcus Dembele", "Lebron Martin", "Pau Duran", "Jaime Terron", "Paco sales", "Antonio Miranda",
+				"Vicente Salas", "Manolo Donaire", "Andres ojeda", "Pepe serrano", "David farried", "Sergio Conde",
+				"Jhon Cortes", "Felipe Reyes", "Sergio Llul", "Pau cortes", "Juampi Maroto", "Javier reyes",
+				"Pepe Varo", "Benji Amstrom", "Alejandro alvarez", "Fran cuesta", "Enrrique ferrer", "Alex gordo",
+				"Manolo cortes", "Joselito Perez", "Pepe Conde", "Miguel Lopez", "Fernando Molina" };
 
 		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
 		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setVelocidad((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setInteligencia((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
-		this.setNumero((byte)(Math.random() * (1 - 20 + 1) + 20));
+		this.setNumero((byte) (Math.random() * (1 - 20 + 1) + 20));
 		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
 
 		if (enumRan == 0) {
@@ -150,5 +153,23 @@ public class Jugador extends CosaConNombre {
 			posicion = "Pivot";
 		}
 		iter++;
+	}
+
+	// Seteamos mediaAtaque
+	public void setMediaAtaque() {
+		this.mediaAtaque = (byte) ((this.getFuerza() + this.getVelocidad()) / 2);
+	}
+
+	// Seteamos mediaDefensa
+	public void setMediaDefensa() {
+		this.mediaDefensa = (byte) (this.getInteligencia() + this.getTecnica() / 2);
+	}
+
+	public byte getMediaAtaque() {
+		return mediaAtaque;
+	}
+
+	public byte getMediaDefensa() {
+		return mediaDefensa;
 	}
 }

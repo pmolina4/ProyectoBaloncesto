@@ -26,6 +26,8 @@ public class ConsultarEquipos extends JPanel {
 	// Variables Aux
 	private String liga;
 	private String temporada;
+	ArrayList<String> equipos = new ArrayList<String>();
+	ArrayList<Jugador> Jugadores = new ArrayList<>();
 
 	public ConsultarEquipos(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
@@ -116,6 +118,7 @@ public class ConsultarEquipos extends JPanel {
 					panel_jugadores.setVisible(true);
 					showJugadores(text_jugadores, (String) list.getSelectedValue());
 					text_jugadores.setVisible(true);
+					estadisticas_jugadores.setVisible(false);
 				}
 			}
 		});
@@ -258,8 +261,7 @@ public class ConsultarEquipos extends JPanel {
 	 * nuestro arrayList de la clase Jugadores
 	 */
 	public void consultaCreacion() {
-		ArrayList<String> equipos = new ArrayList<String>();
-		ArrayList<Jugador> Jugadores = new ArrayList<>();
+		
 		try {
 			Connection conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
