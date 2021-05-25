@@ -71,5 +71,9 @@ public class Partido {
         return "Partido{" + "local=" + local + ", visitante=" + visitante + ", puntosLocal=" + puntosLocal + ", puntosVisitante=" + puntosVisitante + ", fecha=" + fecha + '}';
     }
    
+    public void jugar() {
+    	
+    }
+    }
    
-}
+

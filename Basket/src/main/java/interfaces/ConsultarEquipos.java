@@ -2,22 +2,15 @@ package interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Panel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import interfaces.Ventana;
-
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
 import clases.Jugador;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,21 +19,13 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JMenuBar;
-import java.awt.ScrollPane;
-import java.awt.Panel;
-import java.awt.Button;
-import javax.swing.JTextField;
 
 public class ConsultarEquipos extends JPanel {
-	// Componentes
-	private Ventana ventana;
+	// Vistas
+	private static Ventana ventana;
 	// Variables Aux
 	private String liga;
 	private String temporada;
-	private JTextField text_jugadores;
 
 	public ConsultarEquipos(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
@@ -78,7 +63,6 @@ public class ConsultarEquipos extends JPanel {
 		comboBoxTemporadas.setBounds(113, 63, 193, 21);
 		panel.add(comboBoxTemporadas);
 		comboBoxTemporadas.addItem("-- Selecciona una Temporada --");
-		
 
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBounds(135, 108, 97, 31);
@@ -86,24 +70,29 @@ public class ConsultarEquipos extends JPanel {
 
 		JList list = new JList();
 		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(328, 10, 142, 134);
+		list.setBounds(328, 10, 142, 143);
 		panel.add(list);
 		list.setVisible(false);
-		
-		
+
 		JPanel panel_jugadores = new JPanel();
 		panel_jugadores.setBackground(Color.LIGHT_GRAY);
 		panel_jugadores.setBounds(10, 185, 480, 135);
 		panelCentral.add(panel_jugadores);
 		panel_jugadores.setLayout(null);
-		
-		text_jugadores = new JTextField();
-		text_jugadores.setBackground(Color.LIGHT_GRAY);
-		text_jugadores.setBounds(10, 10, 460, 115);
-		panel_jugadores.add(text_jugadores);
-		text_jugadores.setColumns(10);
-		panel_jugadores.setVisible(false);
 
+		JList text_jugadores = new JList();
+
+		text_jugadores.setBackground(Color.LIGHT_GRAY);
+		text_jugadores.setBounds(26, 10, 143, 110);
+		panel_jugadores.add(text_jugadores);
+
+		JList estadisticas_jugadores = new JList();
+		estadisticas_jugadores.setBackground(Color.LIGHT_GRAY);
+		estadisticas_jugadores.setBounds(203, 10, 267, 115);
+		estadisticas_jugadores.setVisible(false);
+		panel_jugadores.add(estadisticas_jugadores);
+		text_jugadores.setVisible(false);
+		panel_jugadores.setVisible(false);
 
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
@@ -111,28 +100,39 @@ public class ConsultarEquipos extends JPanel {
 		// Rellenamos los JCombo de Temporadas y Ligas
 		fillComboBox(comboBoxTemporadas, comboBoxLigas);
 
-
-		// Funcion OnClick BUSCAR
+		// Funcion OnClick BUSCAR - Muestra la lista de Temporadas y Liga
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				fillJList(list, comboBoxTemporadas, comboBoxLigas);
 			}
 		});
-		
-		//Funcion DoubleClick Lista Equipos
+
+		// Funcion DoubleClick LISTA EQUIPOS - Muestra la lista de Jugadores del Equipo
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(e.getClickCount() == 2) {
+				if (e.getClickCount() == 2) {
 					panel_jugadores.setVisible(true);
-					generarEquipo();
+					showJugadores(text_jugadores, (String) list.getSelectedValue());
+					text_jugadores.setVisible(true);
+				}
+			}
+		});
+
+		// Funcion DoubleClick LISTA STATS JUGADORES - Muestra las Estadisticas del
+		// Jugador Seleccionado
+		text_jugadores.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 2) {
+					String jugadorSelec = (String) text_jugadores.getSelectedValue();
+					String jugadorSelecSpl = jugadorSelec.replaceAll("[|:|0|1|2|3|4|5|6|7|8|9]", "").substring(2);
+					showStats(estadisticas_jugadores, jugadorSelecSpl);
 				}
 			}
 		});
 	}
-	
-	
 
 	// Función para Rellenar ComboBox de Ligas y Temporadas
 	public void fillComboBox(JComboBox comboBoxLigas, JComboBox comboBoxTemporadas) {
@@ -162,7 +162,6 @@ public class ConsultarEquipos extends JPanel {
 		int iter = 0;
 		liga = (String) comboBoxLigas.getSelectedItem();
 		temporada = (String) comboBoxTemporadas.getSelectedItem();
-
 		DefaultListModel modelo = new DefaultListModel();
 		try {
 			Connection conexion = DriverManager.getConnection(
@@ -175,43 +174,113 @@ public class ConsultarEquipos extends JPanel {
 				iter++;
 				modelo.addElement(resultadosEquipos.getString("equipo"));
 			}
-			//En caso de que la BDD no devuelva ningún equipo
+			// En caso de que la BDD no devuelva ningún equipo
 			if (iter == 0) {
 				JOptionPane.showMessageDialog(ventana, "No se han encontrado equipos con tal combinacion",
 						"Login fallido", JOptionPane.ERROR_MESSAGE);
 			} else {
 				list.setModel(modelo);
 				list.setVisible(true);
-
 			}
 			smt.close();
 			conexion.close();
-			// Lanzamos Error y Seteamos los campos a vacio
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
-	//Funcion que genera de manera aleatoria los jugadores de un equipo
-	public static void generarEquipo() {
+
+	// Funcion que genera de manera aleatoria los jugadores de un equipo
+	public static ArrayList<Jugador> generarEquipo() {
 		ArrayList<Jugador> Jugadores = new ArrayList<>();
-		Jugador j = new Jugador("");
-		int iter=0;
-		while(iter>8) {		
-		Jugador a = j.generRandomPlayer();
-		System.out.println(a);
+		for (int i = 0; i < 8; i++) {
+			Jugador a = new Jugador();
+			Jugadores.add(a);
+		}
+		return Jugadores;
+	}
+
+	// Funcion que devuelve la lista de Jugadores de un Equipo
+	public static void showJugadores(JList list, String valor) {
+		DefaultListModel modelo = new DefaultListModel();
+		try {
+			Connection conexion = DriverManager.getConnection(
+					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+					"root", "root");
+			Statement smt = conexion.createStatement();
+			ResultSet resultadosEquipos = smt
+					.executeQuery("SELECT nombre,numero FROM jugador WHERE equipo='" + valor + "'");
+			while (resultadosEquipos.next()) {
+				modelo.addElement(
+						resultadosEquipos.getString("numero") + " : " + resultadosEquipos.getString("nombre"));
+			}
+			list.setModel(modelo);
+			smt.close();
+			conexion.close();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
-	//Funcion que imprime nuestro ArrayList de Jugadores
-	public static String  imprimirArrayList(ArrayList<Jugador> Jugadores) {
-		String aux="";
-		 for(int i = 0; i < Jugadores.size(); i++) {
-			 aux="Nombre: "+Jugadores.get(i).getNombre();
-	        }
-		 System.out.println(aux);
-		return aux;
-		
+
+	// Funcion para Mostrar las Stats de los Jugadores
+	public static void showStats(JList list, String valor) {
+		DefaultListModel modelo = new DefaultListModel();
+		System.out.println(valor);
+		try {
+			Connection conexion = DriverManager.getConnection(
+					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+					"root", "root");
+			Statement smt = conexion.createStatement();
+			ResultSet resultadosEquipos = smt.executeQuery(
+					"SELECT posicion, manoDominante, fuerza, velocidad, inteligencia, tecnica, numero, equipo FROM jugador WHERE nombre = '"
+							+ valor + "'");
+			while (resultadosEquipos.next()) {
+				modelo.addElement("<html>Estadisticas de " + valor + "<br>" + "Numero: " + resultadosEquipos.getString("numero")
+						+ "<br>Mano Dominante: " + resultadosEquipos.getString("manoDominante") + "<br>Fuerza: "
+						+ resultadosEquipos.getString("fuerza") + "<br>Velocidad: "
+						+ resultadosEquipos.getString("velocidad") + "<br>Inteligencia: "
+						+ resultadosEquipos.getString("inteligencia") + "<br>Tecnica: "
+						+ resultadosEquipos.getString("tecnica") + "<br>Numero: "
+						+ resultadosEquipos.getString("numero") + "</html>");
+			}
+			list.setModel(modelo);
+			list.setVisible(true);
+			smt.close();
+			conexion.close();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+
+	}
+
+	/*
+	 * ConsultaCreacion() Funcion que crea de manera automatica en la BDD jugadores.
+	 * Para obtener su equipo, realizamos consulta, y para insertarlos accedemos a
+	 * nuestro arrayList de la clase Jugadores
+	 */
+	public void consultaCreacion() {
+		ArrayList<String> equipos = new ArrayList<String>();
+		ArrayList<Jugador> Jugadores = new ArrayList<>();
+		try {
+			Connection conexion = DriverManager.getConnection(
+					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+					"root", "root");
+			Statement smt = conexion.createStatement();
+			ResultSet resultadosEquipos = smt.executeQuery("SELECT nombre FROM equipo;");
+			while (resultadosEquipos.next()) {
+				equipos.add(resultadosEquipos.getString("nombre"));
+			}
+			for (int i = 0; i < equipos.size(); i++) {
+				Jugadores = generarEquipo();
+				smt.executeUpdate("INSERT INTO jugador VALUES('" + Jugadores.get(i).getNombre() + "','"
+						+ Jugadores.get(i).getPosicion() + "','" + Jugadores.get(i).getManoDominante() + "',"
+						+ Jugadores.get(i).getFuerza() + "," + Jugadores.get(i).getVelocidad() + ", "
+						+ Jugadores.get(i).getInteligencia() + "," + Jugadores.get(i).getTecnica() + ","
+						+ Jugadores.get(i).getNumero() + ",'" + equipos.get(i) + "')");
+			}
+			smt.close();
+			conexion.close();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
-

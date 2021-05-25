@@ -12,6 +12,12 @@ package clases;
 public abstract class CosaConNombre {
 	private String nombre;
 
+
+	
+	// Constructo res
+	public CosaConNombre() {
+	}
+	
 	// Constructo res
 	public CosaConNombre(String nombre) {
 		this.nombre = nombre;

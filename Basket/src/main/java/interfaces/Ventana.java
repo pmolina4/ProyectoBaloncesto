@@ -1,19 +1,26 @@
 package interfaces;
 
 import javax.swing.JFrame;
+import javax.swing.JList;
+
+import clases.Jugador;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 public class Ventana extends JFrame {
 
+	// Vistas
 	private Registro ViewRegistro;
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
@@ -31,7 +38,21 @@ public class Ventana extends JFrame {
 		this.setContentPane(ViewPantallaInicial);
 		this.setVisible(true);
 	}
-	//Función para mostrar ventana ConsultarEquipos
+
+	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
+	public void showRegistrar() {
+		if (this.ViewRegistro == null) {
+			this.ViewRegistro = new Registro(this);
+		}
+		if (this.ViewPantallaInicial != null) {
+			this.ViewPantallaInicial.setVisible(false);
+		}
+		this.setContentPane(this.ViewRegistro);
+		this.ViewRegistro.setVisible(true);
+
+	}
+
+	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
 	public void showConsultarEquipos() {
 		if (this.ViewConsultarEquipos == null) {
 			this.ViewConsultarEquipos = new ConsultarEquipos(this);
@@ -41,6 +62,18 @@ public class Ventana extends JFrame {
 		}
 		this.setContentPane(this.ViewConsultarEquipos);
 		this.ViewConsultarEquipos.setVisible(true);
-
 	}
+	
+	// Función para mostrar ventanaInicial desde Registro
+	public void showPantallaInicial() {
+		if (this.ViewPantallaInicial == null) {
+			this.ViewPantallaInicial = new PantallaInicial(this);
+		}
+		if (this.ViewRegistro != null) {
+			this.ViewRegistro.setVisible(false);
+		}
+		this.setContentPane(this.ViewPantallaInicial);
+		this.ViewPantallaInicial.setVisible(true);
+	}
+
 }

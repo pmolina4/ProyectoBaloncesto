@@ -35,7 +35,8 @@ public class PantallaInicial extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		this.setSize(500, 500);
 
-		// -------------------------------- COMPONENTES J -------------------------------------
+		// -------------------------------- COMPONENTES J
+		// -------------------------------------
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(new Color(105, 105, 105));
 		add(panelCentral, BorderLayout.CENTER);
@@ -66,17 +67,17 @@ public class PantallaInicial extends JPanel {
 		JButton btnNewButton_1 = new JButton("REGISTRO");
 		btnNewButton_1.setBounds(287, 227, 85, 21);
 		panelCentral.add(btnNewButton_1);
-		// -------------------------------- FIN COMPONENTES J -------------------------------------
+		// -------------------------------- FIN COMPONENTES J
+		// -------------------------------------
 
-		
 		// Funcion onClick REGISTRO
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				ventana.showRegistrar();
 			}
 		});
-		
+
 		// Funcion onClick LOGIN
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override

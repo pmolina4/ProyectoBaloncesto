@@ -6,6 +6,10 @@
 package clases;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.IntStream;
 
 import enumeration.mano;
 import enumeration.tipo;
@@ -16,6 +20,7 @@ import enumeration.tipo;
  */
 public class Jugador extends CosaConNombre {
 	private int iter = 0;
+	Random rnd = new Random();
 	private String posicion;
 	private String manoDominante;
 	private byte fuerza;
@@ -25,8 +30,6 @@ public class Jugador extends CosaConNombre {
 	private byte tecnica;
 	private byte numero;
 
-	
-	
 	public Jugador(String nombre) {
 		super(nombre);
 	}
@@ -99,38 +102,39 @@ public class Jugador extends CosaConNombre {
 		this.numero = numero;
 	}
 
-	
 	@Override
 	public String toString() {
-		return "Nombre"+super.getNombre()+"Jugador [iter=" + iter + ", posicion=" + posicion + ", manoDominante=" + manoDominante + ", fuerza="
-				+ fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia=" + inteligencia
-				+ ", tecnica=" + tecnica + ", numero=" + numero + "]";
+		return "Nombre" + super.getNombre() + ", posicion=" + posicion + ", manoDominante="
+				+ manoDominante + ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad
+				+ ", inteligencia=" + inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + "]";
 	}
 
-	public final Jugador generRandomPlayer() {
+	public Jugador() {
+		super();
 		String[] nombres = { "Juan Cortes", "José Curry", "Miguel Flores", "Antonio Torres", "Johan Parra",
 				"Pelé Povea", "Salvador Molina", "Fernando Gonzalez", "Ander Heredia", "Oscar Vargas", "John Salazar",
 				"Steve Campos", "Makelele William", "Marcos William", "Davies Johnson", "Cristiano Smith",
 				"Pablo Miller", "Eduardo Wilson", "Alvaro Lopez", "Stephen Lewis", "Manolo King", "Eugenio Adams",
 				"Mario Baker", "Jose Manuel Green", "Benito Kimpembe", "Rashford Robert", "Rashe Simonl",
-				"Marcus Dembele", "Lebron Martin", "Pau Duran" };
+				"Marcus Dembele", "Lebron Martin", "Pau Duran","Jaime Terron","Paco sales","Antonio Miranda","Vicente Salas","Manolo Donaire",
+				"Andres ojeda","Pepe serrano","David farried","Sergio Conde","Jhon Cortes","Felipe Reyes","Sergio Llul","Pau cortes",
+				"Juampi Maroto","Javier reyes","Pepe Varo","Benji Amstrom","Alejandro alvarez","Fran cuesta","Enrrique ferrer","Alex gordo",
+				"Manolo cortes","Joselito Perez"};
 
-		byte nombreRan = (byte) Math.floor(Math.random() * (nombres.length));
-		byte apellidoRan = (byte) Math.floor(Math.random() * (nombres.length));
-		byte fuerzaRan = (byte) Math.floor(Math.random() * (100 - 1 + 1) + 1);
-		byte velocidadRan = (byte) Math.floor(Math.random() * (100 - 1 + 1) + 1);
-		byte inteligenciaRan = (byte) Math.floor(Math.random() * (100 - 1 + 1) + 1);
-		byte tecnicaRan = (byte) Math.floor(Math.random() * (100 - 1 + 1) + 1);
-		byte numeroRan = (byte) Math.floor(Math.random() * (20 - 1 + 1) + 1);
+		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
+		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
+		this.setVelocidad((byte) (Math.random() * (65 - 100 + 1) + 100));
+		this.setInteligencia((byte) (Math.random() * (65 - 100 + 1) + 100));
+		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
+		this.setNumero((byte)(Math.random() * (1 - 20 + 1) + 20));
 		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
-		String posicion = "";
-		String mano = "";
+
 		if (enumRan == 0) {
-			mano = "Zurdo";
+			this.setManoDominante("Zurdo");
 		} else if (enumRan == 1) {
-			mano = "Diestro";
+			this.setManoDominante("Diestro");
 		} else if (enumRan == 2) {
-			mano = "Ambidiestro";
+			this.setManoDominante("Ambidiestro");
 		}
 		if (iter == 5)
 			iter = 0;
@@ -146,12 +150,5 @@ public class Jugador extends CosaConNombre {
 			posicion = "Pivot";
 		}
 		iter++;
-
-		Jugador j = new Jugador(posicion, mano, fuerzaRan, velocidadRan, inteligenciaRan, tecnicaRan,
-				nombres[nombreRan], numeroRan);
-		return j;
 	}
-
-
-
 }
