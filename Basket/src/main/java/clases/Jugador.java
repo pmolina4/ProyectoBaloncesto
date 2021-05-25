@@ -119,7 +119,7 @@ public class Jugador extends CosaConNombre {
 				"Marcus Dembele", "Lebron Martin", "Pau Duran","Jaime Terron","Paco sales","Antonio Miranda","Vicente Salas","Manolo Donaire",
 				"Andres ojeda","Pepe serrano","David farried","Sergio Conde","Jhon Cortes","Felipe Reyes","Sergio Llul","Pau cortes",
 				"Juampi Maroto","Javier reyes","Pepe Varo","Benji Amstrom","Alejandro alvarez","Fran cuesta","Enrrique ferrer","Alex gordo",
-				"Manolo cortes","Joselito Perez"};
+				"Manolo cortes","Joselito Perez","Pepe Conde","Miguel Lopez","Fernando Molina"};
 
 		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
 		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
