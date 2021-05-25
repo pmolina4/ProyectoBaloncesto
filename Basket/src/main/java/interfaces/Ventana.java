@@ -24,7 +24,14 @@ public class Ventana extends JFrame {
 	private Registro ViewRegistro;
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
-
+	//Variables Globales
+	public static ArrayList<String> equipos = new ArrayList<String>();
+	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
+	/*
+	 * Crear ArrayList de Entrenador, y mediante una funcion en la view, recorremos el array list de equipos
+	 * y a su vez vamos instanciando entrenadores y lo introducimos en la BDD
+	 */
+	
 	public Ventana() {
 		// Variables Iniciales
 		this.setSize(500, 500);

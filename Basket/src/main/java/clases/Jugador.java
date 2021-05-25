@@ -31,14 +31,16 @@ public class Jugador extends CosaConNombre {
 	private byte numero;
 	private byte mediaAtaque;
 	private byte mediaDefensa;
+	private String equipo;
 
 	public Jugador(String nombre) {
 		super(nombre);
 	}
 
-	public Jugador(String posicion, String manoDominante, byte fuerza, byte velocidad, byte inteligencia, byte tecnica,
-			String nombre, byte numero) {
+	public Jugador(String nombre, String equipo, String posicion, String manoDominante, byte fuerza, byte velocidad,
+			byte inteligencia, byte tecnica, byte numero, byte mediaAtaque, byte mediaDefensa) {
 		super(nombre);
+		this.equipo = equipo;
 		this.posicion = posicion;
 		this.manoDominante = manoDominante;
 		this.fuerza = fuerza;
@@ -46,6 +48,16 @@ public class Jugador extends CosaConNombre {
 		this.inteligencia = inteligencia;
 		this.tecnica = tecnica;
 		this.numero = numero;
+		this.mediaAtaque = mediaAtaque;
+		this.mediaDefensa = mediaDefensa;
+	}
+
+	public String getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(String equipo) {
+		this.equipo = equipo;
 	}
 
 	public String getPosicion() {
@@ -106,9 +118,10 @@ public class Jugador extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Nombre" + super.getNombre() + ", posicion=" + posicion + ", manoDominante=" + manoDominante
+		return "Jugador [iter=" + iter + ", rnd=" + rnd + ", posicion=" + posicion + ", manoDominante=" + manoDominante
 				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
-				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + "]";
+				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
+				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
 	}
 
 	public Jugador() {
@@ -131,6 +144,7 @@ public class Jugador extends CosaConNombre {
 		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setNumero((byte) (Math.random() * (1 - 20 + 1) + 20));
 		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
+
 
 		if (enumRan == 0) {
 			this.setManoDominante("Zurdo");

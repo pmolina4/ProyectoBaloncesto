@@ -26,8 +26,7 @@ public class ConsultarEquipos extends JPanel {
 	// Variables Aux
 	private String liga;
 	private String temporada;
-	ArrayList<String> equipos = new ArrayList<String>();
-	ArrayList<Jugador> Jugadores = new ArrayList<>();
+
 
 	public ConsultarEquipos(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
@@ -78,7 +77,7 @@ public class ConsultarEquipos extends JPanel {
 
 		JPanel panel_jugadores = new JPanel();
 		panel_jugadores.setBackground(Color.LIGHT_GRAY);
-		panel_jugadores.setBounds(10, 185, 480, 135);
+		panel_jugadores.setBounds(10, 185, 480, 249);
 		panelCentral.add(panel_jugadores);
 		panel_jugadores.setLayout(null);
 
@@ -90,7 +89,7 @@ public class ConsultarEquipos extends JPanel {
 
 		JList estadisticas_jugadores = new JList();
 		estadisticas_jugadores.setBackground(Color.LIGHT_GRAY);
-		estadisticas_jugadores.setBounds(203, 10, 267, 115);
+		estadisticas_jugadores.setBounds(203, 10, 267, 191);
 		estadisticas_jugadores.setVisible(false);
 		panel_jugadores.add(estadisticas_jugadores);
 		text_jugadores.setVisible(false);
@@ -224,26 +223,36 @@ public class ConsultarEquipos extends JPanel {
 		}
 	}
 
-	// Funcion para Mostrar las Stats de los Jugadores
-	public static void showStats(JList list, String valor) {
+	// Funcion para Mostrar las Stats de los Jugadores y Guardarlos en un ArrayList
+	public void showStats(JList list, String valor) {
 		DefaultListModel modelo = new DefaultListModel();
-		System.out.println(valor);
 		try {
 			Connection conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 					"root", "root");
 			Statement smt = conexion.createStatement();
 			ResultSet resultadosEquipos = smt.executeQuery(
-					"SELECT posicion, manoDominante, fuerza, velocidad, inteligencia, tecnica, numero, equipo FROM jugador WHERE nombre = '"
+					"SELECT posicion, manoDominante, fuerza, velocidad, inteligencia, tecnica, numero, mediaAtaque, mediaDefensa, equipo FROM jugador WHERE nombre = '"
 							+ valor + "'");
 			while (resultadosEquipos.next()) {
-				modelo.addElement("<html>Estadisticas de " + valor + "<br>" + "Numero: " + resultadosEquipos.getString("numero")
-						+ "<br>Mano Dominante: " + resultadosEquipos.getString("manoDominante") + "<br>Fuerza: "
-						+ resultadosEquipos.getString("fuerza") + "<br>Velocidad: "
-						+ resultadosEquipos.getString("velocidad") + "<br>Inteligencia: "
-						+ resultadosEquipos.getString("inteligencia") + "<br>Tecnica: "
-						+ resultadosEquipos.getString("tecnica") + "<br>Numero: "
-						+ resultadosEquipos.getString("numero") + "</html>");
+				modelo.addElement(
+						"<html>Estadisticas de " + valor + "<br>" + "Numero: " + resultadosEquipos.getString("numero")
+								+ "<br>Mano Dominante: " + resultadosEquipos.getString("manoDominante") + "<br>Fuerza: "
+								+ resultadosEquipos.getString("fuerza") + "<br>Velocidad: "
+								+ resultadosEquipos.getString("velocidad") + "<br>Inteligencia: "
+								+ resultadosEquipos.getString("inteligencia") + "<br>Tecnica: "
+								+ resultadosEquipos.getString("tecnica") + "<br>Numero: "
+								+ resultadosEquipos.getString("numero") + "<br> Media Ataque: "
+								+ resultadosEquipos.getString("mediaAtaque") + "<br>Media Defensa: "
+								+ resultadosEquipos.getString("mediaDefensa") + "</html>");
+
+				Jugador a = new Jugador(valor, resultadosEquipos.getString("equipo"),
+						resultadosEquipos.getString("posicion"), resultadosEquipos.getString("manoDominante"),
+						resultadosEquipos.getByte("fuerza"), resultadosEquipos.getByte("velocidad"),
+						resultadosEquipos.getByte("inteligencia"), resultadosEquipos.getByte("tecnica"),
+						resultadosEquipos.getByte("numero"), resultadosEquipos.getByte("mediaAtaque"),
+						resultadosEquipos.getByte("mediaDefensa"));
+				Ventana.Jugadores.add(a);
 			}
 			list.setModel(modelo);
 			list.setVisible(true);
@@ -256,12 +265,12 @@ public class ConsultarEquipos extends JPanel {
 	}
 
 	/*
+	 * ESTA FUNCION LA UTILIZAMOS UNICAMENTE PARA NO CREAR DE MANERA MANUAL LOS JUGADORES EN LA BDD
 	 * ConsultaCreacion() Funcion que crea de manera automatica en la BDD jugadores.
 	 * Para obtener su equipo, realizamos consulta, y para insertarlos accedemos a
 	 * nuestro arrayList de la clase Jugadores
 	 */
 	public void consultaCreacion() {
-		
 		try {
 			Connection conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
@@ -269,16 +278,18 @@ public class ConsultarEquipos extends JPanel {
 			Statement smt = conexion.createStatement();
 			ResultSet resultadosEquipos = smt.executeQuery("SELECT nombre FROM equipo;");
 			while (resultadosEquipos.next()) {
-				equipos.add(resultadosEquipos.getString("nombre"));
+				
+			Ventana.equipos.add(resultadosEquipos.getString("nombre"));
 			}
-			for (int i = 0; i < equipos.size(); i++) {
-				Jugadores = generarEquipo();
-				smt.executeUpdate("INSERT INTO jugador VALUES('" + Jugadores.get(i).getNombre() + "','"
-						+ Jugadores.get(i).getPosicion() + "','" + Jugadores.get(i).getManoDominante() + "',"
-						+ Jugadores.get(i).getFuerza() + "," + Jugadores.get(i).getVelocidad() + ", "
-						+ Jugadores.get(i).getInteligencia() + "," + Jugadores.get(i).getTecnica() + ","
-						+ Jugadores.get(i).getNumero() + ",'" + equipos.get(i) + "')");
+			for (int i = 0; i < Ventana.equipos.size(); i++) {
+				Ventana.Jugadores = generarEquipo();
+				smt.executeUpdate("INSERT INTO jugador VALUES('" + Ventana.Jugadores.get(i).getNombre() + "','"
+						+ Ventana.Jugadores.get(i).getPosicion() + "','" + Ventana.Jugadores.get(i).getManoDominante() + "',"
+						+ Ventana.Jugadores.get(i).getFuerza() + "," + Ventana.Jugadores.get(i).getVelocidad() + ", "
+						+ Ventana.Jugadores.get(i).getInteligencia() + "," + Ventana.Jugadores.get(i).getTecnica() + ","
+						+ Ventana.Jugadores.get(i).getNumero() + ",'" + Ventana.equipos.get(i) + "')");
 			}
+
 			smt.close();
 			conexion.close();
 		} catch (SQLException ex) {

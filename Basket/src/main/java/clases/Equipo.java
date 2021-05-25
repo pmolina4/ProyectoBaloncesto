@@ -11,77 +11,76 @@ import java.util.ArrayList;
  *
  * @author pablo
  */
-public class Equipo extends CosaConNombre{
-    private String nacionalidad;
-    private ArrayList<Jugador> jugadores;
-    private Estadio estadio;
-    private Entrenador entrenador;
-    private ArrayList<Competicion> historicoCompeticiones;
-    private ArrayList<Competicion> competicionesActuales;
+public class Equipo extends CosaConNombre {
+	private String nacionalidad;
+	private ArrayList<Jugador> jugadores;
+	private Estadio estadio;
+	private Entrenador entrenador;
+	private byte mediaDefensa;
+	private byte mediaAtaque;
 
-    public Equipo(String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio, Entrenador entrenador, ArrayList<Competicion> historicoCompeticiones, ArrayList<Competicion> competicionesActuales, String nombre) {
-        super(nombre);
-        this.nacionalidad = nacionalidad;
-        this.jugadores = jugadores;
-        this.estadio = estadio;
-        this.entrenador = entrenador;
-        this.historicoCompeticiones = historicoCompeticiones;
-        this.competicionesActuales = competicionesActuales;
-    }
+	public byte getMediaDefensa() {
+		return mediaDefensa;
+	}
 
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
+	public void setMediaDefensa(byte mediaDefensa) {
+		this.mediaDefensa = mediaDefensa;
+	}
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
+	public byte getMediaAtaque() {
+		return mediaAtaque;
+	}
 
-    public ArrayList<Jugador> getJugadores() {
-        return jugadores;
-    }
+	public void setMediaAtaque(byte mediaAtaque) {
+		this.mediaAtaque = mediaAtaque;
+	}
 
-    public void setJugadores(ArrayList<Jugador> jugadores) {
-        this.jugadores = jugadores;
-    }
+	public Equipo(String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio, Entrenador entrenador,
+			ArrayList<Competicion> historicoCompeticiones, ArrayList<Competicion> competicionesActuales,
+			String nombre) {
+		super(nombre);
+		this.nacionalidad = nacionalidad;
+		this.jugadores = jugadores;
+		this.estadio = estadio;
+		this.entrenador = entrenador;
+	}
 
-    public Estadio getEstadio() {
-        return estadio;
-    }
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
 
-    public void setEstadio(Estadio estadio) {
-        this.estadio = estadio;
-    }
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
 
-    public Entrenador getEntrenador() {
-        return entrenador;
-    }
+	public ArrayList<Jugador> getJugadores() {
+		return jugadores;
+	}
 
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
-    }
+	public void setJugadores(ArrayList<Jugador> jugadores) {
+		this.jugadores = jugadores;
+	}
 
-    public ArrayList<Competicion> getHistoricoCompeticiones() {
-        return historicoCompeticiones;
-    }
+	public Estadio getEstadio() {
+		return estadio;
+	}
 
-    public void setHistoricoCompeticiones(ArrayList<Competicion> historicoCompeticiones) {
-        this.historicoCompeticiones = historicoCompeticiones;
-    }
+	public void setEstadio(Estadio estadio) {
+		this.estadio = estadio;
+	}
 
-    public ArrayList<Competicion> getCompeticionesActuales() {
-        return competicionesActuales;
-    }
+	public Entrenador getEntrenador() {
+		return entrenador;
+	}
 
-    public void setCompeticionesActuales(ArrayList<Competicion> competicionesActuales) {
-        this.competicionesActuales = competicionesActuales;
-    }
+	public void setEntrenador(Entrenador entrenador) {
+		this.entrenador = entrenador;
+	}
 
-    @Override
-    public String toString() {
-        return "Equipo{" + "nacionalidad=" + nacionalidad + ", jugadores=" + jugadores + ", estadio=" + estadio + ", entrenador=" + entrenador + ", historicoCompeticiones=" + historicoCompeticiones + ", competicionesActuales=" + competicionesActuales + '}';
-    }
+	@Override
+	public String toString() {
+		return "Equipo{" + "nacionalidad=" + nacionalidad + ", jugadores=" + jugadores + ", estadio=" + estadio
+				+ ", entrenador=" + entrenador;
+	}
 
-    
-    
 }
