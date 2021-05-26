@@ -16,35 +16,23 @@ public class Equipo extends CosaConNombre {
 	private ArrayList<Jugador> jugadores;
 	private Estadio estadio;
 	private Entrenador entrenador;
-	private byte mediaDefensa;
-	private byte mediaAtaque;
-
-	public byte getMediaDefensa() {
-		return mediaDefensa;
-	}
-
-	public void setMediaDefensa(byte mediaDefensa) {
-		this.mediaDefensa = mediaDefensa;
-	}
-
-	public byte getMediaAtaque() {
-		return mediaAtaque;
-	}
-
-	public void setMediaAtaque(byte mediaAtaque) {
-		this.mediaAtaque = mediaAtaque;
-	}
+	private int mediaDefensa;
+	private int mediaAtaque;
+	// Variable Auxiliar
+	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
+	int medAta = 0;
+	int medDef = 0;
 
 	public Equipo(String nombre, String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio,
-			Entrenador entrenador, byte mediaDefensa, byte mediaAtaque) {
+			Entrenador entrenador) {
 		super(nombre);
 		this.nacionalidad = nacionalidad;
-		//Comprobar Funcion
+		// Comprobar Funcion
 		this.jugadores = setJugadores(jugadores);
 		this.estadio = estadio;
 		this.entrenador = entrenador;
-		this.mediaDefensa = mediaDefensa;
-		this.mediaAtaque = mediaAtaque;
+		this.mediaAtaque = setMediaAtaque();
+		this.mediaDefensa = setMediaDefensa();
 	}
 
 	public String getNacionalidad() {
@@ -61,17 +49,42 @@ public class Equipo extends CosaConNombre {
 
 	/*
 	 * INPUT: ArrayList<Jugador> - ArrayList de Jugadores (Ventana.Jugadores) con
-	 * todos los jugadores y sus equipos desordenados
-	 * OUTPUT: return jugadoresEquipo - Devolvemos un ArrayList con los jugadores unicamente del equipo
+	 * todos los jugadores y sus equipos desordenados OUTPUT: return jugadoresEquipo
+	 * 
 	 */
 	public ArrayList<Jugador> setJugadores(ArrayList<Jugador> jugadores) {
-		ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
 		for (int i = 0; i < jugadores.size(); i++) {
 			if (jugadores.get(i).getEquipo().equals(this.getNombre())) {
 				jugadoresEquipo.add(jugadores.get(i));
 			}
 		}
 		return jugadoresEquipo;
+	}
+
+	public int getMediaDefensa() {
+		return mediaDefensa;
+	}
+
+	public int getMediaAtaque() {
+		return mediaAtaque;
+	}
+
+	// Obtener Media Ataque accediendo al ArrayList de Jugadores Nuevo
+	public int setMediaAtaque() {
+		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
+			medAta += jugadoresEquipo.get(i).getMediaAtaque();
+		}
+		medAta = (medAta / jugadoresEquipo.size());
+		return medAta;
+	}
+
+	// Obtener mediaDefensa accediendo al ArrayList de Jugadores Nuevo
+	public int setMediaDefensa() {
+		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
+			medDef += jugadoresEquipo.get(i).getMediaDefensa();
+		}
+		medDef = (medDef / jugadoresEquipo.size());
+		return medDef;
 	}
 
 	public Estadio getEstadio() {

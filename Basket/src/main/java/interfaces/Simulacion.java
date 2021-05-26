@@ -32,6 +32,8 @@ public class Simulacion extends JPanel {
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
+		
+		//Quitar Despues y poner en Otra Clase
 		generarEntrenadores();
 		generarEstadios();
 		generarEquipos();
@@ -43,7 +45,7 @@ public class Simulacion extends JPanel {
 	 * Funcion que utilizamos para generar entrenadores aleatorios, e introducirlos
 	 * en su arrayList correspondiente
 	 */
-	public void generarEntrenadores() {
+	public ArrayList<Entrenador> generarEntrenadores() {
 		String[] nombre = { "Perico Conde", "Yuseppe Pedrerol", "Julio Iglesias", "El Bicho", "Mariano Rajoy",
 				"Echenique aka RayoMcQueen", "Pablo Iglesias", "Salvador Cinta de Lomo", "Edu Chope", "Perri lol" };
 		String[] nacionalidades = { "Español", "Africano", "Americano", "Aleman", "Frances", "Ruso", "Belga",
@@ -54,34 +56,36 @@ public class Simulacion extends JPanel {
 					Ventana.equipos.get(i));
 			Ventana.Entrenadores.add(a);
 		}
+		return Ventana.Entrenadores;
 	}
 
 	/*
 	 * Funcion que utilizamos para generar estadios aleatorios, e introducirlos en
 	 * su arrayList correspondiente
 	 */
-	public void generarEstadios() {
+	public ArrayList<Estadio> generarEstadios() {
 		String[] estadios = { "Pablo de Olavide", "Alfonso VIII", "Navas de Tolosa", "Parc des Princes", "Palau Areuca",
 				"Bacardi Stadium", "Estadio Nacional de Carranque", "Estadio la Palmilla", "Sabiote", "United Arena" };
 
 		for (int i = 0; i < Ventana.equipos.size(); i++) {
 			Estadio e = new Estadio(estadios[i], (short) Math.floor(Math.random() * (200 - 700 + 200) + 700),
 					(int) Math.floor(Math.random() * (2000 - 8000 + 2000) + 8000));
-			System.out.println(e);
 			Ventana.Estadios.add(e);
 		}
+		return Ventana.Estadios;
 	}
 
 	/*
-	 * Funcion que utilizamos para generar equipos, con sus respectos jugadores (Comprobar funcion SET en Clase EQUIPO)
+	 * Funcion que utilizamos para generar equipos, con sus respectos jugadores
+	 * (Comprobar funcion SET en Clase EQUIPO)
 	 */
-	public void generarEquipos() {
+	public ArrayList<Equipo> generarEquipos() {
 		for (int i = 0; i < Ventana.equipos.size(); i++) {
-			Equipo e = new Equipo(Ventana.equipos.get(i),Ventana.Entrenadores.get(i).getNacionalidad(), Ventana.Jugadores, Ventana.Estadios.get(i), Ventana.Entrenadores.get(i),(byte)20,(byte)30);
+			Equipo e = new Equipo(Ventana.equipos.get(i), Ventana.Entrenadores.get(i).getNacionalidad(),
+					Ventana.Jugadores, Ventana.Estadios.get(i), Ventana.Entrenadores.get(i));
 			Ventana.Equipos.add(e);
-			System.out.println(e);
 		}
-		
+		return Ventana.Equipos;
 	}
 
 }
