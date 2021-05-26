@@ -35,14 +35,16 @@ public class Equipo extends CosaConNombre {
 		this.mediaAtaque = mediaAtaque;
 	}
 
-	public Equipo(String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio, Entrenador entrenador,
-			ArrayList<Competicion> historicoCompeticiones, ArrayList<Competicion> competicionesActuales,
-			String nombre) {
+	public Equipo(String nombre, String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio,
+			Entrenador entrenador, byte mediaDefensa, byte mediaAtaque) {
 		super(nombre);
 		this.nacionalidad = nacionalidad;
-		this.jugadores = jugadores;
+		//Comprobar Funcion
+		this.jugadores = setJugadores(jugadores);
 		this.estadio = estadio;
 		this.entrenador = entrenador;
+		this.mediaDefensa = mediaDefensa;
+		this.mediaAtaque = mediaAtaque;
 	}
 
 	public String getNacionalidad() {
@@ -57,8 +59,19 @@ public class Equipo extends CosaConNombre {
 		return jugadores;
 	}
 
-	public void setJugadores(ArrayList<Jugador> jugadores) {
-		this.jugadores = jugadores;
+	/*
+	 * INPUT: ArrayList<Jugador> - ArrayList de Jugadores (Ventana.Jugadores) con
+	 * todos los jugadores y sus equipos desordenados
+	 * OUTPUT: return jugadoresEquipo - Devolvemos un ArrayList con los jugadores unicamente del equipo
+	 */
+	public ArrayList<Jugador> setJugadores(ArrayList<Jugador> jugadores) {
+		ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
+		for (int i = 0; i < jugadores.size(); i++) {
+			if (jugadores.get(i).getEquipo().equals(this.getNombre())) {
+				jugadoresEquipo.add(jugadores.get(i));
+			}
+		}
+		return jugadoresEquipo;
 	}
 
 	public Estadio getEstadio() {
@@ -79,8 +92,10 @@ public class Equipo extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Equipo{" + "nacionalidad=" + nacionalidad + ", jugadores=" + jugadores + ", estadio=" + estadio
-				+ ", entrenador=" + entrenador;
+		return "Equipo=" + this.getNombre() + " [nacionalidad=" + nacionalidad + ", jugadores=" + jugadores
+				+ ", estadio=" + estadio + ", entrenador=" + entrenador + ", mediaDefensa=" + mediaDefensa
+				+ ", mediaAtaque=" + mediaAtaque + "]";
 	}
 
+//	
 }

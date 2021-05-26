@@ -189,6 +189,7 @@ public class ConsultarEquipos extends JPanel {
 			while (resultadosEquipos.next()) {
 				iter++;
 				modelo.addElement(resultadosEquipos.getString("equipo"));
+				Ventana.equipos.add(resultadosEquipos.getString("equipo"));
 			}
 			// En caso de que la BDD no devuelva ningún equipo
 			if (iter == 0) {

@@ -19,8 +19,7 @@ import enumeration.tipo;
  * @author pablo
  */
 public class Jugador extends CosaConNombre {
-	private int iter = 0;
-	Random rnd = new Random();
+
 	private String posicion;
 	private String manoDominante;
 	private byte fuerza;
@@ -118,13 +117,14 @@ public class Jugador extends CosaConNombre {
 
 	@Override
 	public String toString() {
+
 		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante
 				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
 				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
 				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
 	}
 
-	public Jugador() {
+	public Jugador() {	
 		super();
 		String[] nombres = { "Juan Cortes", "José Curry", "Miguel Flores", "Antonio Torres", "Johan Parra",
 				"Pelé Povea", "Salvador Molina", "Fernando Gonzalez", "Ander Heredia", "Oscar Vargas", "John Salazar",
@@ -137,6 +137,8 @@ public class Jugador extends CosaConNombre {
 				"Pepe Varo", "Benji Amstrom", "Alejandro alvarez", "Fran cuesta", "Enrrique ferrer", "Alex gordo",
 				"Manolo cortes", "Joselito Perez", "Pepe Conde", "Miguel Lopez", "Fernando Molina" };
 
+		int iter = 0;
+		Random rnd = new Random();
 		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
 		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setVelocidad((byte) (Math.random() * (65 - 100 + 1) + 100));

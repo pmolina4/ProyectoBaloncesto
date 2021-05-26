@@ -13,7 +13,7 @@ public class Estadio extends CosaConNombre{
     private short dimensiones;
     private int aforo;
 
-    public Estadio(short dimensiones, int aforo, String nombre) {
+    public Estadio(String nombre,short dimensiones, int aforo) {
         super(nombre);
         this.dimensiones = dimensiones;
         this.aforo = aforo;
@@ -26,7 +26,7 @@ public class Estadio extends CosaConNombre{
     public void setDimensiones(short dimensiones) {
         this.dimensiones = dimensiones;
     }
-
+    
     public int getAforo() {
         return aforo;
     }

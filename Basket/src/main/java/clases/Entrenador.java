@@ -5,20 +5,20 @@
  */
 package clases;
 
+import java.util.Random;
+
 /**
  *
  * @author pablo
  */
 public class Entrenador extends CosaConNombre {
 	private String nacionalidad;
-	private Competicion titulosGanados;
 	private byte calidad;
 	private String equipo;
 
-	public Entrenador(String nacionalidad, Competicion titulosGanados, byte calidad, String equipo, String nombre) {
+	public Entrenador(String nombre, String nacionalidad, byte calidad, String equipo) {
 		super(nombre);
 		this.nacionalidad = nacionalidad;
-		this.titulosGanados = titulosGanados;
 		this.calidad = calidad;
 		this.equipo = equipo;
 	}
@@ -29,14 +29,6 @@ public class Entrenador extends CosaConNombre {
 
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
-	}
-
-	public Competicion getTitulosGanados() {
-		return titulosGanados;
-	}
-
-	public void setTitulosGanados(Competicion titulosGanados) {
-		this.titulosGanados = titulosGanados;
 	}
 
 	public byte getCalidad() {
@@ -57,8 +49,6 @@ public class Entrenador extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Entrenador{" + "nacionalidad=" + nacionalidad + ", titulosGanados=" + titulosGanados + ", calidad="
-				+ calidad + ", equipo=" + equipo + '}';
+		return "Entrenador{" + "nacionalidad=" + nacionalidad + ", calidad=" + calidad + ", equipo=" + equipo + '}';
 	}
-
 }

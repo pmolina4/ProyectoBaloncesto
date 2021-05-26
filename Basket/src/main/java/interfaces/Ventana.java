@@ -3,6 +3,9 @@ package interfaces;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
+import clases.Entrenador;
+import clases.Equipo;
+import clases.Estadio;
 import clases.Jugador;
 
 import java.awt.Color;
@@ -28,6 +31,10 @@ public class Ventana extends JFrame {
 	//Variables Globales
 	public static ArrayList<String> equipos = new ArrayList<String>();
 	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
+	public static ArrayList<Entrenador> Entrenadores = new ArrayList<>();
+	public static ArrayList<Estadio> Estadios = new ArrayList<>();
+	public static ArrayList<Equipo> Equipos = new ArrayList<>();
+
 	/*
 	 * Crear ArrayList de Entrenador, y mediante una funcion en la view, recorremos el array list de equipos
 	 * y a su vez vamos instanciando entrenadores y lo introducimos en la BDD
