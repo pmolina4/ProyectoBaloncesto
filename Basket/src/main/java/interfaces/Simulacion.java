@@ -22,10 +22,14 @@ public class Simulacion extends JPanel {
 		panelCentral.setBackground(new Color(105, 105, 105));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
+		
+		obtenerMedias();
 
 	}
 
 	public void obtenerMedias() {
+		System.out.println(Ventana.Jugadores.size());
+		
 
 	}
 }

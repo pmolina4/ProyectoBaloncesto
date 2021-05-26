@@ -32,6 +32,8 @@ public class ConsultarEquipos extends JPanel {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
 		this.setSize(500, 500);
+		
+		createArr();
 
 		// -------------------------------- COMPONENTES J
 		// -------------------------------------
@@ -125,7 +127,7 @@ public class ConsultarEquipos extends JPanel {
 			}
 		});
 
-		//Funcion onClick SIMULAR - Abre la ventana de Simulacion de Partidos
+		// Funcion onClick SIMULAR - Abre la ventana de Simulacion de Partidos
 		btnShowSimulacion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -205,12 +207,11 @@ public class ConsultarEquipos extends JPanel {
 
 	// Funcion que genera de manera aleatoria los jugadores de un equipo
 	public static ArrayList<Jugador> generarEquipo() {
-		ArrayList<Jugador> Jugadores = new ArrayList<>();
 		for (int i = 0; i < 8; i++) {
 			Jugador a = new Jugador();
-			Jugadores.add(a);
+			Ventana.Jugadores.add(a);
 		}
-		return Jugadores;
+		return Ventana.Jugadores;
 	}
 
 	// Funcion que devuelve la lista de Jugadores de un Equipo
@@ -276,6 +277,9 @@ public class ConsultarEquipos extends JPanel {
 
 	}
 
+	// ---------FUNCIONES AUXILIARES PARA LA CREACION DE DATOS EN
+	// LA BDD ---------------------------------------------------
+
 	/*
 	 * ESTA FUNCION LA UTILIZAMOS UNICAMENTE PARA NO CREAR DE MANERA MANUAL LOS
 	 * JUGADORES EN LA BDD ConsultaCreacion() Funcion que crea de manera automatica
@@ -308,5 +312,35 @@ public class ConsultarEquipos extends JPanel {
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	/*
+	 * ESTA FUNCION LA UTILIZAMOS UNICAMENTE INTRODUCIR EN ArrayList<Jugadores> LOS
+	 * DATOS DE LOS JUGADORES EN LA BDD ConsultaCreacion() Funcion que obtiene de
+	 * manera automatica en la BDD jugadores.
+	 */
+	public void createArr() {
+		try {
+			Connection conexion = DriverManager.getConnection(
+					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+					"root", "root");
+			Statement smt = conexion.createStatement();
+			ResultSet resultadosEquipos = smt.executeQuery(
+					"SELECT nombre,posicion, manoDominante, fuerza, velocidad, inteligencia, tecnica, numero, mediaAtaque, mediaDefensa, equipo FROM jugador");
+			while (resultadosEquipos.next()) {
+				Jugador a = new Jugador(resultadosEquipos.getString("nombre"), resultadosEquipos.getString("equipo"),
+						resultadosEquipos.getString("posicion"), resultadosEquipos.getString("manoDominante"),
+						resultadosEquipos.getByte("fuerza"), resultadosEquipos.getByte("velocidad"),
+						resultadosEquipos.getByte("inteligencia"), resultadosEquipos.getByte("tecnica"),
+						resultadosEquipos.getByte("numero"), resultadosEquipos.getByte("mediaAtaque"),
+						resultadosEquipos.getByte("mediaDefensa"));
+				Ventana.Jugadores.add(a);
+			}
+			smt.close();
+			conexion.close();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+
 	}
 }

@@ -118,7 +118,7 @@ public class Jugador extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Jugador [iter=" + iter + ", rnd=" + rnd + ", posicion=" + posicion + ", manoDominante=" + manoDominante
+		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante
 				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
 				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
 				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
@@ -144,7 +144,6 @@ public class Jugador extends CosaConNombre {
 		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
 		this.setNumero((byte) (Math.random() * (1 - 20 + 1) + 20));
 		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
-
 
 		if (enumRan == 0) {
 			this.setManoDominante("Zurdo");

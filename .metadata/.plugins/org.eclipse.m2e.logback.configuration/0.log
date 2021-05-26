@@ -578,3 +578,123 @@
 2021-05-26 16:45:01,011 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
 2021-05-26 16:45:01,013 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-05-26 16:45:01,013 [Worker-38: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:47:52,562 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:47:52,562 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:47:52,564 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:47:52,564 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:47:57,771 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:47:57,771 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:47:57,772 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:47:57,773 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:51:05,595 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:51:05,596 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:51:05,600 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:51:05,601 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:53:38,162 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:53:38,162 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:53:38,164 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:53:38,165 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:54:09,758 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:54:09,758 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:54:09,759 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:54:09,760 [Worker-34: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:55:13,574 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:55:13,574 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:55:13,576 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:55:13,576 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:56:10,051 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:56:10,051 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:56:10,053 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:56:10,053 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:57:38,179 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:57:38,179 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:57:38,181 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:57:38,182 [Worker-42: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 16:59:41,013 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:59:41,014 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 16:59:41,015 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 16:59:41,015 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:00:04,761 [Worker-42: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:00:04,762 [Worker-42: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:00:04,763 [Worker-42: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:00:04,764 [Worker-42: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:02:56,509 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:02:56,510 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:02:56,511 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:02:56,511 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:02:59,298 [Worker-8: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:02:59,299 [Worker-8: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:02:59,300 [Worker-8: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:02:59,300 [Worker-8: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:08:05,881 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:08:05,881 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:08:05,883 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:08:05,883 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:08:27,074 [Worker-45: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:08:27,074 [Worker-45: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:08:27,076 [Worker-45: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:08:27,076 [Worker-45: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:09:06,970 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:09:06,971 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:09:06,972 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:09:06,972 [Worker-44: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:12:17,201 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:17,201 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:12:17,202 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:17,202 [Worker-49: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:12:30,640 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:30,640 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:12:30,641 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:30,642 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:12:34,826 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:34,826 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:12:34,827 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:34,828 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:12:38,167 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:38,167 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:12:38,168 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:12:38,168 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:13:03,363 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:03,363 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:13:03,365 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:03,365 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:13:08,242 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:08,243 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:13:08,243 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:08,243 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:13:48,085 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:48,086 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:13:48,087 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:13:48,087 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:14:59,592 [Worker-47: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:14:59,592 [Worker-47: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:14:59,594 [Worker-47: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:14:59,594 [Worker-47: Launching Baloncesto] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:15:43,655 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:15:43,655 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:15:43,657 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:15:43,657 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:18:57,397 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:18:57,397 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:18:57,398 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:18:57,398 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:19:14,598 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:19:14,599 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:19:14,600 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:19:14,600 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:21:04,061 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:21:04,062 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:21:04,063 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:21:04,063 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:22:21,748 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:22:21,748 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:22:21,749 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:22:21,749 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:24:16,339 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:24:16,343 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:24:16,345 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:24:16,345 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
+2021-05-26 17:24:33,714 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:24:33,714 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\main\resources
+2021-05-26 17:24:33,715 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-05-26 17:24:33,715 [Worker-45: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pablo\Documents\GitHub\ProyectoBaloncesto\Basket\src\test\resources
