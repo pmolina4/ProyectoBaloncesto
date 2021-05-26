@@ -32,18 +32,18 @@ public class Simulacion extends JPanel {
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
-		
-		//Quitar Despues y poner en Otra Clase
+		// Quitar Despues y poner en Otra Clase
 		generarEntrenadores();
 		generarEstadios();
 		generarEquipos();
+		generarPartidos();
+		jugarPartido(Ventana.Equipos.get(1), Ventana.Equipos.get(2));
 
 	}
 
-	// ----------------- FUNCIONES AUXILIARES-----------------
 	/*
-	 * Funcion que utilizamos para generar entrenadores aleatorios, e introducirlos
-	 * en su arrayList correspondiente
+	 * Funcion que utilizamos para generar entrenadores, e introducirlos en su
+	 * arrayList correspondiente
 	 */
 	public ArrayList<Entrenador> generarEntrenadores() {
 		String[] nombre = { "Perico Conde", "Yuseppe Pedrerol", "Julio Iglesias", "El Bicho", "Mariano Rajoy",
@@ -60,8 +60,8 @@ public class Simulacion extends JPanel {
 	}
 
 	/*
-	 * Funcion que utilizamos para generar estadios aleatorios, e introducirlos en
-	 * su arrayList correspondiente
+	 * Funcion que utilizamos para generar estadios, e introducirlos en su arrayList
+	 * correspondiente
 	 */
 	public ArrayList<Estadio> generarEstadios() {
 		String[] estadios = { "Pablo de Olavide", "Alfonso VIII", "Navas de Tolosa", "Parc des Princes", "Palau Areuca",
@@ -86,6 +86,31 @@ public class Simulacion extends JPanel {
 			Ventana.Equipos.add(e);
 		}
 		return Ventana.Equipos;
+	}
+
+	public static void generarPartidos() {
+		ArrayList<String> equiposJugados = new ArrayList<>();
+		for (int i = 0; i < Ventana.Equipos.size() - 1; i++) {
+
+			System.out.println(Ventana.Equipos.get(i).getNombre() + " VS " + Ventana.Equipos.get(i + 1).getNombre());
+		}
+	}
+
+	public static void jugarPartido(Equipo local, Equipo visit) {
+		int posibilidadCanasta = 0;
+		int lanzamientosCanastaLocal = 0;
+		int lanzamientosCanastaVisitante = 0;
+		int defensaLocal = (local.getMediaDefensa() / 10) / 2;
+		int defensaVisitante = (visit.getMediaDefensa() / 10) / 2;
+		//De 0-3, no mete, de 4-7 un punto, de 8 a 10 dos puntos, 10 a 11, triple
+		int probabilidad = (int) Math.floor(Math.random() * (0 - 11 + 1) + 11);
+		// Suponiendo 90 tiros en partido, cada equipo tiene 45, y calculamos las
+		// canastas en funcion de su media de ataque, y en funcion de la media de
+		// defensa del equipo visitante, les restamos canastas
+		lanzamientosCanastaLocal = ((local.getMediaAtaque() * 75) / 100) - defensaVisitante;
+		lanzamientosCanastaVisitante = ((visit.getMediaAtaque() * 75) / 100) - defensaLocal;
+		
+		
 	}
 
 }

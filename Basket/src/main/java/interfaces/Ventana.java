@@ -28,8 +28,9 @@ public class Ventana extends JFrame {
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
 	private Simulacion ViewSimulacion;
-	//Variables Globales
+	//Variables Auxiliar de Nombres de Equipo
 	public static ArrayList<String> equipos = new ArrayList<String>();
+	//ArrayList de Clases
 	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
 	public static ArrayList<Entrenador> Entrenadores = new ArrayList<>();
 	public static ArrayList<Estadio> Estadios = new ArrayList<>();

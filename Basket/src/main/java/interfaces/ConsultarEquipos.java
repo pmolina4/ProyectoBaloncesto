@@ -206,14 +206,7 @@ public class ConsultarEquipos extends JPanel {
 		}
 	}
 
-	// Funcion que genera de manera aleatoria los jugadores de un equipo
-	public static ArrayList<Jugador> generarEquipo() {
-		for (int i = 0; i < 8; i++) {
-			Jugador a = new Jugador();
-			Ventana.Jugadores.add(a);
-		}
-		return Ventana.Jugadores;
-	}
+
 
 	// Funcion que devuelve la lista de Jugadores de un Equipo
 	public static void showJugadores(JList list, String valor) {
@@ -299,7 +292,7 @@ public class ConsultarEquipos extends JPanel {
 				Ventana.equipos.add(resultadosEquipos.getString("nombre"));
 			}
 			for (int i = 0; i < Ventana.equipos.size(); i++) {
-				Ventana.Jugadores = generarEquipo();
+				//Ventana.Jugadores = generarEquipo();
 				smt.executeUpdate("INSERT INTO jugador VALUES('" + Ventana.Jugadores.get(i).getNombre() + "','"
 						+ Ventana.Jugadores.get(i).getPosicion() + "','" + Ventana.Jugadores.get(i).getManoDominante()
 						+ "'," + Ventana.Jugadores.get(i).getFuerza() + "," + Ventana.Jugadores.get(i).getVelocidad()
@@ -342,6 +335,5 @@ public class ConsultarEquipos extends JPanel {
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
-
 	}
 }
