@@ -27,7 +27,6 @@ public class ConsultarEquipos extends JPanel {
 	private String liga;
 	private String temporada;
 
-
 	public ConsultarEquipos(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
@@ -77,7 +76,7 @@ public class ConsultarEquipos extends JPanel {
 
 		JPanel panel_jugadores = new JPanel();
 		panel_jugadores.setBackground(Color.LIGHT_GRAY);
-		panel_jugadores.setBounds(10, 185, 480, 249);
+		panel_jugadores.setBounds(10, 185, 480, 229);
 		panelCentral.add(panel_jugadores);
 		panel_jugadores.setLayout(null);
 
@@ -94,6 +93,10 @@ public class ConsultarEquipos extends JPanel {
 		panel_jugadores.add(estadisticas_jugadores);
 		text_jugadores.setVisible(false);
 		panel_jugadores.setVisible(false);
+
+		JButton btnShowSimulacion = new JButton("SIMULAR");
+		btnShowSimulacion.setBounds(197, 424, 85, 21);
+		panelCentral.add(btnShowSimulacion);
 
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
@@ -122,6 +125,14 @@ public class ConsultarEquipos extends JPanel {
 			}
 		});
 
+		//Funcion onClick SIMULAR - Abre la ventana de Simulacion de Partidos
+		btnShowSimulacion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				v.showSimulacion();
+			}
+		});
+
 		// Funcion DoubleClick LISTA STATS JUGADORES - Muestra las Estadisticas del
 		// Jugador Seleccionado
 		text_jugadores.addMouseListener(new MouseAdapter() {
@@ -133,6 +144,7 @@ public class ConsultarEquipos extends JPanel {
 					showStats(estadisticas_jugadores, jugadorSelecSpl);
 				}
 			}
+
 		});
 	}
 
@@ -265,10 +277,10 @@ public class ConsultarEquipos extends JPanel {
 	}
 
 	/*
-	 * ESTA FUNCION LA UTILIZAMOS UNICAMENTE PARA NO CREAR DE MANERA MANUAL LOS JUGADORES EN LA BDD
-	 * ConsultaCreacion() Funcion que crea de manera automatica en la BDD jugadores.
-	 * Para obtener su equipo, realizamos consulta, y para insertarlos accedemos a
-	 * nuestro arrayList de la clase Jugadores
+	 * ESTA FUNCION LA UTILIZAMOS UNICAMENTE PARA NO CREAR DE MANERA MANUAL LOS
+	 * JUGADORES EN LA BDD ConsultaCreacion() Funcion que crea de manera automatica
+	 * en la BDD jugadores. Para obtener su equipo, realizamos consulta, y para
+	 * insertarlos accedemos a nuestro arrayList de la clase Jugadores
 	 */
 	public void consultaCreacion() {
 		try {
@@ -278,16 +290,17 @@ public class ConsultarEquipos extends JPanel {
 			Statement smt = conexion.createStatement();
 			ResultSet resultadosEquipos = smt.executeQuery("SELECT nombre FROM equipo;");
 			while (resultadosEquipos.next()) {
-				
-			Ventana.equipos.add(resultadosEquipos.getString("nombre"));
+
+				Ventana.equipos.add(resultadosEquipos.getString("nombre"));
 			}
 			for (int i = 0; i < Ventana.equipos.size(); i++) {
 				Ventana.Jugadores = generarEquipo();
 				smt.executeUpdate("INSERT INTO jugador VALUES('" + Ventana.Jugadores.get(i).getNombre() + "','"
-						+ Ventana.Jugadores.get(i).getPosicion() + "','" + Ventana.Jugadores.get(i).getManoDominante() + "',"
-						+ Ventana.Jugadores.get(i).getFuerza() + "," + Ventana.Jugadores.get(i).getVelocidad() + ", "
-						+ Ventana.Jugadores.get(i).getInteligencia() + "," + Ventana.Jugadores.get(i).getTecnica() + ","
-						+ Ventana.Jugadores.get(i).getNumero() + ",'" + Ventana.equipos.get(i) + "')");
+						+ Ventana.Jugadores.get(i).getPosicion() + "','" + Ventana.Jugadores.get(i).getManoDominante()
+						+ "'," + Ventana.Jugadores.get(i).getFuerza() + "," + Ventana.Jugadores.get(i).getVelocidad()
+						+ ", " + Ventana.Jugadores.get(i).getInteligencia() + ","
+						+ Ventana.Jugadores.get(i).getTecnica() + "," + Ventana.Jugadores.get(i).getNumero() + ",'"
+						+ Ventana.equipos.get(i) + "')");
 			}
 
 			smt.close();

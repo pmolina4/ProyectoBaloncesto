@@ -24,6 +24,7 @@ public class Ventana extends JFrame {
 	private Registro ViewRegistro;
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
+	private Simulacion ViewSimulacion;
 	//Variables Globales
 	public static ArrayList<String> equipos = new ArrayList<String>();
 	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
@@ -56,7 +57,6 @@ public class Ventana extends JFrame {
 		}
 		this.setContentPane(this.ViewRegistro);
 		this.ViewRegistro.setVisible(true);
-
 	}
 
 	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
@@ -81,6 +81,18 @@ public class Ventana extends JFrame {
 		}
 		this.setContentPane(this.ViewPantallaInicial);
 		this.ViewPantallaInicial.setVisible(true);
+	}
+	
+	// Función para mostrar ventana Simulacion desde ConsultarEquipo
+	public void showSimulacion() {
+		if (this.ViewSimulacion == null) {
+			this.ViewSimulacion = new Simulacion(this);
+		}
+		if (this.ViewConsultarEquipos != null) {
+			this.ViewConsultarEquipos.setVisible(false);
+		}
+		this.setContentPane(this.ViewSimulacion);
+		this.ViewSimulacion.setVisible(true);
 	}
 
 }
