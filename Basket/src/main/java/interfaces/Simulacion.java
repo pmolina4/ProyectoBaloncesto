@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import clases.Entrenador;
 import clases.Equipo;
 import clases.Estadio;
+import clases.JornadaRonda;
 import clases.Jugador;
 import clases.Partido;
 
@@ -44,6 +45,7 @@ public class Simulacion extends JPanel {
 		generarEquipos();
 		generarPartidos();
 		getRandomDate();
+		generarJornadas();
 
 	}
 
@@ -96,8 +98,10 @@ public class Simulacion extends JPanel {
 
 	//Funcion para generar los partidos
 	public static void generarPartidos() {
+		//FUNCION AUX QUE UTILIZAREMOS PARA DESORDENAR EL ARRAY
+		//public static ArrayList desordenarArrList();
+		
 		ArrayList<Equipo> local = new ArrayList<>(), visitante = new ArrayList<>();
-
 		//Comprobamos cual serán los locales y los visitantes
 		for (int i = 0; i < Ventana.Equipos.size(); i++) {
 			if (i % 2 == 0) {
@@ -112,7 +116,17 @@ public class Simulacion extends JPanel {
 					(short) jugarPartido(local.get(x), visitante.get(x), true), getRandomDate());
 			Ventana.Partidos.add(p);
 		}
-
+	}
+	
+	//Funcion para generar las Jornadas
+	public static void generarJornadas() {
+		int nJornadas = (Ventana.Equipos.size()-1);
+		String nombre="";
+		for(int i=0; i<nJornadas; i++ ) {
+			nombre = "Jornada Nº "+(i+1);
+			JornadaRonda j = new JornadaRonda(nombre, Ventana.Partidos);
+			j.simularPartidosRonda();
+		}
 	}
 
 	public static int jugarPartido(Equipo local, Equipo visit, Boolean equipoLocal) {
@@ -143,11 +157,11 @@ public class Simulacion extends JPanel {
 	// Funcion que genera fechas aleatorias
 	public static Date getRandomDate() {
 		Random rand = new Random();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd ");
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		Calendar cal = Calendar.getInstance();
 		cal.set(2021, 0, 1);
 		long start = cal.getTimeInMillis();
-		cal.set(2020, 10, 1);
+		cal.set(2018, 10, 1);
 		long end = cal.getTimeInMillis();
 		Date d = new Date(start + (long) (rand.nextDouble() * (end - start)));
 		return d;

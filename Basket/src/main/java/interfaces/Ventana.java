@@ -6,6 +6,7 @@ import javax.swing.JList;
 import clases.Entrenador;
 import clases.Equipo;
 import clases.Estadio;
+import clases.JornadaRonda;
 import clases.Jugador;
 import clases.Partido;
 
@@ -37,6 +38,7 @@ public class Ventana extends JFrame {
 	public static ArrayList<Estadio> Estadios = new ArrayList<>();
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
 	public static ArrayList<Partido> Partidos = new ArrayList<>();
+	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
 
 
 	/*
