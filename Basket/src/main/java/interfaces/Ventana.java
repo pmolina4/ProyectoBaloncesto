@@ -39,6 +39,12 @@ public class Ventana extends JFrame {
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
 	public static ArrayList<Partido> Partidos = new ArrayList<>();
 	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
+	//Instancias Objetos
+	public static Entrenador ent = new Entrenador();
+	public static Equipo equi = new Equipo();
+	public static Estadio estad = new Estadio();
+	public static Partido part = new Partido();
+	public static JornadaRonda jorn = new JornadaRonda();
 
 
 	/*

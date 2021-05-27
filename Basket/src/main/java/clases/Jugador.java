@@ -115,60 +115,53 @@ public class Jugador extends CosaConNombre {
 		this.numero = numero;
 	}
 
-	@Override
-	public String toString() {
 
-		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante
-				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
-				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
-				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
-	}
-
-	public Jugador() {	
-		super();
-		String[] nombres = { "Juan Cortes", "José Curry", "Miguel Flores", "Antonio Torres", "Johan Parra",
-				"Pelé Povea", "Salvador Molina", "Fernando Gonzalez", "Ander Heredia", "Oscar Vargas", "John Salazar",
-				"Steve Campos", "Makelele William", "Marcos William", "Davies Johnson", "Cristiano Smith",
-				"Pablo Miller", "Eduardo Wilson", "Alvaro Lopez", "Stephen Lewis", "Manolo King", "Eugenio Adams",
-				"Mario Baker", "Jose Manuel Green", "Benito Kimpembe", "Rashford Robert", "Rashe Simonl",
-				"Marcus Dembele", "Lebron Martin", "Pau Duran", "Jaime Terron", "Paco sales", "Antonio Miranda",
-				"Vicente Salas", "Manolo Donaire", "Andres ojeda", "Pepe serrano", "David farried", "Sergio Conde",
-				"Jhon Cortes", "Felipe Reyes", "Sergio Llul", "Pau cortes", "Juampi Maroto", "Javier reyes",
-				"Pepe Varo", "Benji Amstrom", "Alejandro alvarez", "Fran cuesta", "Enrrique ferrer", "Alex gordo",
-				"Manolo cortes", "Joselito Perez", "Pepe Conde", "Miguel Lopez", "Fernando Molina" };
-
-		int iter = 0;
-		Random rnd = new Random();
-		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
-		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
-		this.setVelocidad((byte) (Math.random() * (65 - 100 + 1) + 100));
-		this.setInteligencia((byte) (Math.random() * (65 - 100 + 1) + 100));
-		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
-		this.setNumero((byte) (Math.random() * (1 - 20 + 1) + 20));
-		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
-
-		if (enumRan == 0) {
-			this.setManoDominante("Zurdo");
-		} else if (enumRan == 1) {
-			this.setManoDominante("Diestro");
-		} else if (enumRan == 2) {
-			this.setManoDominante("Ambidiestro");
-		}
-		if (iter == 5)
-			iter = 0;
-		if (iter == 0) {
-			posicion = "Alapivot";
-		} else if (iter == 1) {
-			posicion = "Alero";
-		} else if (iter == 2) {
-			posicion = "Base";
-		} else if (iter == 3) {
-			posicion = "Escolta";
-		} else if (iter == 4) {
-			posicion = "Pivot";
-		}
-		iter++;
-	}
+	// FUNCION SIN USABILIDAD
+//	public Jugador() {	
+//		super();
+//		String[] nombres = { "Juan Cortes", "José Curry", "Miguel Flores", "Antonio Torres", "Johan Parra",
+//				"Pelé Povea", "Salvador Molina", "Fernando Gonzalez", "Ander Heredia", "Oscar Vargas", "John Salazar",
+//				"Steve Campos", "Makelele William", "Marcos William", "Davies Johnson", "Cristiano Smith",
+//				"Pablo Miller", "Eduardo Wilson", "Alvaro Lopez", "Stephen Lewis", "Manolo King", "Eugenio Adams",
+//				"Mario Baker", "Jose Manuel Green", "Benito Kimpembe", "Rashford Robert", "Rashe Simonl",
+//				"Marcus Dembele", "Lebron Martin", "Pau Duran", "Jaime Terron", "Paco sales", "Antonio Miranda",
+//				"Vicente Salas", "Manolo Donaire", "Andres ojeda", "Pepe serrano", "David farried", "Sergio Conde",
+//				"Jhon Cortes", "Felipe Reyes", "Sergio Llul", "Pau cortes", "Juampi Maroto", "Javier reyes",
+//				"Pepe Varo", "Benji Amstrom", "Alejandro alvarez", "Fran cuesta", "Enrrique ferrer", "Alex gordo",
+//				"Manolo cortes", "Joselito Perez", "Pepe Conde", "Miguel Lopez", "Fernando Molina" };
+//
+//		int iter = 0;
+//		Random rnd = new Random();
+//		this.setNombre(nombres[(byte) Math.floor(Math.random() * (nombres.length))]);
+//		this.setFuerza((byte) (Math.random() * (65 - 100 + 1) + 100));
+//		this.setVelocidad((byte) (Math.random() * (65 - 100 + 1) + 100));
+//		this.setInteligencia((byte) (Math.random() * (65 - 100 + 1) + 100));
+//		this.setTecnica((byte) (Math.random() * (65 - 100 + 1) + 100));
+//		this.setNumero((byte) (Math.random() * (1 - 20 + 1) + 20));
+//		byte enumRan = (byte) Math.floor(Math.random() * (2 - 0 + 0) + 0);
+//
+//		if (enumRan == 0) {
+//			this.setManoDominante("Zurdo");
+//		} else if (enumRan == 1) {
+//			this.setManoDominante("Diestro");
+//		} else if (enumRan == 2) {
+//			this.setManoDominante("Ambidiestro");
+//		}
+//		if (iter == 5)
+//			iter = 0;
+//		if (iter == 0) {
+//			posicion = "Alapivot";
+//		} else if (iter == 1) {
+//			posicion = "Alero";
+//		} else if (iter == 2) {
+//			posicion = "Base";
+//		} else if (iter == 3) {
+//			posicion = "Escolta";
+//		} else if (iter == 4) {
+//			posicion = "Pivot";
+//		}
+//		iter++;
+//	}
 
 	// Seteamos mediaAtaque
 	public void setMediaAtaque() {
@@ -187,4 +180,14 @@ public class Jugador extends CosaConNombre {
 	public byte getMediaDefensa() {
 		return mediaDefensa;
 	}
+	
+	@Override
+	public String toString() {
+
+		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante
+				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
+				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
+				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
+	}
+
 }

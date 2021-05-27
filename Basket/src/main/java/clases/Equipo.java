@@ -7,6 +7,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import interfaces.Ventana;
+
 /**
  *
  * @author pablo
@@ -34,9 +36,6 @@ public class Equipo extends CosaConNombre {
 		this.mediaDefensa = setMediaDefensa();
 	}
 	
-	public Equipo() {
-		// TODO Auto-generated constructor stub
-	}
 
 
 	public String getNacionalidad() {
@@ -114,5 +113,18 @@ public class Equipo extends CosaConNombre {
 				+ ", mediaAtaque=" + mediaAtaque + "]";
 	}
 
-//	
+	//Funcion para generar equipos, accediendo a los distintos elementos que lo componen (entrenadores, estadio...)
+	public void generarEquipos() {
+		for (int i = 0; i < Ventana.equipos.size(); i++) {
+			Equipo e = new Equipo(Ventana.equipos.get(i), Ventana.Entrenadores.get(i).getNacionalidad(),
+					Ventana.Jugadores, Ventana.Estadios.get(i), Ventana.Entrenadores.get(i));
+			Ventana.Equipos.add(e);
+		}
+	}
+
+	//Constructor Vacio para Instancia General
+	public Equipo() {
+	}
+
+
 }

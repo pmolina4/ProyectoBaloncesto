@@ -18,6 +18,8 @@ public class JornadaRonda extends CosaConNombre {
 		super(nombre);
 		this.partidos = partidos;
 	}
+	
+
 
 	public ArrayList<Partido> getPartidos() {
 		return partidos;
@@ -27,14 +29,10 @@ public class JornadaRonda extends CosaConNombre {
 		this.partidos = partidos;
 	}
 
-	@Override
-	public String toString() {
-		return "JornadaRonda{" + getNombre() + "partidos=" + partidos + '}';
-	}
 
+	//Funcion que simula los partidos de sus correspondientes rondas, e imprime la informacion
 	public void simularPartidosRonda() {
 		boolean ganadLocal = false;
-
 		System.out.println("\n-----" + this.getNombre() + "------");
 		for (int i = 0; i < getPartidos().size(); i++) {
 			System.out.println(getPartidos().get(i).getLocal().getNombre() + " VS "
@@ -50,5 +48,15 @@ public class JornadaRonda extends CosaConNombre {
 			}
 		}
 	}
+	
+	//Constructor vacio para Instancia General
+	public JornadaRonda() {
+		
+	}
+	
+	public String toString() {
+		return "JornadaRonda{" + getNombre() + "partidos=" + partidos + '}';
+	}
+
 
 }
