@@ -7,6 +7,7 @@ import clases.Entrenador;
 import clases.Equipo;
 import clases.Estadio;
 import clases.Jugador;
+import clases.Partido;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -35,6 +36,8 @@ public class Ventana extends JFrame {
 	public static ArrayList<Entrenador> Entrenadores = new ArrayList<>();
 	public static ArrayList<Estadio> Estadios = new ArrayList<>();
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
+	public static ArrayList<Partido> Partidos = new ArrayList<>();
+
 
 	/*
 	 * Crear ArrayList de Entrenador, y mediante una funcion en la view, recorremos el array list de equipos

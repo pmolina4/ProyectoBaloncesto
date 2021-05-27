@@ -16,12 +16,11 @@ public class Equipo extends CosaConNombre {
 	private ArrayList<Jugador> jugadores;
 	private Estadio estadio;
 	private Entrenador entrenador;
-	private int mediaDefensa;
-	private int mediaAtaque;
+	//Inicializamos en 0 ya que calcularemos su valor de manera interna
+	private int mediaDefensa=0;
+	private int mediaAtaque=0;
 	// Variable Auxiliar
 	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
-	int medAta = 0;
-	int medDef = 0;
 
 	public Equipo(String nombre, String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio,
 			Entrenador entrenador) {
@@ -34,6 +33,11 @@ public class Equipo extends CosaConNombre {
 		this.mediaAtaque = setMediaAtaque();
 		this.mediaDefensa = setMediaDefensa();
 	}
+	
+	public Equipo() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public String getNacionalidad() {
 		return nacionalidad;
@@ -72,19 +76,19 @@ public class Equipo extends CosaConNombre {
 	// Obtener Media Ataque accediendo al ArrayList de Jugadores Nuevo
 	public int setMediaAtaque() {
 		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
-			medAta += jugadoresEquipo.get(i).getMediaAtaque();
+			mediaAtaque += jugadoresEquipo.get(i).getMediaAtaque();
 		}
-		medAta = (medAta / jugadoresEquipo.size());
-		return medAta;
+		mediaAtaque = (mediaAtaque / jugadoresEquipo.size());
+		return mediaAtaque;
 	}
 
 	// Obtener mediaDefensa accediendo al ArrayList de Jugadores Nuevo
 	public int setMediaDefensa() {
 		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
-			medDef += jugadoresEquipo.get(i).getMediaDefensa();
+			mediaDefensa += jugadoresEquipo.get(i).getMediaDefensa();
 		}
-		medDef = (medDef / jugadoresEquipo.size());
-		return medDef;
+		mediaDefensa = (mediaDefensa / jugadoresEquipo.size());
+		return mediaDefensa;
 	}
 
 	public Estadio getEstadio() {

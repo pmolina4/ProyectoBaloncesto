@@ -5,7 +5,7 @@
  */
 package clases;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 /**
  *
@@ -16,9 +16,9 @@ public class Partido {
    private Equipo visitante;
    private short puntosLocal;
    private short puntosVisitante;
-   private LocalDateTime fecha;
+   private Date fecha;
 
-    public Partido(Equipo local, Equipo visitante, short puntosLocal, short puntosVisitante, LocalDateTime fecha) {
+    public Partido(Equipo local, Equipo visitante, short puntosLocal, short puntosVisitante, Date fecha) {
         this.local = local;
         this.visitante = visitante;
         this.puntosLocal = puntosLocal;
@@ -58,11 +58,11 @@ public class Partido {
         this.puntosVisitante = puntosVisitante;
     }
 
-    public LocalDateTime getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

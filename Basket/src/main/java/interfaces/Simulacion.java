@@ -2,8 +2,13 @@ package interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -13,6 +18,7 @@ import clases.Entrenador;
 import clases.Equipo;
 import clases.Estadio;
 import clases.Jugador;
+import clases.Partido;
 
 public class Simulacion extends JPanel {
 	// Componentes
@@ -37,7 +43,7 @@ public class Simulacion extends JPanel {
 		generarEstadios();
 		generarEquipos();
 		generarPartidos();
-		jugarPartido(Ventana.Equipos.get(1), Ventana.Equipos.get(2));
+		getRandomDate();
 
 	}
 
@@ -88,29 +94,85 @@ public class Simulacion extends JPanel {
 		return Ventana.Equipos;
 	}
 
+	//Funcion para generar los partidos
 	public static void generarPartidos() {
-		ArrayList<String> equiposJugados = new ArrayList<>();
-		for (int i = 0; i < Ventana.Equipos.size() - 1; i++) {
+		ArrayList<Equipo> local = new ArrayList<>(), visitante = new ArrayList<>();
 
-			System.out.println(Ventana.Equipos.get(i).getNombre() + " VS " + Ventana.Equipos.get(i + 1).getNombre());
+		//Comprobamos cual serán los locales y los visitantes
+		for (int i = 0; i < Ventana.Equipos.size(); i++) {
+			if (i % 2 == 0) {
+				local.add(Ventana.Equipos.get(i));
+			} else {
+				visitante.add(Ventana.Equipos.get(i));
+			}
+		}
+		for (int x = 0; x < (Ventana.Equipos.size()-1)/2; x++) {
+			Partido p = new Partido(local.get(x), visitante.get(x),
+					(short) jugarPartido(local.get(x), visitante.get(x), false),
+					(short) jugarPartido(local.get(x), visitante.get(x), true), getRandomDate());
+			Ventana.Partidos.add(p);
+		}
+
+	}
+
+	public static int jugarPartido(Equipo local, Equipo visit, Boolean equipoLocal) {
+		int posibilidadCanasta = 0, lanzamientosCanastaLocal = 0, lanzamientosCanastaVisitante = 0, puntosLocal = 0,
+				puntosVisitante = 0;
+		// DEFENSA: Defensa de Equipo / 10 y /2 (Para que el numero no sea demasiado
+		// grande)
+		int defensaLocal = (local.getMediaDefensa() / 10) / 2;
+		int defensaVisitante = (visit.getMediaDefensa() / 10) / 2;
+
+		// LANZAMIENTOS: Lanzamientos de Canasta de Cada Equipo (Su media de ataque, *
+		// 75 (canastas
+		// que suelen tirar en un equipo) / 100 y le restamos la defensa del otro
+		// equipo)
+		lanzamientosCanastaLocal = ((local.getMediaAtaque() * 75) / 100) - defensaVisitante;
+		lanzamientosCanastaVisitante = ((visit.getMediaAtaque() * 75) / 100) - defensaLocal;
+
+		// CANASTAS: Obtenemos los puntos que ha metido cada equipo mediante
+		// calcularPuntos()
+		if (equipoLocal) {
+			return puntosLocal = calcularPuntos(lanzamientosCanastaLocal);
+		} else {
+			return puntosVisitante = calcularPuntos(lanzamientosCanastaVisitante);
+
 		}
 	}
 
-	public static void jugarPartido(Equipo local, Equipo visit) {
-		int posibilidadCanasta = 0;
-		int lanzamientosCanastaLocal = 0;
-		int lanzamientosCanastaVisitante = 0;
-		int defensaLocal = (local.getMediaDefensa() / 10) / 2;
-		int defensaVisitante = (visit.getMediaDefensa() / 10) / 2;
-		//De 0-3, no mete, de 4-7 un punto, de 8 a 10 dos puntos, 10 a 11, triple
-		int probabilidad = (int) Math.floor(Math.random() * (0 - 11 + 1) + 11);
-		// Suponiendo 90 tiros en partido, cada equipo tiene 45, y calculamos las
-		// canastas en funcion de su media de ataque, y en funcion de la media de
-		// defensa del equipo visitante, les restamos canastas
-		lanzamientosCanastaLocal = ((local.getMediaAtaque() * 75) / 100) - defensaVisitante;
-		lanzamientosCanastaVisitante = ((visit.getMediaAtaque() * 75) / 100) - defensaLocal;
-		
-		
+	// Funcion que genera fechas aleatorias
+	public static Date getRandomDate() {
+		Random rand = new Random();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd ");
+		Calendar cal = Calendar.getInstance();
+		cal.set(2021, 0, 1);
+		long start = cal.getTimeInMillis();
+		cal.set(2020, 10, 1);
+		long end = cal.getTimeInMillis();
+		Date d = new Date(start + (long) (rand.nextDouble() * (end - start)));
+		return d;
+	}
+
+	// Función que calculara los tipos de canasta que han metido (nada, tiro libre,
+	// dobles o triples) en funcion
+	// de los lanzamientos, y por tanto, devolverá los puntos obtenidos
+	public static int calcularPuntos(int lanzamientos) {
+		// De 0-2, no mete, de 3-6 un punto, de 7 a 10 dos puntos, 10 a 11, triple
+		int probabilidad = 0, puntos = 0;
+		for (int i = 0; i <= lanzamientos; i++) {
+			probabilidad = (int) Math.floor(Math.random() * (0 - 11 + 1) + 11);
+			// Tiro Libre
+			if (probabilidad > 2 && probabilidad <= 6) {
+				puntos = puntos + 1;
+				// Doble
+			} else if (probabilidad > 6 && probabilidad <= 10) {
+				puntos = puntos + 2;
+				// Triple
+			} else if (probabilidad > 10) {
+				puntos = puntos + 3;
+			}
+		}
+		return puntos;
 	}
 
 }
