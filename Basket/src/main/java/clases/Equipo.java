@@ -18,9 +18,9 @@ public class Equipo extends CosaConNombre {
 	private ArrayList<Jugador> jugadores;
 	private Estadio estadio;
 	private Entrenador entrenador;
-	//Inicializamos en 0 ya que calcularemos su valor de manera interna
-	private int mediaDefensa=0;
-	private int mediaAtaque=0;
+	// Inicializamos en 0 ya que calcularemos su valor de manera interna
+	private int mediaDefensa = 0;
+	private int mediaAtaque = 0;
 	// Variable Auxiliar
 	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
 
@@ -35,8 +35,6 @@ public class Equipo extends CosaConNombre {
 		this.mediaAtaque = setMediaAtaque();
 		this.mediaDefensa = setMediaDefensa();
 	}
-	
-
 
 	public String getNacionalidad() {
 		return nacionalidad;
@@ -50,11 +48,8 @@ public class Equipo extends CosaConNombre {
 		return jugadores;
 	}
 
-	/*
-	 * INPUT: ArrayList<Jugador> - ArrayList de Jugadores (Ventana.Jugadores) con
-	 * todos los jugadores y sus equipos desordenados OUTPUT: return jugadoresEquipo
-	 * 
-	 */
+	// Funcion setJugadores, en la que introducimos los Jugadores del mismo Equipo
+	// en su Correspondiente Equipo
 	public ArrayList<Jugador> setJugadores(ArrayList<Jugador> jugadores) {
 		for (int i = 0; i < jugadores.size(); i++) {
 			if (jugadores.get(i).getEquipo().equals(this.getNombre())) {
@@ -106,14 +101,8 @@ public class Equipo extends CosaConNombre {
 		this.entrenador = entrenador;
 	}
 
-	@Override
-	public String toString() {
-		return "Equipo=" + this.getNombre() + " [nacionalidad=" + nacionalidad + ", jugadores=" + jugadores
-				+ ", estadio=" + estadio + ", entrenador=" + entrenador + ", mediaDefensa=" + mediaDefensa
-				+ ", mediaAtaque=" + mediaAtaque + "]";
-	}
-
-	//Funcion para generar equipos, accediendo a los distintos elementos que lo componen (entrenadores, estadio...)
+	// Funcion para generar equipos, accediendo a los distintos elementos que lo
+	// componen (entrenadores, estadio...)
 	public void generarEquipos() {
 		for (int i = 0; i < Ventana.equipos.size(); i++) {
 			Equipo e = new Equipo(Ventana.equipos.get(i), Ventana.Entrenadores.get(i).getNacionalidad(),
@@ -122,9 +111,14 @@ public class Equipo extends CosaConNombre {
 		}
 	}
 
-	//Constructor Vacio para Instancia General
+	// Constructor Vacio para Instancia General
 	public Equipo() {
 	}
 
-
+	@Override
+	public String toString() {
+		return "Equipo=" + this.getNombre() + " [nacionalidad=" + nacionalidad + ", jugadores=" + jugadores
+				+ ", estadio=" + estadio + ", entrenador=" + entrenador + ", mediaDefensa=" + mediaDefensa
+				+ ", mediaAtaque=" + mediaAtaque + "]";
+	}
 }

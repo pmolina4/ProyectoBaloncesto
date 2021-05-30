@@ -18,8 +18,6 @@ public class JornadaRonda extends CosaConNombre {
 		super(nombre);
 		this.partidos = partidos;
 	}
-	
-
 
 	public ArrayList<Partido> getPartidos() {
 		return partidos;
@@ -29,34 +27,37 @@ public class JornadaRonda extends CosaConNombre {
 		this.partidos = partidos;
 	}
 
-
-	//Funcion que simula los partidos de sus correspondientes rondas, e imprime la informacion
+	// Funcion que simula los partidos de sus correspondientes rondas, e imprime la
+	// informacion
 	public void simularPartidosRonda() {
 		boolean ganadLocal = false;
-		System.out.println("\n-----" + this.getNombre() + "------");
-		for (int i = 0; i < getPartidos().size(); i++) {
-			System.out.println(getPartidos().get(i).getLocal().getNombre() + " VS "
-					+ getPartidos().get(i).getVisitante().getNombre() + " - " + getPartidos().get(i).getFecha());
-			System.out.println("Puntos Locales: " + getPartidos().get(i).getPuntosLocal() + " Puntos Visitantes: "
-					+ getPartidos().get(i).getPuntosVisitante());
-			if (getPartidos().get(i).getPuntosLocal() > getPartidos().get(i).getPuntosVisitante()) {
-				System.out.println("GANADOR: " + getPartidos().get(i).getLocal().getNombre());
-			} else if (getPartidos().get(i).getPuntosVisitante() > getPartidos().get(i).getPuntosLocal()) {
-				System.out.println("GANADOR: " + getPartidos().get(i).getVisitante().getNombre());
-			} else {
-				System.out.println("Empate xd");
+		//Comprobamos que no este vacio
+		if (getPartidos() != null) {
+			System.out.println("\n--------"+this.getNombre()+"---------\n");
+			for (int i = 0; i < getPartidos().size(); i++) {
+				System.out.println(getPartidos().get(i).getLocal().getNombre() + " VS "
+						+ getPartidos().get(i).getVisitante().getNombre() + " - " + getPartidos().get(i).getFecha());
+				System.out.println("Puntos Locales: " + getPartidos().get(i).getPuntosLocal() + " Puntos Visitantes: "
+						+ getPartidos().get(i).getPuntosVisitante());
+				if (getPartidos().get(i).getPuntosLocal() > getPartidos().get(i).getPuntosVisitante()) {
+					System.out.println("GANADOR: " + getPartidos().get(i).getLocal().getNombre());
+				} else if (getPartidos().get(i).getPuntosVisitante() > getPartidos().get(i).getPuntosLocal()) {
+					System.out.println("GANADOR: " + getPartidos().get(i).getVisitante().getNombre());
+				} else {
+					System.out.println("Empate xd");
+				}
 			}
 		}
+
 	}
-	
-	//Constructor vacio para Instancia General
+
+	// Constructor vacio para Instancia General
 	public JornadaRonda() {
-		
+
 	}
-	
+
 	public String toString() {
 		return "JornadaRonda{" + getNombre() + "partidos=" + partidos + '}';
 	}
-
 
 }

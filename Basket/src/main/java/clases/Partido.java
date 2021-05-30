@@ -114,6 +114,8 @@ public class Partido {
 				puntosVisitante = 0;
 		// DEFENSA: Defensa de Equipo / 10 y /2 (Para que el numero no sea demasiado
 		// grande)
+		
+		//lanzamientos que se le restarán en el equipo rival
 		int defensaLocal = (local.getMediaDefensa() / 10) / 2;
 		int defensaVisitante = (visit.getMediaDefensa() / 10) / 2;
 

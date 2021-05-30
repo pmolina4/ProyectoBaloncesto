@@ -6,6 +6,7 @@
 package clases;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public class Liga extends Competicion{
     private ArrayList<Equipo> equipos;
     private ArrayList<JornadaRonda> jornadas;
+    private TreeSet<EquipoEnLiga> clasificacion;
 
     public Liga(ArrayList<Equipo> equipos, ArrayList<JornadaRonda> jornadas, short temporada, String nombre) {
         super(temporada, nombre);

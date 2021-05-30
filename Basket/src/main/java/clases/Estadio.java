@@ -39,13 +39,12 @@ public class Estadio extends CosaConNombre {
 		this.aforo = aforo;
 	}
 
-
 	/*
 	 * Funcion que utilizamos para generar estadios, e introducirlos en su arrayList
 	 * correspondiente
 	 */
 	public void generarEstadios() {
-		System.out.println("dsa");
+		System.out.println("--Prueba Estadios--");
 		String[] estadios = { "Pablo de Olavide", "Alfonso VIII", "Navas de Tolosa", "Parc des Princes", "Palau Areuca",
 				"Bacardi Stadium", "Estadio Nacional de Carranque", "Estadio la Palmilla", "Sabiote", "United Arena" };
 		for (int i = 0; i < Ventana.equipos.size(); i++) {

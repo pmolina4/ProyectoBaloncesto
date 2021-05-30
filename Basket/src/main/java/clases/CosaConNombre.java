@@ -12,18 +12,13 @@ package clases;
 public abstract class CosaConNombre {
 	private String nombre;
 
-
-	
-	// Constructo res
 	public CosaConNombre() {
 	}
-	
-	// Constructo res
+
 	public CosaConNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	// Getters y setters
 	public String getNombre() {
 		return nombre;
 	}
@@ -32,8 +27,6 @@ public abstract class CosaConNombre {
 		this.nombre = nombre;
 	}
 
-	// Tostring
-	@Override
 	public String toString() {
 		return "CosaConNombre{" + "nombre=" + nombre + '}';
 	}

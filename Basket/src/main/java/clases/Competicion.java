@@ -30,6 +30,4 @@ public class Competicion extends CosaConNombre {
         return "Competicion{" + "temporada=" + temporada + '}';
     }
     
-    
-    
 }

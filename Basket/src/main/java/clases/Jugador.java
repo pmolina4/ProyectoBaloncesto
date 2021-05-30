@@ -115,7 +115,6 @@ public class Jugador extends CosaConNombre {
 		this.numero = numero;
 	}
 
-
 	// FUNCION SIN USABILIDAD
 //	public Jugador() {	
 //		super();
@@ -180,8 +179,7 @@ public class Jugador extends CosaConNombre {
 	public byte getMediaDefensa() {
 		return mediaDefensa;
 	}
-	
-	@Override
+
 	public String toString() {
 
 		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante

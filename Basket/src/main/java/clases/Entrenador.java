@@ -50,8 +50,7 @@ public class Entrenador extends CosaConNombre {
 		this.equipo = equipo;
 	}
 
-
-	//Funcion que genera de manera automatica los entrenadores ("No Hardcored")
+	// Funcion que genera de manera automatica los entrenadores ("No Hardcored")
 	public void generarEntrenadores() {
 		String[] nombre = { "Perico Conde", "Yuseppe Pedrerol", "Julio Iglesias", "El Bicho", "Mariano Rajoy",
 				"Echenique aka RayoMcQueen", "Pablo Iglesias", "Salvador Cinta de Lomo", "Edu Chope", "Perri lol" };
@@ -70,11 +69,10 @@ public class Entrenador extends CosaConNombre {
 	public Entrenador() {
 
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Entrenador{" + "nacionalidad=" + nacionalidad + ", calidad=" + calidad + ", equipo=" + equipo + '}';
 	}
-
 
 }
