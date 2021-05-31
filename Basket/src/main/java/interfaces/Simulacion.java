@@ -54,12 +54,10 @@ public class Simulacion extends JPanel {
 	public static void generarJornadas() {
 		int nJornadas = 0;
 		// Controlamos que los equipos sean pares para poder jugar
-		if (Ventana.Equipos.size() % 2 == 0) {
-			nJornadas = Ventana.Equipos.size();
-		} else {
+		
 			Ventana.Equipos.remove(Ventana.Equipos.size() - 1);
 			nJornadas = Ventana.Equipos.size();
-		}
+		
 		String nombre = "";
 		for (int i = 0; i < nJornadas; i++) {
 			nombre = "Jornada Nº " + (i + 1);
@@ -67,5 +65,7 @@ public class Simulacion extends JPanel {
 			j.simularPartidosRonda();
 		}
 	}
+	
+	
 
 }

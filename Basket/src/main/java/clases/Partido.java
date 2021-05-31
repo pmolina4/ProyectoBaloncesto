@@ -32,7 +32,6 @@ public class Partido {
 		this.fecha = fecha;
 	}
 
-
 	public Equipo getLocal() {
 		return local;
 	}
@@ -44,6 +43,8 @@ public class Partido {
 	public Equipo getVisitante() {
 		return visitante;
 	}
+
+
 
 	public void setVisitante(Equipo visitante) {
 		this.visitante = visitante;
@@ -73,7 +74,6 @@ public class Partido {
 		this.fecha = fecha;
 	}
 
-
 	// Funcion para generar los partidos
 	public static void generarPartidos() {
 		// FUNCION AUX QUE UTILIZAREMOS PARA DESORDENAR EL ARRAY
@@ -88,6 +88,7 @@ public class Partido {
 				visitante.add(Ventana.Equipos.get(i));
 			}
 		}
+
 		for (int x = 0; x < (Ventana.Equipos.size() - 1) / 2; x++) {
 			Partido p = new Partido(local.get(x), visitante.get(x),
 					(short) jugarPartido(local.get(x), visitante.get(x), false),
@@ -95,7 +96,7 @@ public class Partido {
 			Ventana.Partidos.add(p);
 		}
 	}
-	
+
 	// Funcion que genera fechas aleatorias
 	public static Date getRandomDate() {
 		Random rand = new Random();
@@ -108,14 +109,14 @@ public class Partido {
 		Date d = new Date(start + (long) (rand.nextDouble() * (end - start)));
 		return d;
 	}
-	
+
 	public static int jugarPartido(Equipo local, Equipo visit, Boolean equipoLocal) {
 		int posibilidadCanasta = 0, lanzamientosCanastaLocal = 0, lanzamientosCanastaVisitante = 0, puntosLocal = 0,
 				puntosVisitante = 0;
 		// DEFENSA: Defensa de Equipo / 10 y /2 (Para que el numero no sea demasiado
 		// grande)
-		
-		//lanzamientos que se le restarán en el equipo rival
+
+		// lanzamientos que se le restarán en el equipo rival
 		int defensaLocal = (local.getMediaDefensa() / 10) / 2;
 		int defensaVisitante = (visit.getMediaDefensa() / 10) / 2;
 
@@ -135,7 +136,6 @@ public class Partido {
 
 		}
 	}
-	
 
 	// Función que calculara los tipos de canasta que han metido (nada, tiro libre,
 	// dobles o triples) en funcion
@@ -158,9 +158,8 @@ public class Partido {
 		}
 		return puntos;
 	}
-	
 
-	//Constructor vacio para instancia general
+	// Constructor vacio para instancia general
 	public Partido() {
 
 	}

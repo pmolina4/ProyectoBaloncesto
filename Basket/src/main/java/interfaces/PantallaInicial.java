@@ -8,6 +8,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
+import clases.TextPrompt;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +21,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Cursor;
 
 public class PantallaInicial extends JPanel {
 	// Componentes
@@ -30,53 +39,69 @@ public class PantallaInicial extends JPanel {
 
 	// Pantalla con Opcion a Loguearte y/o Registrarte
 	public PantallaInicial(Ventana v) {
+
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
-		this.setSize(500, 500);
+		this.setSize(450, 650);
 
 		// -------------------------------- COMPONENTES J
 		// -------------------------------------
+		Border roundedBorder = new LineBorder(new Color(210, 210, 210), 1, true);
+
 		JPanel panelCentral = new JPanel();
-		panelCentral.setBackground(new Color(105, 105, 105));
+		panelCentral.setBackground(new Color(241, 69, 15));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("USUARIO");
-		lblNewLabel.setBounds(287, 54, 119, 62);
-		panelCentral.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel("CONTRASEÑA");
-		lblNewLabel_1.setBounds(90, 54, 119, 62);
-		panelCentral.add(lblNewLabel_1);
-
 		contrasenaUsuRec = new JPasswordField();
+		contrasenaUsuRec.setForeground(Color.DARK_GRAY);
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
-		contrasenaUsuRec.setBounds(58, 126, 132, 20);
+		contrasenaUsuRec.setBounds(116, 297, 207, 20);
+		contrasenaUsuRec.setBorder(roundedBorder);
 		panelCentral.add(contrasenaUsuRec);
 
 		nombreUsuRec = new JTextField();
-		nombreUsuRec.setBounds(276, 127, 96, 19);
+		nombreUsuRec.setForeground(Color.DARK_GRAY);
+		nombreUsuRec.setBounds(116, 241, 207, 20);
+		nombreUsuRec.setBorder(roundedBorder);
 		panelCentral.add(nombreUsuRec);
-		nombreUsuRec.setColumns(10);
+
+	
+		JLabel lblName = new JLabel("Nombre:");
+		lblName.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		lblName.setForeground(new Color(241, 69, 15));
+		lblName.setBounds(116, 196, 103, 35);
+		panelCentral.add(lblName);
+
+		JLabel lblPass = new JLabel("Contraseña:");
+		lblPass.setForeground(new Color(241, 69, 15));
+		lblPass.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		lblPass.setBounds(116, 263, 103, 35);
+		panelCentral.add(lblPass);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(89, 177, 277, 231);
+		panelCentral.add(panel);
+		panel.setLayout(null);
 
 		JButton btnNewButton = new JButton("LOGIN");
-		btnNewButton.setBounds(101, 227, 85, 21);
-		panelCentral.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("REGISTRO");
-		btnNewButton_1.setBounds(287, 227, 85, 21);
+		btnNewButton.setBounds(96, 168, 84, 32);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("¿No tienes cuenta? Regístrate Aquí!");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBounds(101, 555, 234, 35);
 		panelCentral.add(btnNewButton_1);
+		btnNewButton_1.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
+		btnNewButton_1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnNewButton_1.setOpaque(true);
+		btnNewButton_1.setBackground(new Color(0, 0, 0, 0));
+		btnNewButton_1.setBorder(null);
+
+
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
-
-		// Funcion onClick REGISTRO
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ventana.showRegistrar();
-			}
-		});
 
 		// Funcion onClick LOGIN
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -89,6 +114,14 @@ public class PantallaInicial extends JPanel {
 				if (comp()) {
 					ventana.showConsultarEquipos();
 				}
+			}
+		});
+
+		// Funcion onClick REGISTRO
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.showRegistrar();
 			}
 		});
 	}

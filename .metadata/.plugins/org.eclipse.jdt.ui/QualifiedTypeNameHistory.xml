@@ -15,4 +15,9 @@
     <fullyQualifiedTypeName name="clases.Partido"/>
     <fullyQualifiedTypeName name="clases.JornadaRonda"/>
     <fullyQualifiedTypeName name="java.util.TreeSet"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="interfaces.Ventana"/>
+    <fullyQualifiedTypeName name="clases.ExcepcionPropia"/>
+    <fullyQualifiedTypeName name="Exceptions.ExceptionBdd"/>
+    <fullyQualifiedTypeName name="Exceptions.EmptyName"/>
 </qualifiedTypeNameHistroy>

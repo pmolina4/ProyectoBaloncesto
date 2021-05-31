@@ -54,7 +54,7 @@ public class Ventana extends JFrame {
 	
 	public Ventana() {
 		// Variables Iniciales
-		this.setSize(500, 500);
+		this.setSize(450, 650);
 		this.setTitle("Basket");
 		this.setResizable(false);
 		setLocationRelativeTo(null);

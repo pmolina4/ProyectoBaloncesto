@@ -8,6 +8,7 @@ package clases;
 import java.util.ArrayList;
 import java.util.Random;
 
+import Exceptions.EmptyName;
 import interfaces.Ventana;
 
 /**
@@ -46,7 +47,7 @@ public class Entrenador extends CosaConNombre {
 		return equipo;
 	}
 
-	public void setEquipo(String equipo) {
+	public void setEquipo(String equipo){
 		this.equipo = equipo;
 	}
 

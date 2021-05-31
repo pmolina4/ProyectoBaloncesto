@@ -21,6 +21,7 @@ public class Equipo extends CosaConNombre {
 	// Inicializamos en 0 ya que calcularemos su valor de manera interna
 	private int mediaDefensa = 0;
 	private int mediaAtaque = 0;
+	private byte puntosLiga = 0;
 	// Variable Auxiliar
 	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
 
@@ -28,12 +29,20 @@ public class Equipo extends CosaConNombre {
 			Entrenador entrenador) {
 		super(nombre);
 		this.nacionalidad = nacionalidad;
-		// Comprobar Funcion
 		this.jugadores = setJugadores(jugadores);
 		this.estadio = estadio;
 		this.entrenador = entrenador;
 		this.mediaAtaque = setMediaAtaque();
 		this.mediaDefensa = setMediaDefensa();
+		this.puntosLiga = 0;
+	}
+
+	public byte getPuntosLiga() {
+		return puntosLiga;
+	}
+
+	public void setPuntosLiga(byte puntosLiga) {
+		this.puntosLiga = puntosLiga;
 	}
 
 	public String getNacionalidad() {
