@@ -126,8 +126,6 @@ public class Equipo extends CosaConNombre {
 
 	@Override
 	public String toString() {
-		return "Equipo=" + this.getNombre() + " [nacionalidad=" + nacionalidad + ", jugadores=" + jugadores
-				+ ", estadio=" + estadio + ", entrenador=" + entrenador + ", mediaDefensa=" + mediaDefensa
-				+ ", mediaAtaque=" + mediaAtaque + "]";
+		return "Equipo=" + this.getNombre() + "PuntosLiga" + puntosLiga;
 	}
 }

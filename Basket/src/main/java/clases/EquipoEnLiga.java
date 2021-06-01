@@ -5,9 +5,8 @@ public class EquipoEnLiga implements Comparable {
 	private byte puntos;
 
 	@Override
-	public int compareTo(Object o) {// Comparar los puntos entre dos equipos. Con esto, al recorrer el treeset con
-									// un iterator, te da la clasificación ordenada por puntos
-		// TODO Auto-generated method stub
+	public int compareTo(Object o) {
+		int r = 0;
 		return 0;
 	}
 }

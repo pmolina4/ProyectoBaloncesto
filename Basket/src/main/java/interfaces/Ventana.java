@@ -2,6 +2,7 @@ package interfaces;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JPanel;
 
 import clases.Entrenador;
 import clases.Equipo;
@@ -55,6 +56,7 @@ public class Ventana extends JFrame {
 	 */
 	
 	public Ventana() {
+		
 		// Variables Iniciales
 		this.setSize(450, 650);
 		this.setTitle("Basket");
@@ -67,6 +69,7 @@ public class Ventana extends JFrame {
 		this.setContentPane(ViewPantallaInicial);
 		this.setVisible(true);
 	}
+
 
 	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
 	public void showRegistrar() {

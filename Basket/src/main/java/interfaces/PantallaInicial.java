@@ -11,8 +11,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import Exceptions.RegExContraseñaException;
-import clases.TextPrompt;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -32,10 +30,9 @@ public class PantallaInicial extends JPanel {
 	private Ventana ventana;
 	private JTextField contrasenaUsuRec;
 	private JTextField nombreUsuRec;
-	//Variables Auxiliares
+	// Variables Aux
 	private String nombreUsu;
 	private String contrasenaUsu;
-
 	// Vistas
 	private ConsultarEquipos ViewConsultarEquipos;
 
@@ -110,13 +107,8 @@ public class PantallaInicial extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// Recuperamos los campos de Login
-				Ventana.usu.setNombre(nombreUsuRec.getText());
-				try {
-					Ventana.usu.setContraseña(contrasenaUsuRec.getText());
-				} catch (RegExContraseñaException e1) {
-					// TODO Auto-generated catch block
-				    JOptionPane.showMessageDialog(ventana,e1.getMessage(), "Formato Contraseña Incorrecto",JOptionPane.ERROR_MESSAGE);
-				}
+				nombreUsu = nombreUsuRec.getText();
+				contrasenaUsu = contrasenaUsuRec.getText();
 				// Comprobamos en BDD
 				if (comp()) {
 					ventana.showConsultarEquipos();
@@ -143,9 +135,8 @@ public class PantallaInicial extends JPanel {
 					"root", "root");
 			Statement smt = conexion.createStatement();
 			ResultSet resultados = smt.executeQuery("SELECT nickname, contrasena FROM usuario WHERE nickname = '"
-					+ Ventana.usu.getNombre() + "' AND contrasena = '" + Ventana.usu.getContraseña() + "'");
+					+ nombreUsu + "' AND contrasena = '" + contrasenaUsu + "'");
 			if (resultados.next()) {
-				System.out.println(Ventana.usu);
 				nombreUsu = resultados.getString("nickname");
 				contrasenaUsu = resultados.getString("contrasena");
 			} else {

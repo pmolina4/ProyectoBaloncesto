@@ -37,11 +37,12 @@ public class JornadaRonda extends CosaConNombre {
 		boolean ganadLocal = false;
 		// Comprobamos que no este vacio
 		if (getPartidos() != null) {
-			String local="";
+			String local = "";
+			int n = 0, y = 0;
 
 			System.out.println("\n--------" + this.getNombre() + "---------\n");
 			for (int i = 0; i < getPartidos().size(); i++) {
-				local=getPartidos().get(i).getLocal().getNombre();
+				local = getPartidos().get(i).getLocal().getNombre();
 				System.out.println(getPartidos().get(i).getLocal().getNombre() + " VS "
 						+ getPartidos().get(i).getVisitante().getNombre() + " - " + getPartidos().get(i).getFecha());
 				System.out.println("Puntos Locales: " + getPartidos().get(i).getPuntosLocal() + " Puntos Visitantes: "
@@ -49,20 +50,40 @@ public class JornadaRonda extends CosaConNombre {
 
 				if (getPartidos().get(i).getPuntosLocal() > getPartidos().get(i).getPuntosVisitante()) {
 					System.out.println("GANADOR: " + getPartidos().get(i).getLocal().getNombre());
-					
-			
+					n = buscarEquipo(getPartidos().get(i).getLocal().getNombre());
+					Ventana.Equipos.get(n).setPuntosLiga((byte) (Ventana.Equipos.get(y).getPuntosLiga() + 2));
 
 				} else if (getPartidos().get(i).getPuntosVisitante() > getPartidos().get(i).getPuntosLocal()) {
 					System.out.println("GANADOR: " + getPartidos().get(i).getVisitante().getNombre());
-					
+					y = buscarEquipo(getPartidos().get(i).getVisitante().getNombre());
+					Ventana.Equipos.get(y).setPuntosLiga((byte) (Ventana.Equipos.get(y).getPuntosLiga() + 2));
+
 				} else {
 					System.out.println("Empate xd");
 				}
 			}
+			impr();
 		}
 	}
 
+	public void impr() {
+		for (int i = 0; i < Ventana.Equipos.size(); i++) {
+			System.out.println(Ventana.Equipos.get(i));
 
+		}
+	}
+
+	public int buscarEquipo(String r) {
+		int index = -1;
+		int bound = Ventana.Equipos.size();
+		for (int i = 0; i < bound; i++) {
+			if (Ventana.Equipos.get(i).getNombre().equals(r)) {
+				index = i;
+				break;
+			}
+		}
+		return index;
+	}
 
 	// Constructor vacio para Instancia General
 	public JornadaRonda() {

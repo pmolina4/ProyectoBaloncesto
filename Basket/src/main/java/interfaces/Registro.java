@@ -38,7 +38,7 @@ public class Registro extends JPanel {
 	private JTextField txtEmail;
 	private String contrasenaRec;
 
-	public Registro(Ventana v) {
+	public Registro(Ventana v)  {
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -145,7 +145,7 @@ public class Registro extends JPanel {
 				Ventana.usu.setEmail(txtEmail.getText());
 				contrasenaRec = new String(contrasenaUsuRec.getPassword());
 
-				//Control de Excepciones para el Nickname y la Contraseña
+				// Control de Excepciones para el Nickname y la Contraseña
 				try {
 					Ventana.usu.setNickname(txtNickname.getText());
 					Ventana.usu.setContraseña(contrasenaRec);
@@ -160,15 +160,15 @@ public class Registro extends JPanel {
 								"El Nickname o el Email ya se encuentran registrados en la BDD. Intentalo de nuevo!",
 								"Login fallido", JOptionPane.ERROR_MESSAGE);
 					}
-					//Captura de Excepcion de Contraseña
+					// Captura de Excepcion de Contraseña
 				} catch (RegExContraseñaException e1) {
 					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Formato Contraseña Incorrecto",
 							JOptionPane.ERROR_MESSAGE);
-					//Captura de Excepcion de Nickname
+					// Captura de Excepcion de Nickname
 				} catch (EmptyNameException e1) {
 					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Nickname Vacio",
 							JOptionPane.ERROR_MESSAGE);
-					//Clausula Finally - Volvemos al Inicio y Limpiamos el Formulario
+					// Clausula Finally - Volvemos al Inicio y Limpiamos el Formulario
 				} finally {
 					ventana.showPantallaInicial();
 					clearForm();
@@ -192,6 +192,7 @@ public class Registro extends JPanel {
 			Connection conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 					"root", "root");
+
 			Statement smt = conexion.createStatement();
 			ResultSet resultados = smt.executeQuery("SELECT  nickname , email FROM usuario WHERE nickname='"
 					+ Ventana.usu.getNickname() + "' AND email='" + Ventana.usu.getEmail() + "'");
