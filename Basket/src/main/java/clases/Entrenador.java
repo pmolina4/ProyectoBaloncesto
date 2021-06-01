@@ -8,7 +8,7 @@ package clases;
 import java.util.ArrayList;
 import java.util.Random;
 
-import Exceptions.EmptyName;
+import Exceptions.EmptyNameException;
 import interfaces.Ventana;
 
 /**

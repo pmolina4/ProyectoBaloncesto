@@ -20,4 +20,13 @@
     <fullyQualifiedTypeName name="clases.ExcepcionPropia"/>
     <fullyQualifiedTypeName name="Exceptions.ExceptionBdd"/>
     <fullyQualifiedTypeName name="Exceptions.EmptyName"/>
+    <fullyQualifiedTypeName name="Exceptions.SinNumeros"/>
+    <fullyQualifiedTypeName name="javax.swing.border.Border"/>
+    <fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
+    <fullyQualifiedTypeName name="java.awt.Insets"/>
+    <fullyQualifiedTypeName name="clases.TextPrompt"/>
+    <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+    <fullyQualifiedTypeName name="javax.swing.Icon"/>
+    <fullyQualifiedTypeName name="java.awt.Image"/>
+    <fullyQualifiedTypeName name="jdk.internal.org.jline.terminal.Cursor"/>
 </qualifiedTypeNameHistroy>

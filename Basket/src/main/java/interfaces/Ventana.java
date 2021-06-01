@@ -9,6 +9,7 @@ import clases.Estadio;
 import clases.JornadaRonda;
 import clases.Jugador;
 import clases.Partido;
+import clases.Usuario;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -25,7 +26,7 @@ import java.awt.FlowLayout;
 
 public class Ventana extends JFrame {
 
-	// Vistas
+	// Vistas (Pantallas)
 	private Registro ViewRegistro;
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
@@ -39,12 +40,13 @@ public class Ventana extends JFrame {
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
 	public static ArrayList<Partido> Partidos = new ArrayList<>();
 	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
-	//Instancias Objetos
+	//Instancias de Objetos
 	public static Entrenador ent = new Entrenador();
 	public static Equipo equi = new Equipo();
 	public static Estadio estad = new Estadio();
 	public static Partido part = new Partido();
 	public static JornadaRonda jorn = new JornadaRonda();
+	public static Usuario usu = new Usuario();
 
 
 	/*

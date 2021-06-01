@@ -22,7 +22,8 @@ import javax.swing.JTextPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import Exceptions.EmptyName;
+import Exceptions.EmptyNameException;
+import Exceptions.RegExContraseñaException;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -35,21 +36,13 @@ public class Registro extends JPanel {
 	private JTextField txtApellidos;
 	private JTextField txtNickname;
 	private JTextField txtEmail;
-
-	// Variables Aux
-	String nombre;
-	String apellidos;
-	String email;
-	String nickname;
-	String pass;
+	private String contrasenaRec;
 
 	public Registro(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
 		this.setSize(450, 650);
-
-
 
 		// -------------------------------- COMPONENTES J
 		// -------------------------------------
@@ -58,7 +51,7 @@ public class Registro extends JPanel {
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(new Color(241, 69, 15));
 		add(panelCentral, BorderLayout.CENTER);
-		
+
 		panelCentral.setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -71,7 +64,6 @@ public class Registro extends JPanel {
 		lblNombre.setForeground(new Color(241, 69, 15));
 		lblNombre.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblNombre);
-		
 
 		txtNombre = new JTextField();
 		txtNombre.setBounds(107, 54, 126, 19);
@@ -121,61 +113,77 @@ public class Registro extends JPanel {
 		contrasenaUsuRec.setBounds(107, 278, 132, 20);
 		panel.add(contrasenaUsuRec);
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
-		
-				JButton btnRegistrar = new JButton("REGISTRAR");
-				btnRegistrar.setBounds(28, 325, 85, 21);
-				panel.add(btnRegistrar);
-				btnRegistrar.setBorder(roundedBorder);
-				
-						JButton btnVolver = new JButton("VOLVER");
-						btnVolver.setBounds(148, 325, 85, 21);
-						panel.add(btnVolver);
-						btnVolver.setBorder(roundedBorder);
-						
-								// -------------------------------- FIN COMPONENTES J
-								// -------------------------------------
-						
-								// Funcion onClick btnVolver - Retornamos a la PantallaInicial
-								btnVolver.addMouseListener(new MouseAdapter() {
-									@Override
-									public void mouseClicked(MouseEvent e) {
-										ventana.showPantallaInicial();
-									}
-								});
-				
-						// Funcion onClick btnRegistrar - Registrar Usuario
-						btnRegistrar.addMouseListener(new MouseAdapter() {
-							@Override
-							public void mouseClicked(MouseEvent e) {
-								nombre = txtNombre.getText();
-								apellidos = txtApellidos.getText();
-								email = txtEmail.getText();
-								nickname = txtNickname.getText();
-								pass = new String(contrasenaUsuRec.getPassword());
-								clearForm();
-								// En caso de que el usuario no exista en la BDD, procedemos a crearlo
-								if (checkUser()) {
-									if (createUser()) {
-										JOptionPane.showMessageDialog(ventana, "Usuario creado de manera exitosa!", "Login fallido",
-												JOptionPane.ERROR_MESSAGE);
-										ventana.showPantallaInicial();
-									}
-								} else {
-									JOptionPane.showMessageDialog(ventana,
-											"El Nickname o el Email ya se encuentran registrados en la BDD. Intentalo de nuevo!",
-											"Login fallido", JOptionPane.ERROR_MESSAGE);
-								}
-							}
-				
-							// Función para limpiar los campos del formulario
-							public void clearForm() {
-								txtNombre.setText(" ");
-								txtApellidos.setText(" ");
-								txtEmail.setText(" ");
-								txtNickname.setText(" ");
-								contrasenaUsuRec.setText(" ");
-							}
-						});
+
+		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setBounds(28, 325, 85, 21);
+		panel.add(btnRegistrar);
+		btnRegistrar.setBorder(roundedBorder);
+
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(148, 325, 85, 21);
+		panel.add(btnVolver);
+		btnVolver.setBorder(roundedBorder);
+
+		// -------------------------------- FIN COMPONENTES J
+		// -------------------------------------
+
+		// Funcion onClick btnVolver - Retornamos a la PantallaInicial
+		btnVolver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.showPantallaInicial();
+			}
+		});
+
+		// Funcion onClick btnRegistrar - Registrar Usuario
+		btnRegistrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				Ventana.usu.setNombre(txtNombre.getText());
+				Ventana.usu.setApellidos(txtApellidos.getText());
+				Ventana.usu.setEmail(txtEmail.getText());
+				contrasenaRec = new String(contrasenaUsuRec.getPassword());
+
+				//Control de Excepciones para el Nickname y la Contraseña
+				try {
+					Ventana.usu.setNickname(txtNickname.getText());
+					Ventana.usu.setContraseña(contrasenaRec);
+					// En caso de que el usuario no exista en la BDD, procedemos a crearlo
+					if (checkUser()) {
+						if (createUser()) {
+							JOptionPane.showMessageDialog(ventana, "Usuario creado de manera exitosa!", "Login fallido",
+									JOptionPane.ERROR_MESSAGE);
+						}
+					} else {
+						JOptionPane.showMessageDialog(ventana,
+								"El Nickname o el Email ya se encuentran registrados en la BDD. Intentalo de nuevo!",
+								"Login fallido", JOptionPane.ERROR_MESSAGE);
+					}
+					//Captura de Excepcion de Contraseña
+				} catch (RegExContraseñaException e1) {
+					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Formato Contraseña Incorrecto",
+							JOptionPane.ERROR_MESSAGE);
+					//Captura de Excepcion de Nickname
+				} catch (EmptyNameException e1) {
+					JOptionPane.showMessageDialog(ventana, e1.getMessage(), "Nickname Vacio",
+							JOptionPane.ERROR_MESSAGE);
+					//Clausula Finally - Volvemos al Inicio y Limpiamos el Formulario
+				} finally {
+					ventana.showPantallaInicial();
+					clearForm();
+				}
+			}
+
+			// Función para limpiar los campos del formulario
+			public void clearForm() {
+				txtNombre.setText(" ");
+				txtApellidos.setText(" ");
+				txtEmail.setText(" ");
+				txtNickname.setText(" ");
+				contrasenaUsuRec.setText(" ");
+			}
+		});
 	}
 
 	// Funcion para comprobar que ni el email ni el nickname existan en la BDD
@@ -186,10 +194,10 @@ public class Registro extends JPanel {
 					"root", "root");
 			Statement smt = conexion.createStatement();
 			ResultSet resultados = smt.executeQuery("SELECT  nickname , email FROM usuario WHERE nickname='"
-					+ this.nickname + "' AND email='" + this.email + "'");
+					+ Ventana.usu.getNickname() + "' AND email='" + Ventana.usu.getEmail() + "'");
 			if (resultados.next()) {
-				if (resultados.getString("nickname").equals(this.nickname)
-						|| resultados.getString("email").equals(this.email)) {
+				if (resultados.getString("nickname").equals(Ventana.usu.getNickname())
+						|| resultados.getString("email").equals(Ventana.usu.getEmail())) {
 					return false;
 				}
 			}
@@ -208,8 +216,9 @@ public class Registro extends JPanel {
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
 					"root", "root");
 			Statement smt = conexion.createStatement();
-			smt.executeUpdate("INSERT INTO usuario VALUES ('" + this.nombre + "','" + this.apellidos + "','"
-					+ this.nickname + "','" + this.email + "','" + this.pass + "')");
+			smt.executeUpdate("INSERT INTO usuario VALUES ('" + Ventana.usu.getNombre() + "','"
+					+ Ventana.usu.getApellidos() + "','" + Ventana.usu.getNickname() + "','" + Ventana.usu.getEmail()
+					+ "','" + Ventana.usu.getContraseña() + "')");
 			smt.close();
 			conexion.close();
 		} catch (SQLException ex) {
@@ -219,5 +228,4 @@ public class Registro extends JPanel {
 		return true;
 
 	}
-
 }
