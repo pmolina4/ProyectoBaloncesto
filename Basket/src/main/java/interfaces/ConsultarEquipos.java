@@ -2,6 +2,8 @@ package interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Panel;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import clases.Jugador;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -19,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
 
 public class ConsultarEquipos extends JPanel {
 	// Vistas
@@ -31,54 +36,62 @@ public class ConsultarEquipos extends JPanel {
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
-		this.setSize(500, 500);
+		this.setSize(450, 650);
 		
 		createArr();
 
 		// -------------------------------- COMPONENTES J
 		// -------------------------------------
 		JPanel panelCentral = new JPanel();
-		panelCentral.setBackground(new Color(105, 105, 105));
+		panelCentral.setBackground(new Color(241, 69, 15));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
 		Panel panel = new Panel();
-		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBounds(10, 10, 480, 163);
+		panel.setBackground(new Color(240, 240, 240));
+		panel.setBounds(10, 67, 430, 163);
 		panelCentral.add(panel);
 		panel.setLayout(null);
 
 		JLabel textoLigas = new JLabel("Ligas");
 		textoLigas.setBounds(10, 10, 58, 39);
+		textoLigas.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		textoLigas.setForeground(new Color(241, 69, 15));
 		panel.add(textoLigas);
 
 		JLabel textoTemporadas = new JLabel("Temporadas");
 		textoTemporadas.setBounds(10, 50, 102, 46);
+		textoTemporadas.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
+		textoTemporadas.setForeground(new Color(241, 69, 15));
 		panel.add(textoTemporadas);
 
 		JComboBox comboBoxLigas = new JComboBox();
-		comboBoxLigas.setBounds(113, 19, 193, 21);
+		comboBoxLigas.setBounds(91, 19, 193, 21);
 		panel.add(comboBoxLigas);
 		comboBoxLigas.addItem("-- Selecciona una Liga --");
 
 		JComboBox comboBoxTemporadas = new JComboBox();
-		comboBoxTemporadas.setBounds(113, 63, 193, 21);
+		comboBoxTemporadas.setBounds(91, 63, 193, 21);
 		panel.add(comboBoxTemporadas);
 		comboBoxTemporadas.addItem("-- Selecciona una Temporada --");
 
 		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(135, 108, 97, 31);
+		btnBuscar.setBounds(20, 106, 97, 31);
+		btnBuscar.setBackground((Color) new Color(241, 69, 15));
+		btnBuscar.setForeground(SystemColor.controlLtHighlight);
+		btnBuscar.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
+		btnBuscar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(btnBuscar);
 
 		JList list = new JList();
-		list.setBackground(Color.LIGHT_GRAY);
+		list.setBackground(new Color(240, 240, 240));
 		list.setBounds(328, 10, 142, 143);
 		panel.add(list);
 		list.setVisible(false);
 
 		JPanel panel_jugadores = new JPanel();
 		panel_jugadores.setBackground(Color.LIGHT_GRAY);
-		panel_jugadores.setBounds(10, 185, 480, 229);
+		panel_jugadores.setBounds(10, 298, 385, 229);
 		panelCentral.add(panel_jugadores);
 		panel_jugadores.setLayout(null);
 
@@ -97,8 +110,14 @@ public class ConsultarEquipos extends JPanel {
 		panel_jugadores.setVisible(false);
 
 		JButton btnShowSimulacion = new JButton("SIMULAR");
-		btnShowSimulacion.setBounds(197, 424, 85, 21);
+		btnShowSimulacion.setBounds(184, 578, 85, 21);
 		panelCentral.add(btnShowSimulacion);
+		
+		JLabel btnNewButton_1 = new JLabel("");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBounds(111, 236, 234, 35);
+		panelCentral.add(btnNewButton_1);
+		btnNewButton_1.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 10));
 
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
@@ -110,7 +129,7 @@ public class ConsultarEquipos extends JPanel {
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				fillJList(list, comboBoxTemporadas, comboBoxLigas);
+				fillJList(list, comboBoxTemporadas, comboBoxLigas, btnNewButton_1);
 			}
 		});
 
@@ -167,6 +186,7 @@ public class ConsultarEquipos extends JPanel {
 			}
 			smt.close();
 			conexion.close();
+
 			// Lanzamos Error y Seteamos los campos a vacio
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -174,7 +194,7 @@ public class ConsultarEquipos extends JPanel {
 	}
 
 	// Función para Rellenar JList de Equipos
-	public void fillJList(JList list, JComboBox comboBoxLigas, JComboBox comboBoxTemporadas) {
+	public void fillJList(JList list, JComboBox comboBoxLigas, JComboBox comboBoxTemporadas, JLabel btn) {
 		int iter = 0;
 		liga = (String) comboBoxLigas.getSelectedItem();
 		temporada = (String) comboBoxTemporadas.getSelectedItem();
@@ -196,6 +216,7 @@ public class ConsultarEquipos extends JPanel {
 				JOptionPane.showMessageDialog(ventana, "No se han encontrado equipos con tal combinacion",
 						"Login fallido", JOptionPane.ERROR_MESSAGE);
 			} else {
+				btn.setText("Haz click en un equipo para ver sus jugadores");
 				list.setModel(modelo);
 				list.setVisible(true);
 			}

@@ -5,6 +5,8 @@
  */
 package clases;
 
+import interfaces.Ventana;
+
 /**
  *
  * @author pablo
@@ -12,7 +14,7 @@ package clases;
 public class Competicion extends CosaConNombre {
     private short temporada;
 
-    public Competicion(short temporada, String nombre) {
+    public Competicion(String nombre, short temporada) {
         super(nombre);
         this.temporada = temporada;
     }
@@ -28,6 +30,17 @@ public class Competicion extends CosaConNombre {
     @Override
     public String toString() {
         return "Competicion{" + "temporada=" + temporada + '}';
+    }
+    
+    
+    public static void generar() {
+    	Competicion comp = new Competicion("Senior Masculino", (short)21);
+    	Ventana.Competiciones.add(comp);
+    }
+    
+    //Constructor vacio para instancias generales
+    public Competicion() {
+    	
     }
     
 }

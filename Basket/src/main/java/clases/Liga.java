@@ -12,13 +12,12 @@ import java.util.TreeSet;
  *
  * @author pablo
  */
-public class Liga extends Competicion{
+public class Liga {
     private ArrayList<Equipo> equipos;
     private ArrayList<JornadaRonda> jornadas;
     private TreeSet<EquipoEnLiga> clasificacion;
 
     public Liga(ArrayList<Equipo> equipos, ArrayList<JornadaRonda> jornadas, short temporada, String nombre) {
-        super(temporada, nombre);
         this.equipos = equipos;
         this.jornadas = jornadas;
     }

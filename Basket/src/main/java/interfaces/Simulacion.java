@@ -6,6 +6,8 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,6 +18,7 @@ import javax.swing.JPanel;
 
 import clases.Entrenador;
 import clases.Equipo;
+import clases.EquipoEnLiga;
 import clases.Estadio;
 import clases.JornadaRonda;
 import clases.Jugador;
@@ -48,16 +51,17 @@ public class Simulacion extends JPanel {
 		Ventana.part.generarPartidos();
 		generarJornadas();
 		Ventana.jorn.simularPartidosRonda();
+		Ventana.eli.obtenerResult();
 	}
 
 	// Funcion para generar las Jornadas
 	public static void generarJornadas() {
 		int nJornadas = 0;
 		// Controlamos que los equipos sean pares para poder jugar
-		
-			Ventana.Equipos.remove(Ventana.Equipos.size() - 1);
-			nJornadas = Ventana.Equipos.size();
-		
+
+		Ventana.Equipos.remove(Ventana.Equipos.size() - 1);
+		nJornadas = Ventana.Equipos.size();
+
 		String nombre = "";
 		for (int i = 0; i < nJornadas; i++) {
 			nombre = "Jornada Nº " + (i + 1);
@@ -65,7 +69,11 @@ public class Simulacion extends JPanel {
 			j.simularPartidosRonda();
 		}
 	}
-	
+
+
+	}
+
+   
+
 	
 
-}

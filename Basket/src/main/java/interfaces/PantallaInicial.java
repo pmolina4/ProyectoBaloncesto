@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -24,6 +24,13 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Cursor;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class PantallaInicial extends JPanel {
 	// Componentes
@@ -57,16 +64,15 @@ public class PantallaInicial extends JPanel {
 		contrasenaUsuRec.setForeground(Color.DARK_GRAY);
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
 		contrasenaUsuRec.setBounds(116, 297, 207, 20);
-		contrasenaUsuRec.setBorder(roundedBorder);
+		contrasenaUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelCentral.add(contrasenaUsuRec);
 
 		nombreUsuRec = new JTextField();
 		nombreUsuRec.setForeground(Color.DARK_GRAY);
 		nombreUsuRec.setBounds(116, 241, 207, 20);
-		nombreUsuRec.setBorder(roundedBorder);
+		nombreUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelCentral.add(nombreUsuRec);
 
-	
 		JLabel lblName = new JLabel("Nombre:");
 		lblName.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblName.setForeground(new Color(241, 69, 15));
@@ -79,15 +85,35 @@ public class PantallaInicial extends JPanel {
 		lblPass.setBounds(116, 263, 103, 35);
 		panelCentral.add(lblPass);
 
+		JLabel lblNewLabel = new javax.swing.JLabel("");
+		lblNewLabel.setBounds(177, 50, 103, 96);
+
+		ImageIcon imagen = new ImageIcon(
+				"C:\\Users\\pablo\\Documents\\GitHub\\ProyectoBaloncesto\\Basket\\assets\\BasketUrban.png");
+		Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
+				Image.SCALE_DEFAULT));
+		lblNewLabel.setIcon(icono);
+
+		panelCentral.add(lblNewLabel);
+
+
+		
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(89, 177, 277, 231);
 		panelCentral.add(panel);
 		panel.setLayout(null);
 
 		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.setBackground((Color) new Color(241, 69, 15));
+		btnNewButton.setForeground(SystemColor.controlLtHighlight);
+		btnNewButton.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
 		btnNewButton.setBounds(96, 168, 84, 32);
+		btnNewButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(btnNewButton);
-		
+		btnNewButton.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
+
 		JButton btnNewButton_1 = new JButton("¿No tienes cuenta? Regístrate Aquí!");
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBounds(101, 555, 234, 35);
@@ -97,7 +123,6 @@ public class PantallaInicial extends JPanel {
 		btnNewButton_1.setOpaque(true);
 		btnNewButton_1.setBackground(new Color(0, 0, 0, 0));
 		btnNewButton_1.setBorder(null);
-
 
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
@@ -144,6 +169,8 @@ public class PantallaInicial extends JPanel {
 						JOptionPane.ERROR_MESSAGE);
 				nombreUsuRec.setText(null);
 				contrasenaUsuRec.setText(null);
+				nombreUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(241, 69, 15)));
+				contrasenaUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(241, 69, 15)));
 				return false;
 			}
 			smt.close();
@@ -154,4 +181,5 @@ public class PantallaInicial extends JPanel {
 		}
 		return true;
 	}
+
 }

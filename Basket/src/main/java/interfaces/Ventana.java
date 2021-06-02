@@ -4,8 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
+import clases.Competicion;
 import clases.Entrenador;
 import clases.Equipo;
+import clases.EquipoEnLiga;
 import clases.Estadio;
 import clases.JornadaRonda;
 import clases.Jugador;
@@ -41,6 +43,10 @@ public class Ventana extends JFrame {
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
 	public static ArrayList<Partido> Partidos = new ArrayList<>();
 	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
+    public static ArrayList<EquipoEnLiga> EquiposEnLigas = new ArrayList<>();
+    public static ArrayList<Competicion> Competiciones = new ArrayList<>();
+
+
 	//Instancias de Objetos
 	public static Entrenador ent = new Entrenador();
 	public static Equipo equi = new Equipo();
@@ -48,6 +54,8 @@ public class Ventana extends JFrame {
 	public static Partido part = new Partido();
 	public static JornadaRonda jorn = new JornadaRonda();
 	public static Usuario usu = new Usuario();
+	public static EquipoEnLiga eli = new EquipoEnLiga();
+	public static Competicion compet = new Competicion();
 
 
 	/*
