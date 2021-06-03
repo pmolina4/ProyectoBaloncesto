@@ -14,16 +14,12 @@ import java.util.stream.IntStream;
 import enumeration.mano;
 import enumeration.tipo;
 
-/**
- *
- * @author pablo
- */
+//Clase Jugador extiende de CosaConNombre
 public class Jugador extends CosaConNombre {
 
 	private String posicion;
 	private String manoDominante;
 	private byte fuerza;
-	private Contrato contrato;
 	private byte velocidad;
 	private byte inteligencia;
 	private byte tecnica;
@@ -180,12 +176,5 @@ public class Jugador extends CosaConNombre {
 		return mediaDefensa;
 	}
 
-	public String toString() {
-
-		return "Jugador" + this.getNombre() + " , posicion=" + posicion + ", manoDominante=" + manoDominante
-				+ ", fuerza=" + fuerza + ", contrato=" + contrato + ", velocidad=" + velocidad + ", inteligencia="
-				+ inteligencia + ", tecnica=" + tecnica + ", numero=" + numero + ", mediaAtaque=" + mediaAtaque
-				+ ", mediaDefensa=" + mediaDefensa + ", equipo=" + equipo + "]";
-	}
 
 }

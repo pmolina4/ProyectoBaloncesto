@@ -13,6 +13,7 @@ import clases.JornadaRonda;
 import clases.Jugador;
 import clases.Partido;
 import clases.Usuario;
+import clases.Reproductor;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -36,6 +37,8 @@ public class Ventana extends JFrame {
 	private Simulacion ViewSimulacion;
 	//Variables Auxiliar de Nombres de Equipo
 	public static ArrayList<String> equipos = new ArrayList<String>();
+    public static Reproductor player = new Reproductor();
+
 	//ArrayList de Clases
 	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
 	public static ArrayList<Entrenador> Entrenadores = new ArrayList<>();
@@ -45,6 +48,7 @@ public class Ventana extends JFrame {
 	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
     public static ArrayList<EquipoEnLiga> EquiposEnLigas = new ArrayList<>();
     public static ArrayList<Competicion> Competiciones = new ArrayList<>();
+    public static ArrayList<String> Resultados = new ArrayList<>();
 
 
 	//Instancias de Objetos

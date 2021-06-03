@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 
 import java.util.ArrayList;
@@ -12,14 +7,19 @@ import Exceptions.EmptyNameException;
 import interfaces.Ventana;
 
 /**
- *
- * @author pablo
+ * Clase Entrenador extiende de CosaConNombre
  */
 public class Entrenador extends CosaConNombre {
 	private String nacionalidad;
 	private byte calidad;
 	private String equipo;
 
+	@Override
+	public String toString() {
+		return "Entrenador [nacionalidad=" + nacionalidad + ", calidad=" + calidad + ", equipo=" + equipo + "]";
+	}
+
+	//Constructor + Getters + Setters
 	public Entrenador(String nombre, String nacionalidad, byte calidad, String equipo) {
 		super(nombre);
 		this.nacionalidad = nacionalidad;
@@ -51,7 +51,10 @@ public class Entrenador extends CosaConNombre {
 		this.equipo = equipo;
 	}
 
-	// Funcion que genera de manera automatica los entrenadores ("No Hardcored")
+	/**
+	 * Funcion que genera nombre y nacionalidad de entrenadores de manera aleatoria,
+	 * implementándolos en un ArrayList<Entrenadores>
+	 */
 	public void generarEntrenadores() {
 		String[] nombre = { "Perico Conde", "Yuseppe Pedrerol", "Julio Iglesias", "El Bicho", "Mariano Rajoy",
 				"Echenique aka RayoMcQueen", "Pablo Iglesias", "Salvador Cinta de Lomo", "Edu Chope", "Perri lol" };
@@ -69,11 +72,6 @@ public class Entrenador extends CosaConNombre {
 	// Constructor sin Parametros para crear instancia general
 	public Entrenador() {
 
-	}
-
-	@Override
-	public String toString() {
-		return "Entrenador{" + "nacionalidad=" + nacionalidad + ", calidad=" + calidad + ", equipo=" + equipo + '}';
 	}
 
 }

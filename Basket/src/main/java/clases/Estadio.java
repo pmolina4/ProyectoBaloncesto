@@ -9,14 +9,12 @@ import java.util.ArrayList;
 
 import interfaces.Ventana;
 
-/**
- *
- * @author pablo
- */
+//Clase Estadio extiende de CosaConNombre
 public class Estadio extends CosaConNombre {
 	private short dimensiones;
 	private int aforo;
 
+	//Constructor + Getters + Setters
 	public Estadio(String nombre, short dimensiones, int aforo) {
 		super(nombre);
 		this.dimensiones = dimensiones;
@@ -44,7 +42,6 @@ public class Estadio extends CosaConNombre {
 	 * correspondiente
 	 */
 	public void generarEstadios() {
-		System.out.println("--Prueba Estadios--");
 		String[] estadios = { "Pablo de Olavide", "Alfonso VIII", "Navas de Tolosa", "Parc des Princes", "Palau Areuca",
 				"Bacardi Stadium", "Estadio Nacional de Carranque", "Estadio la Palmilla", "Sabiote", "United Arena" };
 		for (int i = 0; i < Ventana.equipos.size(); i++) {
@@ -57,11 +54,5 @@ public class Estadio extends CosaConNombre {
 
 	// Constructor vacio para instancia general
 	public Estadio() {
-
-	}
-
-	@Override
-	public String toString() {
-		return "Estadio{" + "dimensiones=" + dimensiones + ", aforo=" + aforo + '}';
 	}
 }

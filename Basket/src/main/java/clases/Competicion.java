@@ -9,11 +9,12 @@ import interfaces.Ventana;
 
 /**
  *
- * @author pablo
+ * Clase Competicion - Extiende de CosaConNombre
  */
 public class Competicion extends CosaConNombre {
     private short temporada;
 
+    //Constructor + Getters + Setters
     public Competicion(String nombre, short temporada) {
         super(nombre);
         this.temporada = temporada;
@@ -27,12 +28,7 @@ public class Competicion extends CosaConNombre {
         this.temporada = temporada;
     }
 
-    @Override
-    public String toString() {
-        return "Competicion{" + "temporada=" + temporada + '}';
-    }
-    
-    
+    //Funcion para generar nuevas competiciones y agregarlas a un ArrayList<Competiciones>
     public static void generar() {
     	Competicion comp = new Competicion("Senior Masculino", (short)21);
     	Ventana.Competiciones.add(comp);

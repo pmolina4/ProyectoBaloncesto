@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import interfaces.Ventana;
 
 /**
- *
- * @author pablo
+ * Clase Equipo extiende de CosaConNombre - Clase que utilizaremos para
+ * instanciar los distintos equipos
  */
 public class Equipo extends CosaConNombre {
 	private String nacionalidad;
@@ -25,6 +25,7 @@ public class Equipo extends CosaConNombre {
 	// Variable Auxiliar
 	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
 
+	// Constructor + Getters + Setters
 	public Equipo(String nombre, String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio,
 			Entrenador entrenador) {
 		super(nombre);
@@ -57,17 +58,6 @@ public class Equipo extends CosaConNombre {
 		return jugadores;
 	}
 
-	// Funcion setJugadores, en la que introducimos los Jugadores del mismo Equipo
-	// en su Correspondiente Equipo
-	public ArrayList<Jugador> setJugadores(ArrayList<Jugador> jugadores) {
-		for (int i = 0; i < jugadores.size(); i++) {
-			if (jugadores.get(i).getEquipo().equals(this.getNombre())) {
-				jugadoresEquipo.add(jugadores.get(i));
-			}
-		}
-		return jugadoresEquipo;
-	}
-
 	public int getMediaDefensa() {
 		return mediaDefensa;
 	}
@@ -76,7 +66,12 @@ public class Equipo extends CosaConNombre {
 		return mediaAtaque;
 	}
 
-	// Obtener Media Ataque accediendo al ArrayList de Jugadores Nuevo
+	/**
+	 * SetMediaAtaque - Media ponderada de todas las medias de ataque de los
+	 * jugadores del equipo
+	 * 
+	 * @return mediaAtaque del equipo
+	 */
 	public int setMediaAtaque() {
 		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
 			mediaAtaque += jugadoresEquipo.get(i).getMediaAtaque();
@@ -85,7 +80,12 @@ public class Equipo extends CosaConNombre {
 		return mediaAtaque;
 	}
 
-	// Obtener mediaDefensa accediendo al ArrayList de Jugadores Nuevo
+	/**
+	 * SetMediaDefensa - Media ponderada de todas las medias de defensa de los
+	 * jugadores del equipo
+	 * 
+	 * @return mediaDefensa del equipo
+	 */
 	public int setMediaDefensa() {
 		for (int i = 0; i < jugadoresEquipo.size() - 1; i++) {
 			mediaDefensa += jugadoresEquipo.get(i).getMediaDefensa();
@@ -110,8 +110,10 @@ public class Equipo extends CosaConNombre {
 		this.entrenador = entrenador;
 	}
 
-	// Funcion para generar equipos, accediendo a los distintos elementos que lo
-	// componen (entrenadores, estadio...)
+	/**
+	 * Funcion para generar los equipos, accediendo a sus correspondientes elementos
+	 * (estadio, jugadores, entrenador..)
+	 */
 	public void generarEquipos() {
 		for (int i = 0; i < Ventana.equipos.size(); i++) {
 			Equipo e = new Equipo(Ventana.equipos.get(i), Ventana.Entrenadores.get(i).getNacionalidad(),
@@ -120,12 +122,25 @@ public class Equipo extends CosaConNombre {
 		}
 	}
 
+	/**
+	 * Funcion setJugadores, en la que introducimos los Jugadores del mismo Equipo
+	 * en su Correspondiente Equipo
+	 * 
+	 * @param jugadores - ArrayList de todos los Jugadores
+	 * @return jugadoresEquipo - Devolvemos un array con los jugadores insertados en
+	 *         sus equipos
+	 */
+	public ArrayList<Jugador> setJugadores(ArrayList<Jugador> jugadores) {
+		for (int i = 0; i < jugadores.size(); i++) {
+			if (jugadores.get(i).getEquipo().equals(this.getNombre())) {
+				jugadoresEquipo.add(jugadores.get(i));
+			}
+		}
+		return jugadoresEquipo;
+	}
+
 	// Constructor Vacio para Instancia General
 	public Equipo() {
 	}
 
-	@Override
-	public String toString() {
-		return "Equipo=" + this.getNombre() + "PuntosLiga" + puntosLiga;
-	}
 }

@@ -6,8 +6,8 @@
 package clases;
 
 /**
- *
- * @author pablo
+ * Clase Abstracta CosaConNombre, que utilizaremos para heredar desde otras
+ * clases
  */
 public abstract class CosaConNombre {
 	private String nombre;

@@ -6,7 +6,6 @@
 package baloncesto;
 
 import clases.Conexion;
-import clases.Consultar;
 import clases.Jugador;
 import interfaces.Ventana;
 

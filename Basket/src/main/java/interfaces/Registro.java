@@ -2,10 +2,15 @@ package interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.SystemColor;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -115,14 +120,30 @@ public class Registro extends JPanel {
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
 
 		JButton btnRegistrar = new JButton("REGISTRAR");
-		btnRegistrar.setBounds(28, 325, 85, 21);
+		btnRegistrar.setBounds(169, 325, 85, 21);
+		btnRegistrar.setBackground((Color) new Color(241, 69, 15));
+		btnRegistrar.setForeground(SystemColor.controlLtHighlight);
+		btnRegistrar.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
+		btnRegistrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(btnRegistrar);
-		btnRegistrar.setBorder(roundedBorder);
 
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(148, 325, 85, 21);
+		btnVolver.setBounds(39, 345, 85, 21);
+		btnVolver.setBackground((Color) new Color(241, 69, 15));
+		btnVolver.setForeground(SystemColor.controlLtHighlight);
+		btnVolver.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
+		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(btnVolver);
-		btnVolver.setBorder(roundedBorder);
+		
+		
+		JLabel fondo = new javax.swing.JLabel("");
+		ImageIcon imagen2 = new ImageIcon(
+				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
+		fondo.setBounds(0, 0, 450, 650);
+		panelCentral.add(fondo);
+		Icon icono3 = new ImageIcon(
+				imagen2.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
+		fondo.setIcon(icono3);
 
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
@@ -139,7 +160,7 @@ public class Registro extends JPanel {
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				//Instanciamos un usuario con los datos recogidos en el form
 				Ventana.usu.setNombre(txtNombre.getText());
 				Ventana.usu.setApellidos(txtApellidos.getText());
 				Ventana.usu.setEmail(txtEmail.getText());
@@ -227,6 +248,5 @@ public class Registro extends JPanel {
 			return false;
 		}
 		return true;
-
 	}
 }
