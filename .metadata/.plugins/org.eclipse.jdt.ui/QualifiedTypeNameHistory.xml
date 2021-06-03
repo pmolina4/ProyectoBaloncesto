@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ThreadLocalRandom"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="clases.Partido"/>
@@ -24,7 +23,6 @@
     <fullyQualifiedTypeName name="java.awt.Insets"/>
     <fullyQualifiedTypeName name="clases.TextPrompt"/>
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-    <fullyQualifiedTypeName name="java.awt.Image"/>
     <fullyQualifiedTypeName name="jdk.internal.org.jline.terminal.Cursor"/>
     <fullyQualifiedTypeName name="Exceptions.EmptyNameException"/>
     <fullyQualifiedTypeName name="Exceptions.RegExContraseñaException"/>
@@ -35,4 +33,7 @@
     <fullyQualifiedTypeName name="clases.Competicion"/>
     <fullyQualifiedTypeName name="interfaces.Ventana"/>
     <fullyQualifiedTypeName name="javax.swing.Icon"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
+    <fullyQualifiedTypeName name="java.awt.Image"/>
 </qualifiedTypeNameHistroy>
