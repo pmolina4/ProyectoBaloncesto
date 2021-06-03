@@ -71,7 +71,7 @@ public class Ventana extends JFrame {
 		
 		// Variables Iniciales
 		this.setSize(450, 650);
-		this.setTitle("Basket");
+		this.setTitle("UrbanBasket");
 		this.setResizable(false);
 		setLocationRelativeTo(null);
 		this.setVisible(true);

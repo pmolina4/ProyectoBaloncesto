@@ -65,7 +65,7 @@ public class EquipoEnLiga implements Comparable<EquipoEnLiga> {
 	
 	//Constructor vacio que usaremos para instancias generales
 	public EquipoEnLiga() {
-	}
+	}	
 }
 
 

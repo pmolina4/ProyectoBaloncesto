@@ -43,7 +43,7 @@ public class Registro extends JPanel {
 	private JTextField txtEmail;
 	private String contrasenaRec;
 
-	public Registro(Ventana v)  {
+	public Registro(Ventana v) {
 		// Instancia Ventana + Detalles Visuales
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -59,83 +59,81 @@ public class Registro extends JPanel {
 
 		panelCentral.setLayout(null);
 
+		JButton btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setBounds(244, 415, 85, 21);
+		panelCentral.add(btnRegistrar);
+		btnRegistrar.setBackground((Color) new Color(241, 69, 15));
+		btnRegistrar.setForeground(SystemColor.controlLtHighlight);
+		btnRegistrar.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
+		btnRegistrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(124, 415, 85, 21);
+		panelCentral.add(btnVolver);
+		btnVolver.setBackground((Color) new Color(241, 69, 15));
+		btnVolver.setForeground(SystemColor.controlLtHighlight);
+		btnVolver.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
+		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
 		JPanel panel = new JPanel();
-		panel.setBounds(78, 69, 303, 399);
+		panel.setBounds(73, 149, 303, 256);
 		panelCentral.add(panel);
 		panel.setLayout(null);
 
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(28, 50, 69, 25);
+		lblNombre.setBounds(28, 36, 69, 25);
 		lblNombre.setForeground(new Color(241, 69, 15));
 		lblNombre.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblNombre);
 
 		txtNombre = new JTextField();
-		txtNombre.setBounds(107, 54, 126, 19);
+		txtNombre.setBounds(128, 40, 126, 19);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		JLabel lblApellidos = new JLabel("Apellidos");
-		lblApellidos.setBounds(28, 98, 83, 37);
+		lblApellidos.setBounds(28, 71, 83, 37);
 		lblApellidos.setForeground(new Color(241, 69, 15));
 		lblApellidos.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblApellidos);
 
 		txtApellidos = new JTextField();
-		txtApellidos.setBounds(107, 108, 126, 19);
+		txtApellidos.setBounds(128, 81, 126, 19);
 		panel.add(txtApellidos);
 		txtApellidos.setColumns(10);
 
 		JLabel lblNickname = new JLabel("Nickname");
-		lblNickname.setBounds(28, 171, 69, 13);
+		lblNickname.setBounds(28, 122, 69, 13);
 		lblNickname.setForeground(new Color(241, 69, 15));
 		lblNickname.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblNickname);
 
 		txtNickname = new JTextField();
-		txtNickname.setBounds(107, 169, 126, 19);
+		txtNickname.setBounds(128, 120, 126, 19);
 		panel.add(txtNickname);
 		txtNickname.setColumns(10);
 
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setBounds(28, 228, 57, 13);
+		lblEmail.setBounds(28, 159, 57, 13);
 		lblEmail.setForeground(new Color(241, 69, 15));
 		lblEmail.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblEmail);
 
 		txtEmail = new JTextField();
-		txtEmail.setBounds(107, 226, 126, 19);
+		txtEmail.setBounds(128, 157, 126, 19);
 		panel.add(txtEmail);
 		txtEmail.setColumns(10);
 
 		JLabel lblPassword = new JLabel("Contraseña");
-		lblPassword.setBounds(28, 280, 69, 13);
+		lblPassword.setBounds(28, 195, 69, 13);
 		lblPassword.setForeground(new Color(241, 69, 15));
 		lblPassword.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
 		panel.add(lblPassword);
 
 		JPasswordField contrasenaUsuRec = new JPasswordField();
-		contrasenaUsuRec.setBounds(107, 278, 132, 20);
+		contrasenaUsuRec.setBounds(128, 193, 126, 20);
 		panel.add(contrasenaUsuRec);
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
 
-		JButton btnRegistrar = new JButton("REGISTRAR");
-		btnRegistrar.setBounds(169, 325, 85, 21);
-		btnRegistrar.setBackground((Color) new Color(241, 69, 15));
-		btnRegistrar.setForeground(SystemColor.controlLtHighlight);
-		btnRegistrar.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
-		btnRegistrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		panel.add(btnRegistrar);
-
-		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(39, 345, 85, 21);
-		btnVolver.setBackground((Color) new Color(241, 69, 15));
-		btnVolver.setForeground(SystemColor.controlLtHighlight);
-		btnVolver.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
-		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		panel.add(btnVolver);
-		
-		
 		JLabel fondo = new javax.swing.JLabel("");
 		ImageIcon imagen2 = new ImageIcon(
 				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
@@ -148,19 +146,11 @@ public class Registro extends JPanel {
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
 
-		// Funcion onClick btnVolver - Retornamos a la PantallaInicial
-		btnVolver.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ventana.showPantallaInicial();
-			}
-		});
-
 		// Funcion onClick btnRegistrar - Registrar Usuario
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//Instanciamos un usuario con los datos recogidos en el form
+				// Instanciamos un usuario con los datos recogidos en el form
 				Ventana.usu.setNombre(txtNombre.getText());
 				Ventana.usu.setApellidos(txtApellidos.getText());
 				Ventana.usu.setEmail(txtEmail.getText());
@@ -205,6 +195,15 @@ public class Registro extends JPanel {
 				contrasenaUsuRec.setText(" ");
 			}
 		});
+
+		// Funcion onClick btnVolver - Retornamos a la PantallaInicial
+		btnVolver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.showPantallaInicial();
+			}
+		});
+
 	}
 
 	// Funcion para comprobar que ni el email ni el nickname existan en la BDD

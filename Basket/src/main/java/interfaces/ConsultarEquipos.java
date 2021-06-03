@@ -66,7 +66,7 @@ public class ConsultarEquipos extends JPanel {
 		panel.setLayout(null);
 
 		JButton btnShowSimulacion = new JButton("SIMULAR");
-		btnShowSimulacion.setBounds(169, 573, 104, 35);
+		btnShowSimulacion.setBounds(169, 571, 103, 35);
 		btnShowSimulacion.setBackground((Color) new Color(240, 240, 240));
 		btnShowSimulacion.setForeground((Color) new Color(241, 69, 15));
 		btnShowSimulacion.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
@@ -169,7 +169,7 @@ public class ConsultarEquipos extends JPanel {
 		panel_jugadores.add(lblEstadio);
 
 		JLabel lblEstadios = new JLabel("");
-		lblEstadios.setBounds(216, 245, 144, 77);
+		lblEstadios.setBounds(223, 245, 144, 77);
 		lblEstadios.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblEstadios.setForeground(new Color(241, 69, 15));
 		panel_jugadores.add(lblEstadios);
@@ -193,6 +193,8 @@ public class ConsultarEquipos extends JPanel {
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(ventana, "Haz doble click en el equipo, y despues, en un jugador para ver sus stats!",
+						"UrbanBasket", JOptionPane.PLAIN_MESSAGE);
 				fillJList(list, comboBoxTemporadas, comboBoxLigas, btnNewButton_1);
 				btnBuscar.setEnabled(false);
 			}
@@ -203,8 +205,6 @@ public class ConsultarEquipos extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
-					JOptionPane.showMessageDialog(ventana, "Haz doble click en el jugador para ver sus stats!",
-							"UrbanBasket", JOptionPane.PLAIN_MESSAGE);
 					panel_jugadores.setVisible(true);
 					showJugadores(text_jugadores, (String) list.getSelectedValue(), lblEntrenador, lblEstadios);
 					text_jugadores.setVisible(true);
@@ -298,6 +298,7 @@ public class ConsultarEquipos extends JPanel {
 	public static void showJugadores(JList list, String valor, JLabel lbl, JLabel lbl2) {
 		DefaultListModel modelo = new DefaultListModel();
 		String aux = "";
+
 		try {
 			Connection conexion = DriverManager.getConnection(
 					"jdbc:mysql://localhost/basket?useUnicode=true&useJDBCcompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
@@ -313,12 +314,12 @@ public class ConsultarEquipos extends JPanel {
 			Ventana.estad.generarEstadios();
 			Ventana.equi.generarEquipos();
 			lbl.setText("<html> Nombre: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getNombre()
-					+ "<br> Nacionalidad:" + Ventana.Entrenadores.get(buscarEntrenador(valor)).getNacionalidad()
-					+ "<br> Calidad:" + Ventana.Entrenadores.get(buscarEntrenador(valor)).getCalidad() + "</html>");
+					+ "<br> Nacionalidad: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getNacionalidad()
+					+ "<br> Calidad: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getCalidad() + "/100</html>");
 			lbl2.setText(
 					"<html>" + Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getNombre() + "<br> Dimensiones: "
-							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getDimensiones() + "<br> Aforo: "
-							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getDimensiones() + "</html>");
+							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getAforo() + "m3 <br> Aforo: "
+							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getDimensiones() + " personas</html>");
 			list.setModel(modelo);
 			smt.close();
 			conexion.close();
