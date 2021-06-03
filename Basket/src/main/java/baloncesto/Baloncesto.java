@@ -5,8 +5,6 @@
  */
 package baloncesto;
 
-import clases.Conexion;
-import clases.Jugador;
 import interfaces.Ventana;
 
 /**
@@ -19,10 +17,8 @@ public class Baloncesto {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
+		// Instancia de Ventana
 		Ventana v = new Ventana();
-
-		
-		
 	}
-	
+
 }

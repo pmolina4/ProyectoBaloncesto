@@ -57,7 +57,6 @@ public class JornadaRonda extends CosaConNombre {
 				rvis = (int)(rnd.nextDouble() *  getPartidos().size() + 0);
 				if(rloc==rvis || Ventana.Resultados.contains(local) ) {
 					rloc=(int)(rnd.nextDouble() *  getPartidos().size() + 0);
-					System.out.println("a");
 				}
 				// Obtenemos datos del Partido en Cuestion
 				local = getPartidos().get(rloc).getLocal().getNombre();

@@ -14,7 +14,9 @@ import java.util.stream.IntStream;
 import enumeration.mano;
 import enumeration.tipo;
 
-//Clase Jugador extiende de CosaConNombre
+/*
+ * Clase Jugador extiende de CosaConNombre
+ */
 public class Jugador extends CosaConNombre {
 
 	private String posicion;

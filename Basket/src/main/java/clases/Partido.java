@@ -13,9 +13,8 @@ import java.util.Random;
 
 import interfaces.Ventana;
 
-/**
- *
- * @author pablo
+/*
+ * Clase Partido
  */
 public class Partido {
 	private Equipo local;
@@ -24,6 +23,7 @@ public class Partido {
 	private short puntosVisitante;
 	private Date fecha;
 
+	// Constructor + Getters + Setters
 	public Partido(Equipo local, Equipo visitante, short puntosLocal, short puntosVisitante, Date fecha) {
 		this.local = local;
 		this.visitante = visitante;
@@ -43,8 +43,6 @@ public class Partido {
 	public Equipo getVisitante() {
 		return visitante;
 	}
-
-
 
 	public void setVisitante(Equipo visitante) {
 		this.visitante = visitante;
@@ -74,10 +72,10 @@ public class Partido {
 		this.fecha = fecha;
 	}
 
-	// Funcion para generar los partidos
+	/*
+	 * Funcion para generarPartidos()
+	 */
 	public static void generarPartidos() {
-		// FUNCION AUX QUE UTILIZAREMOS PARA DESORDENAR EL ARRAY
-		// public static ArrayList desordenarArrList();
 
 		ArrayList<Equipo> local = new ArrayList<>(), visitante = new ArrayList<>();
 		// Comprobamos cual serán los locales y los visitantes
@@ -88,7 +86,7 @@ public class Partido {
 				visitante.add(Ventana.Equipos.get(i));
 			}
 		}
-
+		// Instancias de Partidos e implementacion en ArrayList<Partidos>
 		for (int x = 0; x < (Ventana.Equipos.size() - 1) / 2; x++) {
 			Partido p = new Partido(local.get(x), visitante.get(x),
 					(short) jugarPartido(local.get(x), visitante.get(x), false),
@@ -97,7 +95,11 @@ public class Partido {
 		}
 	}
 
-	// Funcion que genera fechas aleatorias
+	/*
+	 * Funcion para generar fechas de partidos aleatorios
+	 * 
+	 * @return d - Fecha Aleatorio
+	 */
 	public static Date getRandomDate() {
 		Random rand = new Random();
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -110,6 +112,11 @@ public class Partido {
 		return d;
 	}
 
+	/*
+	 * Funcion que simula los partidos, y comprueba el ganador
+	 * 
+	 * @return puntos - Los puntos del equipoLocal/visitante
+	 */
 	public static int jugarPartido(Equipo local, Equipo visit, Boolean equipoLocal) {
 		int posibilidadCanasta = 0, lanzamientosCanastaLocal = 0, lanzamientosCanastaVisitante = 0, puntosLocal = 0,
 				puntosVisitante = 0;
@@ -137,9 +144,12 @@ public class Partido {
 		}
 	}
 
-	// Función que calculara los tipos de canasta que han metido (nada, tiro libre,
-	// dobles o triples) en funcion
-	// de los lanzamientos, y por tanto, devolverá los puntos obtenidos
+	/*
+	 * Función que calculara los tipos de canasta que han metido (nada, tiro libre,
+	 * dobles o triples) en funcion de los lanzamientos, y por tanto, devolverá los
+	 * puntos obtenidos
+	 * @return puntos - Puntos obtenidos por cada equipo
+	 */
 	public static int calcularPuntos(int lanzamientos) {
 		// De 0-2, no mete, de 3-6 un punto, de 7 a 10 dos puntos, 10 a 11, triple
 		int probabilidad = 0, puntos = 0;
@@ -162,12 +172,6 @@ public class Partido {
 	// Constructor vacio para instancia general
 	public Partido() {
 
-	}
-
-	@Override
-	public String toString() {
-		return "Partido{" + "local=" + local + ", visitante=" + visitante + ", puntosLocal=" + puntosLocal
-				+ ", puntosVisitante=" + puntosVisitante + ", fecha=" + fecha + '}';
 	}
 
 }

@@ -30,28 +30,25 @@ import java.awt.FlowLayout;
 
 public class Ventana extends JFrame {
 
-	// Vistas (Pantallas)
+	// Vistas
 	private Registro ViewRegistro;
 	private PantallaInicial ViewPantallaInicial;
 	private ConsultarEquipos ViewConsultarEquipos;
 	private Simulacion ViewSimulacion;
-	//Variables Auxiliar de Nombres de Equipo
+	// Variables Auxiliar
 	public static ArrayList<String> equipos = new ArrayList<String>();
-    public static Reproductor player = new Reproductor();
-
-	//ArrayList de Clases
+	public static Reproductor player = new Reproductor();
+	// ArrayList de Clases
 	public static ArrayList<Jugador> Jugadores = new ArrayList<>();
 	public static ArrayList<Entrenador> Entrenadores = new ArrayList<>();
 	public static ArrayList<Estadio> Estadios = new ArrayList<>();
 	public static ArrayList<Equipo> Equipos = new ArrayList<>();
 	public static ArrayList<Partido> Partidos = new ArrayList<>();
 	public static ArrayList<JornadaRonda> Jornadas = new ArrayList<>();
-    public static ArrayList<EquipoEnLiga> EquiposEnLigas = new ArrayList<>();
-    public static ArrayList<Competicion> Competiciones = new ArrayList<>();
-    public static ArrayList<String> Resultados = new ArrayList<>();
-
-
-	//Instancias de Objetos
+	public static ArrayList<EquipoEnLiga> EquiposEnLigas = new ArrayList<>();
+	public static ArrayList<Competicion> Competiciones = new ArrayList<>();
+	public static ArrayList<String> Resultados = new ArrayList<>();
+	// Instancias de Objetos
 	public static Entrenador ent = new Entrenador();
 	public static Equipo equi = new Equipo();
 	public static Estadio estad = new Estadio();
@@ -61,14 +58,7 @@ public class Ventana extends JFrame {
 	public static EquipoEnLiga eli = new EquipoEnLiga();
 	public static Competicion compet = new Competicion();
 
-
-	/*
-	 * Crear ArrayList de Entrenador, y mediante una funcion en la view, recorremos el array list de equipos
-	 * y a su vez vamos instanciando entrenadores y lo introducimos en la BDD
-	 */
-	
 	public Ventana() {
-		
 		// Variables Iniciales
 		this.setSize(450, 650);
 		this.setTitle("UrbanBasket");
@@ -82,8 +72,9 @@ public class Ventana extends JFrame {
 		this.setVisible(true);
 	}
 
-
-	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
+	/*
+	 * Funcion para mostrar la vista Registro
+	 */
 	public void showRegistrar() {
 		if (this.ViewRegistro == null) {
 			this.ViewRegistro = new Registro(this);
@@ -95,7 +86,9 @@ public class Ventana extends JFrame {
 		this.ViewRegistro.setVisible(true);
 	}
 
-	// Función para mostrar ventana ConsultarEquipos desde PantallaInicial
+	/*
+	 * Funcion para mostrar la vista ConsultarEquipos
+	 */
 	public void showConsultarEquipos() {
 		if (this.ViewConsultarEquipos == null) {
 			this.ViewConsultarEquipos = new ConsultarEquipos(this);
@@ -106,8 +99,10 @@ public class Ventana extends JFrame {
 		this.setContentPane(this.ViewConsultarEquipos);
 		this.ViewConsultarEquipos.setVisible(true);
 	}
-	
-	// Función para mostrar ventanaInicial desde Registro
+
+	/*
+	 * Funcion para mostrar la vista PantallaInicial
+	 */
 	public void showPantallaInicial() {
 		if (this.ViewPantallaInicial == null) {
 			this.ViewPantallaInicial = new PantallaInicial(this);
@@ -118,8 +113,10 @@ public class Ventana extends JFrame {
 		this.setContentPane(this.ViewPantallaInicial);
 		this.ViewPantallaInicial.setVisible(true);
 	}
-	
-	// Función para mostrar ventana Simulacion desde ConsultarEquipo
+
+	/*
+	 * Funcion para mostrar la vista Simulacion
+	 */
 	public void showSimulacion() {
 		if (this.ViewSimulacion == null) {
 			this.ViewSimulacion = new Simulacion(this);

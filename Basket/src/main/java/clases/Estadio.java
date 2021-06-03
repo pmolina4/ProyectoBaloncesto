@@ -9,7 +9,9 @@ import java.util.ArrayList;
 
 import interfaces.Ventana;
 
-//Clase Estadio extiende de CosaConNombre
+/*
+ * Clase Estadio extiende de CosaConNombre
+ */
 public class Estadio extends CosaConNombre {
 	private short dimensiones;
 	private int aforo;

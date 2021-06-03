@@ -52,19 +52,16 @@ public class ConsultarEquipos extends JPanel {
 		panel_jugadores.setLayout(null);
 		panel_jugadores.setVisible(false);
 		panel_jugadores.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.desktop));
-
 		JPanel panelCentral = new JPanel();
 		panelCentral.setBackground(new Color(241, 69, 15));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
-
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(240, 240, 240));
 		panel.setBounds(10, 37, 406, 163);
 		panelCentral.add(panel);
 		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.desktop));
 		panel.setLayout(null);
-
 		JButton btnShowSimulacion = new JButton("SIMULAR");
 		btnShowSimulacion.setBounds(169, 571, 103, 35);
 		btnShowSimulacion.setBackground((Color) new Color(240, 240, 240));
@@ -73,7 +70,6 @@ public class ConsultarEquipos extends JPanel {
 		btnShowSimulacion.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnShowSimulacion.setVisible(false);
 		panelCentral.add(btnShowSimulacion);
-
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBounds(130, 106, 97, 31);
 		btnBuscar.setBackground((Color) new Color(241, 69, 15));
@@ -81,37 +77,31 @@ public class ConsultarEquipos extends JPanel {
 		btnBuscar.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
 		btnBuscar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel.add(btnBuscar);
-
 		JLabel textoLigas = new JLabel("Ligas");
 		textoLigas.setBounds(10, 10, 58, 39);
 		textoLigas.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		textoLigas.setForeground(new Color(241, 69, 15));
 		panel.add(textoLigas);
-
 		JLabel textoTemporadas = new JLabel("Temporadas");
 		textoTemporadas.setBounds(10, 50, 102, 46);
 		textoTemporadas.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		textoTemporadas.setForeground(new Color(241, 69, 15));
 		panel.add(textoTemporadas);
-
 		JLabel btnNewButton_1 = new JLabel("");
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBounds(97, 10, 234, 35);
 		panelCentral.add(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 10));
-
 		JLabel lblStats = new JLabel("Estadisticas");
 		lblStats.setBounds(244, 0, 100, 41);
 		lblStats.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblStats.setForeground(SystemColor.desktop);
 		panel_jugadores.add(lblStats);
-
 		JLabel lblJugadores = new JLabel("Jugadores");
 		lblJugadores.setBounds(38, 6, 116, 28);
 		lblJugadores.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblJugadores.setForeground(SystemColor.desktop);
 		panel_jugadores.add(lblJugadores);
-
 		JComboBox<String> comboBoxLigas = new JComboBox<String>();
 		comboBoxLigas.setBounds(91, 19, 173, 21);
 		panel.add(comboBoxLigas);
@@ -124,7 +114,6 @@ public class ConsultarEquipos extends JPanel {
 		comboBoxTemporadas.addItem("-- Selecciona una Temporada --");
 		comboBoxTemporadas.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		comboBoxTemporadas.setForeground(new Color(241, 69, 15));
-
 		JList<String> list = new JList<String>();
 		list.setBackground(new Color(240, 240, 240));
 		list.setBounds(284, 10, 112, 143);
@@ -134,7 +123,6 @@ public class ConsultarEquipos extends JPanel {
 		text_jugadores.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		text_jugadores.setForeground(new Color(241, 69, 15));
 		text_jugadores.setBackground(new Color(240, 240, 240));
-
 		text_jugadores.setBounds(10, 44, 143, 167);
 		panel_jugadores.add(text_jugadores);
 		JList<String> estadisticas_jugadores = new JList<String>();
@@ -144,36 +132,29 @@ public class ConsultarEquipos extends JPanel {
 		estadisticas_jugadores.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		estadisticas_jugadores.setForeground(new Color(241, 69, 15));
 		estadisticas_jugadores.setVisible(false);
-
 		panel_jugadores.add(estadisticas_jugadores);
 		text_jugadores.setVisible(false);
 		panelCentral.add(panel_jugadores);
-
 		JLabel lblEntrenador = new JLabel("");
 		lblEntrenador.setBounds(10, 245, 144, 77);
 		lblEntrenador.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblEntrenador.setForeground(new Color(241, 69, 15));
-
 		panel_jugadores.add(lblEntrenador);
-
 		JLabel lblEntrenadores = new JLabel("Entrenador");
 		lblEntrenadores.setForeground(Color.BLACK);
 		lblEntrenadores.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblEntrenadores.setBounds(38, 221, 116, 28);
 		panel_jugadores.add(lblEntrenadores);
-
 		JLabel lblEstadio = new JLabel("Estadio:");
 		lblEstadio.setForeground(Color.BLACK);
 		lblEstadio.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblEstadio.setBounds(244, 221, 116, 28);
 		panel_jugadores.add(lblEstadio);
-
 		JLabel lblEstadios = new JLabel("");
 		lblEstadios.setBounds(223, 245, 144, 77);
 		lblEstadios.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblEstadios.setForeground(new Color(241, 69, 15));
 		panel_jugadores.add(lblEstadios);
-		
 		JLabel fondo = new javax.swing.JLabel("");
 		ImageIcon imagen2 = new ImageIcon(
 				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
@@ -189,22 +170,29 @@ public class ConsultarEquipos extends JPanel {
 		// Rellenamos los JCombo de Temporadas y Ligas
 		fillComboBox(comboBoxTemporadas, comboBoxLigas);
 
-		// Funcion OnClick BUSCAR - Muestra la lista de Temporadas y Liga
+		/*
+		 * Funcion onClick - Buscar
+		 */
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(ventana, "Haz doble click en el equipo, y despues, en un jugador para ver sus stats!",
-						"UrbanBasket", JOptionPane.PLAIN_MESSAGE);
+				// Mostramos la lista de jugadores del equipo seleccionado, entrenador y estadio
+				JOptionPane.showMessageDialog(ventana,
+						"Haz doble click en el equipo, y despues, en un jugador para ver sus stats!", "UrbanBasket",
+						JOptionPane.PLAIN_MESSAGE);
 				fillJList(list, comboBoxTemporadas, comboBoxLigas, btnNewButton_1);
 				btnBuscar.setEnabled(false);
 			}
 		});
 
-		// Funcion DoubleClick LISTA EQUIPOS - Muestra la lista de Jugadores del Equipo
+		/*
+		 * Funcion DoubleClick listaEquipos
+		 */
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
+					// Mostramos tentrenador y estadios del equipo seleccionado
 					panel_jugadores.setVisible(true);
 					showJugadores(text_jugadores, (String) list.getSelectedValue(), lblEntrenador, lblEstadios);
 					text_jugadores.setVisible(true);
@@ -214,12 +202,15 @@ public class ConsultarEquipos extends JPanel {
 			}
 		});
 
-		// Funcion DoubleClick LISTA STATS JUGADORES - Muestra las Estadisticas del
-		// Jugador Seleccionado
+		/*
+		 * Funcion DoubleClick stats
+		 * 
+		 */
 		text_jugadores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
+					//Mostramos todas las estdisticas del jugador seleccionado
 					String jugadorSelec = (String) text_jugadores.getSelectedValue();
 					String jugadorSelecSpl = jugadorSelec.replaceAll("[|:|0|1|2|3|4|5|6|7|8|9]", "").substring(2);
 					showStats(estadisticas_jugadores, jugadorSelecSpl, btnShowSimulacion);
@@ -227,16 +218,21 @@ public class ConsultarEquipos extends JPanel {
 			}
 		});
 
-		// Funcion onClick SIMULAR - Abre la ventana de Simulacion de Partidos
+		/*
+		 * Funcion onClick Simular 
+		 */
 		btnShowSimulacion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//Mostramos la vista simular
 				v.showSimulacion();
 			}
 		});
 	}
 
-	// Función para Rellenar ComboBox de Ligas y Temporadas
+	/*
+	 * Funcion para rellenar ComboBox de Ligas y Temporadas
+	 */
 	public void fillComboBox(JComboBox comboBoxLigas, JComboBox comboBoxTemporadas) {
 		try {
 			Connection conexion = DriverManager.getConnection(
@@ -253,14 +249,14 @@ public class ConsultarEquipos extends JPanel {
 			}
 			smt.close();
 			conexion.close();
-
-			// Lanzamos Error y Seteamos los campos a vacio
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	// Función para Rellenar JList de Equipos
+	/*
+	 * Funcion para rellenar JList de Equipos
+	 */
 	public void fillJList(JList list, JComboBox comboBoxLigas, JComboBox comboBoxTemporadas, JLabel btn) {
 		int iter = 0;
 		liga = (String) comboBoxLigas.getSelectedItem();
@@ -294,7 +290,9 @@ public class ConsultarEquipos extends JPanel {
 		}
 	}
 
-	// Funcion que devuelve la lista de Jugadores de un Equipo
+	/*
+	 * Funcion Auxiliar que devuelve la lista de jugadores de un equipo
+	 */
 	public static void showJugadores(JList list, String valor, JLabel lbl, JLabel lbl2) {
 		DefaultListModel modelo = new DefaultListModel();
 		String aux = "";
@@ -315,11 +313,12 @@ public class ConsultarEquipos extends JPanel {
 			Ventana.equi.generarEquipos();
 			lbl.setText("<html> Nombre: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getNombre()
 					+ "<br> Nacionalidad: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getNacionalidad()
-					+ "<br> Calidad: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getCalidad() + "/100</html>");
-			lbl2.setText(
-					"<html>" + Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getNombre() + "<br> Dimensiones: "
-							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getAforo() + "m3 <br> Aforo: "
-							+ Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getDimensiones() + " personas</html>");
+					+ "<br> Calidad: " + Ventana.Entrenadores.get(buscarEntrenador(valor)).getCalidad()
+					+ "/100</html>");
+			lbl2.setText("<html>" + Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getNombre()
+					+ "<br> Dimensiones: " + Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getAforo()
+					+ "m3 <br> Aforo: " + Ventana.Equipos.get(buscarEstadio(valor)).getEstadio().getDimensiones()
+					+ " personas</html>");
 			list.setModel(modelo);
 			smt.close();
 			conexion.close();
@@ -365,7 +364,9 @@ public class ConsultarEquipos extends JPanel {
 		return index;
 	}
 
-	// Funcion para Mostrar las Stats de los Jugadores y Guardarlos en un ArrayList
+	/*
+	 * Funcion que muestra las stats de un jugador y las almacena en un arrayList 
+	 */
 	public void showStats(JList list, String valor, JButton btn) {
 		DefaultListModel modelo = new DefaultListModel();
 		try {

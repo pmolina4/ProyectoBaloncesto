@@ -19,53 +19,49 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
 
-/**
- *
- * @author whysxpvrrv
+/*
+ * Funcion Reproductor 
+ * Unicamente utilizada para generar sonidos en funcion de la interaccion del usuario con los distintos elementos dela vista
  */
 public class Reproductor {
 
-    public void play(String ruta) {
-        
-        final File file = new File(ruta);
+	public void play(String ruta) {
 
-        try (final AudioInputStream in = getAudioInputStream(file)) {
+		final File file = new File(ruta);
 
-            final AudioFormat outFormat = getOutFormat(in.getFormat());
-            final Info info = new Info(SourceDataLine.class, outFormat);
+		try (final AudioInputStream in = getAudioInputStream(file)) {
 
-            try (final SourceDataLine line
-                    = (SourceDataLine) AudioSystem.getLine(info)) {
+			final AudioFormat outFormat = getOutFormat(in.getFormat());
+			final Info info = new Info(SourceDataLine.class, outFormat);
 
-                if (line != null) {
-                    line.open(outFormat);
-                    line.start();
-                    stream(getAudioInputStream(outFormat, in), line);
-                    line.drain();
-                    line.stop();
-                }
-            }
+			try (final SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info)) {
 
-        } catch (UnsupportedAudioFileException
-                | LineUnavailableException
-                | IOException e) {
-            throw new IllegalStateException(e);
-        }
-    }
+				if (line != null) {
+					line.open(outFormat);
+					line.start();
+					stream(getAudioInputStream(outFormat, in), line);
+					line.drain();
+					line.stop();
+				}
+			}
 
-    private AudioFormat getOutFormat(AudioFormat inFormat) {
-        final int ch = inFormat.getChannels();
+		} catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+			throw new IllegalStateException(e);
+		}
+	}
 
-        final float rate = inFormat.getSampleRate();
-        return new AudioFormat(PCM_SIGNED, rate, 16, ch, ch * 2, rate, false);
-    }
+	private AudioFormat getOutFormat(AudioFormat inFormat) {
+		final int ch = inFormat.getChannels();
 
-    private void stream(AudioInputStream in, SourceDataLine line)
-            throws IOException {
-        final byte[] buffer = new byte[4096];
-        for (int n = 0; n != -1; n = in.read(buffer, 0, buffer.length)) {
-            line.write(buffer, 0, n);
-        }
-    }
+		final float rate = inFormat.getSampleRate();
+		return new AudioFormat(PCM_SIGNED, rate, 16, ch, ch * 2, rate, false);
+	}
+
+	private void stream(AudioInputStream in, SourceDataLine line) throws IOException {
+		final byte[] buffer = new byte[4096];
+		for (int n = 0; n != -1; n = in.read(buffer, 0, buffer.length)) {
+			line.write(buffer, 0, n);
+		}
+	}
 
 }

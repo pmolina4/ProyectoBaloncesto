@@ -213,6 +213,7 @@ public class Simulacion extends JPanel {
 		});
 	}
 
+	//
 	/*
 	 * Funcion para generar de manera automatica las rondas
 	 */

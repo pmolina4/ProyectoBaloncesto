@@ -57,7 +57,7 @@ public class Entrenador extends CosaConNombre {
 	 */
 	public void generarEntrenadores() {
 		String[] nombre = { "Perico Conde", "Yuseppe Pedrerol", "Julio Iglesias", "El Bicho", "Mariano Rajoy",
-				"Echenique aka RayoMcQueen", "Pablo Iglesias", "Salvador Cinta de Lomo", "Edu Chope", "Perri lol" };
+				"Echenique aka RayoMcQueen", "Pablo Iglesias", "Fernando Cinta de Lomo", "Edu Chope", "Perri lol" };
 		String[] nacionalidades = { "Español", "Africano", "Americano", "Aleman", "Frances", "Ruso", "Belga",
 				"Brasileño", "Neocelandes", "Noruego" };
 

@@ -146,7 +146,7 @@ public class Registro extends JPanel {
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
 
-		// Funcion onClick btnRegistrar - Registrar Usuario
+		// Funcion onClick - Registrar Usuario
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -186,7 +186,9 @@ public class Registro extends JPanel {
 				}
 			}
 
-			// Función para limpiar los campos del formulario
+			/*
+			 * Funcion para limpiar los campos del formulario
+			 */
 			public void clearForm() {
 				txtNombre.setText(" ");
 				txtApellidos.setText(" ");
@@ -196,7 +198,7 @@ public class Registro extends JPanel {
 			}
 		});
 
-		// Funcion onClick btnVolver - Retornamos a la PantallaInicial
+		// Funcion onClick - Volver al Login
 		btnVolver.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -206,7 +208,10 @@ public class Registro extends JPanel {
 
 	}
 
-	// Funcion para comprobar que ni el email ni el nickname existan en la BDD
+	/*
+	 * Funcion para comprobar que los datos recogidos no se han registrado con
+	 * anterioridad en la BDD. Devuelve true en caso de que no existan-
+	 */
 	public boolean checkUser() {
 		try {
 			Connection conexion = DriverManager.getConnection(
@@ -230,7 +235,9 @@ public class Registro extends JPanel {
 		return true;
 	}
 
-	// Funcion para crear un usuario en la BDD
+	/*
+	 * Funcion para crear un usuario en la BDD. Devuelve true si se ha creado con exito.
+	 */
 	public boolean createUser() {
 		try {
 			Connection conexion = DriverManager.getConnection(

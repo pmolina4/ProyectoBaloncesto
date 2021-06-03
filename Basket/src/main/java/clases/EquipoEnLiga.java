@@ -4,7 +4,9 @@ import java.util.Collections;
 
 import interfaces.Ventana;
 
-//Clase EquipoEnLiga con Poliformismo Usando un Comparable<EquipoEnLiga>
+/*
+ * Clase EquipoEnLiga con Poliformismo Usando un Comparable<EquipoEnLiga>
+ */
 public class EquipoEnLiga implements Comparable<EquipoEnLiga> {
 	private Equipo equipo;
 	private byte puntos;

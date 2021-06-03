@@ -54,13 +54,10 @@ public class PantallaInicial extends JPanel {
 		panelCentral.setBackground(new Color(241, 69, 15));
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
-
 		ImageIcon imagen = new ImageIcon(
 				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/ic.png");
-
 		ImageIcon imagen2 = new ImageIcon(
 				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
-
 		JButton btnNewButton_1 = new JButton("¿No tienes cuenta? Regístrate Aquí!");
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBounds(102, 534, 234, 35);
@@ -69,46 +66,33 @@ public class PantallaInicial extends JPanel {
 		btnNewButton_1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setBackground(new Color(0, 0, 0, 0));
 		btnNewButton_1.setBorder(null);
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ventana.showRegistrar();
-			}
-		});
-
 		JLabel lblNewLabel = new javax.swing.JLabel("");
 		lblNewLabel.setBounds(146, 96, 161, 128);
 		Icon icono2 = new ImageIcon(imagen.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
 				Image.SCALE_DEFAULT));
 		lblNewLabel.setIcon(icono2);
-
 		panelCentral.add(lblNewLabel);
-
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBounds(89, 234, 269, 189);
 		panelCentral.add(panel);
 		panel.setLayout(null);
-
 		nombreUsuRec = new JTextField();
 		nombreUsuRec.setBounds(27, 35, 207, 20);
 		panel.add(nombreUsuRec);
 		nombreUsuRec.setForeground(Color.DARK_GRAY);
 		nombreUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-
 		JLabel lblPass = new JLabel("Contraseña:");
 		lblPass.setBounds(27, 52, 103, 35);
 		panel.add(lblPass);
 		lblPass.setForeground(new Color(241, 69, 15));
 		lblPass.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
-
 		contrasenaUsuRec = new JPasswordField();
 		contrasenaUsuRec.setBounds(27, 86, 207, 20);
 		panel.add(contrasenaUsuRec);
 		contrasenaUsuRec.setForeground(Color.DARK_GRAY);
 		((JPasswordField) contrasenaUsuRec).setEchoChar('*');
 		contrasenaUsuRec.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-
 		JButton btnNewButton = new JButton("LOGIN");
 		btnNewButton.setBounds(27, 129, 207, 32);
 		panel.add(btnNewButton);
@@ -117,25 +101,11 @@ public class PantallaInicial extends JPanel {
 		btnNewButton.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 10));
 		btnNewButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorder(new EmptyBorder(0, 0, 0, 0));
-
 		JLabel lblName = new JLabel("Nombre:");
 		lblName.setBounds(27, 0, 103, 35);
 		panel.add(lblName);
 		lblName.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 13));
 		lblName.setForeground(new Color(241, 69, 15));
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// Recuperamos los campos de Login
-				nombreUsu = nombreUsuRec.getText();
-				contrasenaUsu = contrasenaUsuRec.getText();
-				// Comprobamos en BDD
-				if (comp()) {
-					ventana.showConsultarEquipos();
-				}
-			}
-		});
-
 		JLabel fondo = new javax.swing.JLabel("");
 		fondo.setBounds(0, 0, 450, 650);
 		panelCentral.add(fondo);
@@ -146,6 +116,31 @@ public class PantallaInicial extends JPanel {
 		// -------------------------------- FIN COMPONENTES J
 		// -------------------------------------
 
+		/*
+		 * Funcion onClick - Login
+		 */
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Recuperamos los campos de Login
+				nombreUsu = nombreUsuRec.getText();
+				contrasenaUsu = contrasenaUsuRec.getText();
+				// En caso de que no exista en la BDD, mostramos la siguiente ventana
+				if (comp()) {
+					ventana.showConsultarEquipos();
+				}
+			}
+		});
+
+		/*
+		 * Funcion onClick - Registrar
+		 */
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.showRegistrar();
+			}
+		});
 	}
 
 	/**
@@ -181,6 +176,7 @@ public class PantallaInicial extends JPanel {
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(ventana, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
+		//En caso de que exista, lanzamos un sonido
 		Ventana.player
 				.play("C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/sonidos/correcto.wav");
 		return true;

@@ -36,7 +36,7 @@ public class Competicion extends CosaConNombre {
     
     //Constructor vacio para instancias generales
     public Competicion() {
-    	
+
     }
     
 }
