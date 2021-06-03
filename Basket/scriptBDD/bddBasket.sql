@@ -55,6 +55,8 @@ CREATE TABLE `jugador` (
   `inteligencia` int NOT NULL,
   `tecnica` int NOT NULL,
   `numero` int NOT NULL,
+  `mediaAtaque` int DEFAULT NULL,
+  `mediaDefensa` int DEFAULT NULL,
   `equipo` varchar(45) NOT NULL,
   PRIMARY KEY (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -66,7 +68,7 @@ CREATE TABLE `jugador` (
 
 LOCK TABLES `jugador` WRITE;
 /*!40000 ALTER TABLE `jugador` DISABLE KEYS */;
-INSERT INTO `jugador` VALUES ('Alvaro Lopez','Alapivot','Zurdo',83,74,98,78,7,'Baskonia'),('Ander Heredia','Alapivot','Diestro',88,75,94,99,18,'Baskonia'),('Antonio Miranda','Alapivot','Diestro',67,82,82,82,9,'Baskonia'),('Antonio Torres','Alapivot','Zurdo',67,68,80,71,5,'Baskonia'),('Benito Kimpembe','Alapivot','Zurdo',97,85,99,71,10,'Baskonia'),('Cristiano Smith','Alapivot','Zurdo',95,97,97,67,4,'Baskonia'),('Davies Johnson','Alapivot','Zurdo',69,87,97,93,9,'Barcelona'),('Eduardo Wilson','Alapivot','Zurdo',66,84,83,72,12,'Barcelona'),('Eugenio Adams','Alapivot','Diestro',92,82,73,89,11,'Barcelona'),('Fernando Gonzalez','Alapivot','Zurdo',75,68,87,77,13,'Barcelona'),('Johan Parra','Alapivot','Zurdo',75,93,77,99,19,'Barcelona'),('John Salazar','Alapivot','Diestro',87,69,93,75,7,'Barcelona'),('José Curry','Alapivot','Diestro',95,68,97,83,6,'Betis'),('Jose Manuel Green','Alapivot','Diestro',75,93,97,88,5,'Betis'),('Joselito Perez','Alapivot','Diestro',85,90,96,79,6,'Betis'),('Juampi Maroto','Alapivot','Zurdo',91,72,80,96,12,'Betis'),('Juan Cortes','Alapivot','Zurdo',70,66,66,79,10,'Betis'),('Lebron Martin','Alapivot','Diestro',75,89,67,97,10,'Betis'),('Makelele William','Alapivot','Diestro',74,86,75,95,19,'Tenerife'),('Manolo King','Alapivot','Diestro',72,88,85,87,10,'Tenerife'),('Marcos William','Alapivot','Diestro',76,93,96,87,18,'Tenerife'),('Marcus Dembele','Alapivot','Diestro',99,97,92,74,8,'Tenerife'),('Mario Baker','Alapivot','Zurdo',99,95,80,73,2,'Tenerife'),('Miguel Flores','Alapivot','Zurdo',98,70,89,92,3,'Tenerife'),('Oscar Vargas','Alapivot','Diestro',68,84,76,90,6,'Estudiantes'),('Pablo Miller','Alapivot','Zurdo',71,73,92,92,15,'Estudiantes'),('Paco sales','Alapivot','Diestro',76,73,92,68,5,'Estudiantes'),('Pau cortes','Alapivot','Zurdo',87,81,92,95,11,'Estudiantes'),('Pau Duran','Alapivot','Zurdo',71,69,77,94,2,'Estudiantes'),('Rashe Simonl','Alapivot','Diestro',84,87,81,82,15,'Estudiantes'),('Rashford Robert','Alapivot','Diestro',69,96,89,66,2,'Estudiantes'),('Salvador Molina','Alapivot','Zurdo',69,74,72,68,6,'Betis'),('Sergio Llul','Alapivot','Diestro',88,85,98,79,17,'Tenerife'),('Stephen Lewis','Alapivot','Diestro',69,71,72,90,6,'Tenerife');
+INSERT INTO `jugador` VALUES ('Alvaro Lopez','Alapivot','Zurdo',83,74,98,78,7,78,88,'Baskonia'),('Ander Heredia','Alero','Diestro',88,75,94,99,18,81,96,'Baskonia'),('Antonio Miranda','Base','Diestro',67,82,82,82,9,74,82,'Baskonia'),('Antonio Torres','Escolta','Zurdo',67,68,80,71,5,67,75,'Baskonia'),('Benito Kimpembe','Pivot','Zurdo',97,85,99,71,10,86,67,'Baskonia'),('Conner Frankamp','Alapivot','Diestro',66,75,88,91,3,70,56,'UCAM Murcia'),('Cristiano Smith','Alapivot','Zurdo',95,97,97,67,4,96,99,'Baskonia'),('Davies Johnson','Alapivot','Zurdo',69,87,97,93,9,88,88,'Barcelona'),('DJ Strawberry','Pivot','Zurdo',90,95,93,66,10,89,77,'UCAM Murcia'),('Eduardo Wilson','Alero','Zurdo',66,84,83,72,12,98,66,'Barcelona'),('Eugenio Adams','Base','Diestro',92,82,73,89,11,78,49,'Barcelona'),('Fernando Gonzalez','Escolta','Zurdo',75,68,87,77,13,67,76,'Barcelona'),('Fernando San Emeterio','Alapivot','Diestro',95,69,78,88,8,87,99,'Valencia'),('Guillem Vives','Pivot','Zurdo',69,78,92,85,11,89,67,'Valencia'),('Guzman Cortes','Pivot','Zurdo',73,94,88,73,6,67,67,'Real Madrid'),('Johan Parra','Pivot','Zurdo',75,93,77,99,19,87,99,'Barcelona'),('John Salazar','Alapivot','Diestro',87,69,93,75,7,78,87,'Barcelona'),('Jordan Davis','Base','Diestro',72,68,79,90,9,76,76,'UCAM Murcia'),('Jose Collado','Pivot','Zurdo',95,86,92,75,9,98,45,'Unicaja Malaga'),('José Curry','Alapivot','Diestro',95,68,97,83,6,66,56,'Betis'),('Jose Fariña','Alapivot','Zurdo',88,70,84,70,8,74,76,'Unicaja Malaga'),('Jose Manuel Green','Alero','Diestro',75,93,97,88,5,93,98,'Betis'),('Jose Perez','Alapivot','Diestro',69,81,92,92,4,88,80,'Real Madrid'),('Joselito Perez','Base','Diestro',85,90,96,79,6,76,86,'Betis'),('Juampi Maroto','Escolta','Zurdo',91,72,80,96,12,88,67,'Betis'),('Juan Cortes','Pivot','Zurdo',70,66,66,79,10,98,98,'Betis'),('Klemen Prepelic','Base','Diestro',65,69,75,78,7,98,76,'Valencia'),('Lebron Martin','Pivot','Diestro',75,89,67,97,10,56,98,'Betis'),('Luis Balaguer','Pivot','Diestro',88,66,82,66,1,78,56,'Unicaja Malaga'),('Makelele William','Alapivot','Diestro',74,86,75,95,19,93,87,'Tenerife'),('Manolo King','Alero','Diestro',72,88,85,87,10,64,56,'Tenerife'),('Marcos William','Base','Diestro',76,93,96,87,18,56,76,'Tenerife'),('Marcus Dembele','Escolta','Diestro',99,97,92,74,8,56,60,'Tenerife'),('Mario Baker','Pivot','Zurdo',99,95,80,73,2,88,70,'Tenerife'),('Martin Hermannsson','Alapivot','Diestro',97,77,88,66,3,82,80,'Valencia'),('Miguel Flores','Base','Zurdo',98,70,89,92,3,93,90,'Tenerife'),('Mike Tobey','Alero','Zurdo',69,79,67,94,2,84,50,'Valencia'),('Oscar Vargas','Alapivot','Diestro',68,84,76,90,6,76,99,'Estudiantes'),('Pablo Miller','Alero','Zurdo',71,73,92,92,15,45,59,'Estudiantes'),('Pache Lopez','Alero','Zurdo',68,80,67,74,4,77,54,'Unicaja Malaga'),('Paco sales','Base','Diestro',76,73,92,68,5,78,75,'Estudiantes'),('Paco Terron','Escolta','Diestro',78,74,97,87,3,83,67,'Unicaja Malaga'),('Pau cortes','Pivot','Zurdo',87,81,92,95,11,56,87,'Estudiantes'),('Pau Duran','Alero','Zurdo',71,69,77,94,2,44,91,'Estudiantes'),('Peter Jok','Alapivot','Zurdo',86,93,96,88,15,87,34,'UCAM Murcia'),('Rashe Simonl','Alapivot','Diestro',84,87,81,82,15,56,67,'Estudiantes'),('Rashford Robert','Alapivot','Diestro',69,96,89,66,2,79,87,'Real Madrid'),('Sadiel Rojas','Alero','Diestro',85,86,75,86,12,87,99,'UCAM Murcia'),('Salmeron Collado','Base','Diestro',69,82,93,95,5,86,76,'Unicaja Malaga'),('Salvador Molina','Alero','Zurdo',69,74,72,68,6,67,76,'Real Madrid'),('Sergio Llul','Base','Diestro',88,85,98,79,17,81,88,'Real Madrid'),('Stephen Lewis','Pivot','Diestro',69,71,72,90,6,29,65,'Real Madrid'),('Tomás Bellas','Alero','Zurdo',90,69,85,88,6,99,77,'UCAM Murcia'),('Vanja Marinkovic','Alero','Zurdo',88,93,69,68,19,55,76,'Valencia');
 /*!40000 ALTER TABLE `jugador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +136,7 @@ CREATE TABLE `usuario` (
   `apellidos` varchar(50) NOT NULL,
   `nickname` varchar(10) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `contrasena` varchar(10) NOT NULL,
+  `contrasena` varchar(16) NOT NULL,
   PRIMARY KEY (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -145,7 +147,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('a','a','a','a','a');
+INSERT INTO `usuario` VALUES ('Pablo','Molina','pablo','pablomollinaconde4@gmail.com','Pablo123');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-25 12:01:15
+-- Dump completed on 2021-06-03 20:32:06
