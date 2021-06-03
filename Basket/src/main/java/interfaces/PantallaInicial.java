@@ -47,6 +47,8 @@ public class PantallaInicial extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		this.setSize(450, 650);
 
+
+
 		// -------------------------------- COMPONENTES J
 		// -------------------------------------
 
@@ -55,9 +57,9 @@ public class PantallaInicial extends JPanel {
 		add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 		ImageIcon imagen = new ImageIcon(
-				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/ic.png");
+				"src/main/java/imagenes/ic.png");
 		ImageIcon imagen2 = new ImageIcon(
-				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
+				"src/main/java/imagenes/fondo.jpg");
 		JButton btnNewButton_1 = new JButton("¿No tienes cuenta? Regístrate Aquí!");
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBounds(102, 534, 234, 35);
@@ -178,7 +180,7 @@ public class PantallaInicial extends JPanel {
 		}
 		//En caso de que exista, lanzamos un sonido
 		Ventana.player
-				.play("C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/sonidos/correcto.wav");
+				.play("src/main/java/sonidos/login.wav");
 		return true;
 	}
 

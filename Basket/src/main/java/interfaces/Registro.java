@@ -136,7 +136,7 @@ public class Registro extends JPanel {
 
 		JLabel fondo = new javax.swing.JLabel("");
 		ImageIcon imagen2 = new ImageIcon(
-				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
+				"src/main/java/imagenes/fondo.jpg");
 		fondo.setBounds(0, 0, 450, 650);
 		panelCentral.add(fondo);
 		Icon icono3 = new ImageIcon(
@@ -163,8 +163,8 @@ public class Registro extends JPanel {
 					// En caso de que el usuario no exista en la BDD, procedemos a crearlo
 					if (checkUser()) {
 						if (createUser()) {
-							JOptionPane.showMessageDialog(ventana, "Usuario creado de manera exitosa!", "Login fallido",
-									JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(ventana, "Usuario creado de manera exitosa!", "Bienvenido!",
+									JOptionPane.INFORMATION_MESSAGE);
 						}
 					} else {
 						JOptionPane.showMessageDialog(ventana,

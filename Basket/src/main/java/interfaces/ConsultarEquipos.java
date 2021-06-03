@@ -157,7 +157,7 @@ public class ConsultarEquipos extends JPanel {
 		panel_jugadores.add(lblEstadios);
 		JLabel fondo = new javax.swing.JLabel("");
 		ImageIcon imagen2 = new ImageIcon(
-				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
+				"src/main/java/imagenes/fondo.jpg");
 		fondo.setBounds(0, 0, 450, 650);
 		panelCentral.add(fondo);
 		Icon icono3 = new ImageIcon(

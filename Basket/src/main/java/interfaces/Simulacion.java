@@ -153,7 +153,7 @@ public class Simulacion extends JPanel {
 		JLabel fondo = new javax.swing.JLabel("");
 		fondo.setBounds(0, 0, 450, 650);
 		ImageIcon imagen2 = new ImageIcon(
-				"C:/Users/pablo/Documents/GitHub/ProyectoBaloncesto/Basket/src/main/java/imagenes/fondo.jpg");
+				"src/main/java/imagenes/fondo.jpg");
 		panelCentral.add(fondo);
 		Icon icono3 = new ImageIcon(
 				imagen2.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
@@ -183,6 +183,8 @@ public class Simulacion extends JPanel {
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Ventana.player
+				.play("src/main/java/sonidos/campana.wav");
 				btnVolver.setVisible(true);
 				btnClasif.setVisible(true);
 				mostrarJornada(comboBoxLigas, textoEquipos);

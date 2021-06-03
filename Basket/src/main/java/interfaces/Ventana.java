@@ -17,6 +17,7 @@ import clases.Reproductor;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -70,6 +72,8 @@ public class Ventana extends JFrame {
 		ViewPantallaInicial = new PantallaInicial(this);
 		this.setContentPane(ViewPantallaInicial);
 		this.setVisible(true);
+		Image icon = new ImageIcon(("src/main/java/imagenes/ic.png")).getImage();
+		this.setIconImage(icon);
 	}
 
 	/*
