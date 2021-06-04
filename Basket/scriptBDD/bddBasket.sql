@@ -35,7 +35,7 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
-INSERT INTO `equipo` VALUES ('Barcelona','España'),('Baskonia','España'),('Betis','España'),('Estudiantes','España'),('Lakers','Estadounidense'),('Real Madrid','España'),('Tenerife','España'),('UCAM Murcia','España'),('unicaja Málaga','España'),('Valencia','España');
+INSERT INTO `equipo` VALUES ('Barcelona','España'),('Baskonia','España'),('Betis','España'),('Estudiantes','España'),('Real Madrid','España'),('Tenerife','España'),('UCAM Murcia','España'),('unicaja Málaga','España'),('Valencia','España');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +92,7 @@ CREATE TABLE `liga` (
 
 LOCK TABLES `liga` WRITE;
 /*!40000 ALTER TABLE `liga` DISABLE KEYS */;
-INSERT INTO `liga` VALUES ('acb',2020),('nba',2021);
+INSERT INTO `liga` VALUES ('acb',2020);
 /*!40000 ALTER TABLE `liga` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `liga_equipo` (
 
 LOCK TABLES `liga_equipo` WRITE;
 /*!40000 ALTER TABLE `liga_equipo` DISABLE KEYS */;
-INSERT INTO `liga_equipo` VALUES ('acb',2020,'Barcelona'),('acb',2020,'Baskonia'),('acb',2020,'Betis'),('acb',2020,'Estudiantes'),('nba',2021,'Lakers'),('acb',2020,'Real Madrid'),('acb',2020,'Tenerife'),('acb',2020,'UCAM Murcia'),('acb',2020,'Unicaja Malaga'),('acb',2020,'Valencia');
+INSERT INTO `liga_equipo` VALUES ('acb',2020,'Barcelona'),('acb',2020,'Baskonia'),('acb',2020,'Betis'),('acb',2020,'Estudiantes'),('acb',2020,'Real Madrid'),('acb',2020,'Tenerife'),('acb',2020,'UCAM Murcia'),('acb',2020,'Unicaja Malaga'),('acb',2020,'Valencia');
 /*!40000 ALTER TABLE `liga_equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-03 20:32:06
+-- Dump completed on 2021-06-04 13:29:07
