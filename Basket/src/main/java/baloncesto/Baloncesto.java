@@ -10,6 +10,8 @@ import interfaces.Ventana;
 /**
  *
  * @author pablo
+ * @version 1.0
+ * Clase principal del programa donde solo se instancia ventana
  */
 public class Baloncesto {
 

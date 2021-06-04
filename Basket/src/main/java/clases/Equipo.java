@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import interfaces.Ventana;
 
 /**
+ * @author pablo
+ * @version 1.0
  * Clase Equipo extiende de CosaConNombre - Clase que utilizaremos para
  * instanciar los distintos equipos
  */
@@ -25,7 +27,14 @@ public class Equipo extends CosaConNombre {
 	// Variable Auxiliar
 	ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
 
-	// Constructor + Getters + Setters
+	/**
+	 * constructor de la clase equipo
+	 * @param nombre de el equipo
+	 * @param nacionalidad de el equipo
+	 * @param jugadores de el equipo
+	 * @param estadio de el equipo
+	 * @param entrenador de el equipo
+	 */
 	public Equipo(String nombre, String nacionalidad, ArrayList<Jugador> jugadores, Estadio estadio,
 			Entrenador entrenador) {
 		super(nombre);
@@ -37,31 +46,52 @@ public class Equipo extends CosaConNombre {
 		this.mediaDefensa = setMediaDefensa();
 		this.puntosLiga = 0;
 	}
-
+	/**
+	 * recoge el numero de puntos de la liga
+	 * @return puntos de la liga
+	 */
 	public byte getPuntosLiga() {
 		return puntosLiga;
 	}
-
+	/**
+	 * asigan los puntos de la liga 
+	 * @param puntosLiga en el quipo
+	 */
 	public void setPuntosLiga(byte puntosLiga) {
 		this.puntosLiga = puntosLiga;
 	}
-
+	/**
+	 * recoge la nacionaqlidad de el equipo
+	 * @return nacionalidad de el equipo
+	 */
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
-
+	/**
+	 * asigna la nacionalidad a el equipo
+	 * @param nacionalidad de el equipo
+	 */
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-
+	/**
+	 * recoge el arraylist de jugadores
+	 * @return ArrayList<Jugador> de el equipo
+	 */
 	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
 	}
-
+	/**
+	 * asigna los jugadores de el equipo
+	 * @return arraylist<Jugadores>  de el equipo
+	 */
 	public int getMediaDefensa() {
 		return mediaDefensa;
 	}
-
+	/**
+	 * recoge la media de ataque de los equipos
+	 * @return mediaAtaque de los equipos
+	 */
 	public int getMediaAtaque() {
 		return mediaAtaque;
 	}
@@ -93,19 +123,31 @@ public class Equipo extends CosaConNombre {
 		mediaDefensa = (mediaDefensa / jugadoresEquipo.size());
 		return mediaDefensa;
 	}
-
+	/**
+	 * devuelve el estadio de el equipo
+	 * @return estadio
+	 */
 	public Estadio getEstadio() {
 		return estadio;
 	}
-
+	/**
+	 * asigna el estadio a el equipo
+	 * @param estadio de el equipo
+	 */
 	public void setEstadio(Estadio estadio) {
 		this.estadio = estadio;
 	}
-
+	/**
+	 * recoge el valor de entrenador de el equipo
+	 * @return entrenador de el equipo
+	 */
 	public Entrenador getEntrenador() {
 		return entrenador;
 	}
-
+	/**
+	 * asigna el entrenador de el equipo
+	 * @param entrenador de el equipo
+	 */
 	public void setEntrenador(Entrenador entrenador) {
 		this.entrenador = entrenador;
 	}
@@ -139,7 +181,9 @@ public class Equipo extends CosaConNombre {
 		return jugadoresEquipo;
 	}
 
-	// Constructor Vacio para Instancia General
+	/**
+	 *  Constructor Vacio para Instancia General
+	 */
 	public Equipo() {
 	}
 

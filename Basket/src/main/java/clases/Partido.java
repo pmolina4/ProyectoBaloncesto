@@ -13,8 +13,11 @@ import java.util.Random;
 
 import interfaces.Ventana;
 
-/*
- * Clase Partido
+/**
+ * 
+ * @version 1.0
+ * @author pablo
+ * Clase Partido donde están las funciones necesarias para generar los partidos
  */
 public class Partido {
 	private Equipo local;
@@ -23,7 +26,14 @@ public class Partido {
 	private short puntosVisitante;
 	private Date fecha;
 
-	// Constructor + Getters + Setters
+	/**
+	 * constructor de la clase partido
+	 * @param local equipo local
+	 * @param visitante equipo visitante
+	 * @param puntosLocal de el equipo local
+	 * @param puntosVisitante de el equipo visitante
+	 * @param fecha de el partido
+	 */
 	public Partido(Equipo local, Equipo visitante, short puntosLocal, short puntosVisitante, Date fecha) {
 		this.local = local;
 		this.visitante = visitante;
@@ -31,49 +41,81 @@ public class Partido {
 		this.puntosVisitante = puntosVisitante;
 		this.fecha = fecha;
 	}
-
+	/**
+	 * recoge el equipo local
+	 * @return local
+	 */
 	public Equipo getLocal() {
 		return local;
 	}
-
+	/**
+	 * asigna el quipo local al partido
+	 * @param local equipo
+	 */
 	public void setLocal(Equipo local) {
 		this.local = local;
 	}
-
+	/**
+	 * recoge el equipo visitante de el partido
+	 * @return visitante
+	 */
 	public Equipo getVisitante() {
 		return visitante;
 	}
-
+	/**
+	 * asignamos el equipo vistante a partidoi
+	 * @param visitante
+	 */
 	public void setVisitante(Equipo visitante) {
 		this.visitante = visitante;
 	}
-
+	/**
+	 * recoge los puntos locales 
+	 * @return puntosLocal
+	 */
 	public short getPuntosLocal() {
 		return puntosLocal;
 	}
-
+	/**
+	 * asigna los puntos locales de el partido
+	 * @param puntosLocal de el partido
+	 */
 	public void setPuntosLocal(short puntosLocal) {
 		this.puntosLocal = puntosLocal;
 	}
-
+	/**
+	 * recoge los puntos visitante de el partido
+	 * @return puntosVisitante de el partido
+	 */
 	public short getPuntosVisitante() {
 		return puntosVisitante;
 	}
-
+	/**
+	 * asigna los puntos visitantes de el epartido
+	 * @param puntosVisitante de el partido
+	 */
 	public void setPuntosVisitante(short puntosVisitante) {
 		this.puntosVisitante = puntosVisitante;
 	}
-
+	/**
+	 * recoge la fecha
+	 * @return fecha
+	 */
 	public Date getFecha() {
 		return fecha;
 	}
-
+	/**
+	 * asigna la fecha a el partido
+	 * @param fecha de el partido
+	 */
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	/*
+	/**
+	 * 
 	 * Funcion para generarPartidos()
+	 * Comprobamos cual serán los locales y los visitantes
 	 */
 	public static void generarPartidos() {
 
@@ -95,7 +137,8 @@ public class Partido {
 		}
 	}
 
-	/*
+	/**
+	 * 
 	 * Funcion para generar fechas de partidos aleatorios
 	 * 
 	 * @return d - Fecha Aleatorio
@@ -112,7 +155,8 @@ public class Partido {
 		return d;
 	}
 
-	/*
+	/**
+	 * 
 	 * Funcion que simula los partidos, y comprueba el ganador
 	 * 
 	 * @return puntos - Los puntos del equipoLocal/visitante
@@ -144,7 +188,8 @@ public class Partido {
 		}
 	}
 
-	/*
+	/**
+	 * 
 	 * Función que calculara los tipos de canasta que han metido (nada, tiro libre,
 	 * dobles o triples) en funcion de los lanzamientos, y por tanto, devolverá los
 	 * puntos obtenidos
@@ -169,7 +214,9 @@ public class Partido {
 		return puntos;
 	}
 
-	// Constructor vacio para instancia general
+	/**
+	 *  Constructor vacio para instancia general
+	 */
 	public Partido() {
 
 	}

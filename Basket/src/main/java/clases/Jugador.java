@@ -14,7 +14,10 @@ import java.util.stream.IntStream;
 import enumeration.mano;
 import enumeration.tipo;
 
-/*
+/**
+ * 
+ * @version 1.0
+ * @author pablo
  * Clase Jugador extiende de CosaConNombre
  */
 public class Jugador extends CosaConNombre {
@@ -33,7 +36,20 @@ public class Jugador extends CosaConNombre {
 	public Jugador(String nombre) {
 		super(nombre);
 	}
-
+	/**
+	 * constructor de la clase jugador
+	 * @param nombre de el jugador
+	 * @param equipo de el jugador
+	 * @param posicion de el jugador
+	 * @param manoDominante de el jugador
+	 * @param fuerza de el jugador
+	 * @param velocidad de el jugador
+	 * @param inteligencia de el jugador
+	 * @param tecnica de el jugador
+	 * @param numero de el jugador
+	 * @param mediaAtaque de el jugador
+	 * @param mediaDefensa de el jugador
+	 */
 	public Jugador(String nombre, String equipo, String posicion, String manoDominante, byte fuerza, byte velocidad,
 			byte inteligencia, byte tecnica, byte numero, byte mediaAtaque, byte mediaDefensa) {
 		super(nombre);
@@ -48,67 +64,115 @@ public class Jugador extends CosaConNombre {
 		this.mediaAtaque = mediaAtaque;
 		this.mediaDefensa = mediaDefensa;
 	}
-
+	/**
+	 * recoge el equipo de el jugador
+	 * @return equipo
+	 */
 	public String getEquipo() {
 		return equipo;
 	}
-
+	/**
+	 * asigan el equipo al jugador
+	 * @param equipo de el jugador
+	 */
 	public void setEquipo(String equipo) {
 		this.equipo = equipo;
 	}
-
+	/**
+	 * recoge la posicion de el jugador
+	 * @return posicion
+	 */
 	public String getPosicion() {
 		return posicion;
 	}
-
+	/**
+	 * asigna la posicion de el jugador
+	 * @param posicion de el jugador
+	 */
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
-
+	/**
+	 * recoge la mano dominante de el jugador
+	 * @return manoDominante
+	 */
 	public String getManoDominante() {
 		return manoDominante;
 	}
-
+	/**
+	 * asigna la mano dominante a el jugador
+	 * @param manoDominante de el jugador
+	 */
 	public void setManoDominante(String manoDominante) {
 		this.manoDominante = manoDominante;
 	}
-
+	/**
+	 * coge la fuerza de el jugador
+	 * @return fuerza 
+	 */
 	public byte getFuerza() {
 		return fuerza;
 	}
-
+	/**
+	 * asigna la fuerza a el jugador
+	 * @param fuerza de el jugador
+	 */
 	public void setFuerza(byte fuerza) {
 		this.fuerza = fuerza;
 	}
-
+	/**
+	 * recoge la velocidad de el jugador
+	 * @return velocidad 
+	 */
 	public byte getVelocidad() {
 		return velocidad;
 	}
-
+	/**
+	 * asigna la velocidad a el jugador
+	 * @param velocidad de el jugador
+	 */
 	public void setVelocidad(byte velocidad) {
 		this.velocidad = velocidad;
 	}
-
+	/**
+	 * recoge la inteligencia de el jugador
+	 * @return inteligencia
+	 */
 	public byte getInteligencia() {
 		return inteligencia;
 	}
-
+	/**
+	 * asigna la inteligencia a el jugador
+	 * @param inteligencia de el jugador
+	 */
 	public void setInteligencia(byte inteligencia) {
 		this.inteligencia = inteligencia;
 	}
-
+	/**
+	 * recoge la tecnica de el jugador
+	 * @return tenica
+	 */
 	public byte getTecnica() {
 		return tecnica;
-	}
-
+	}	
+	/**
+	 * asigna la tecnica de el ejugador
+	 * @param tecnica de el jugador
+	 */
 	public void setTecnica(byte tecnica) {
 		this.tecnica = tecnica;
 	}
-
+	/**
+	 * recoge el numero de el jugador
+	 * @return numero
+	 */
 	public byte getNumero() {
 		return numero;
 	}
-
+	/**
+	 * asigna el numero a el jugador
+	 * @param numero de el jugador
+	 */
 	public void setNumero(byte numero) {
 		this.numero = numero;
 	}
@@ -160,20 +224,32 @@ public class Jugador extends CosaConNombre {
 //		iter++;
 //	}
 
-	// Seteamos mediaAtaque
+	/**
+	 * asignamos la media de ataque que depoende de la velocidad y la fuerza
+	 * Seteamos mediaAtaque  
+	 */
 	public void setMediaAtaque() {
 		this.mediaAtaque = (byte) ((this.getFuerza() + this.getVelocidad()) / 2);
 	}
 
-	// Seteamos mediaDefensa
+	/**
+	 * asignamos la mediaDefensa que depende de la inteligencia y la técnica
+	 *  Seteamos mediaDefensa
+	 */
 	public void setMediaDefensa() {
 		this.mediaDefensa = (byte) (this.getInteligencia() + this.getTecnica() / 2);
 	}
-
+	/**
+	 * recogemos la media de ataque
+	 * @return mediaAtaque
+	 */
 	public byte getMediaAtaque() {
 		return mediaAtaque;
 	}
-
+	/**
+	 * recogemos la media defensa
+	 * @return MediaDefensa
+	 */
 	public byte getMediaDefensa() {
 		return mediaDefensa;
 	}

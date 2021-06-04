@@ -9,37 +9,58 @@ import java.util.ArrayList;
 
 import interfaces.Ventana;
 
-/*
+/**
+ * 
+ * @version 1.0
+ * @author pablo
  * Clase Estadio extiende de CosaConNombre
  */
 public class Estadio extends CosaConNombre {
 	private short dimensiones;
 	private int aforo;
 
-	//Constructor + Getters + Setters
+	/**
+	 * constructor de la clase Estadio
+	 * @param nombre de el estadio
+	 * @param dimensiones de el estadio
+	 * @param aforo de el estadio
+	 */
 	public Estadio(String nombre, short dimensiones, int aforo) {
 		super(nombre);
 		this.dimensiones = dimensiones;
 		this.aforo = aforo;
 	}
-
+	/**
+	 * recoge las dimensiones de el estadio
+	 * @return dimensiones
+	 */
 	public short getDimensiones() {
 		return dimensiones;
 	}
-
+	/**
+	 * asigna las dimensiones a el estadio
+	 * @param dimensiones de el estadio
+	 */
 	public void setDimensiones(short dimensiones) {
 		this.dimensiones = dimensiones;
 	}
-
+	/**
+	 * recoge el aforo de el estadio
+	 * @return aforo
+	 */
 	public int getAforo() {
 		return aforo;
 	}
-
+	/**
+	 * asigna el aforo a el estadio
+	 * @param aforo de el estadio
+	 */
 	public void setAforo(int aforo) {
 		this.aforo = aforo;
 	}
 
-	/*
+	/**
+	 * 
 	 * Funcion que utilizamos para generar estadios, e introducirlos en su arrayList
 	 * correspondiente
 	 */
@@ -54,7 +75,10 @@ public class Estadio extends CosaConNombre {
 
 	}
 
-	// Constructor vacio para instancia general
+	/**
+	 * 
+	 * Constructor vacio para instancia general
+	 */
 	public Estadio() {
 	}
 }

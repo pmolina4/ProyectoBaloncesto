@@ -59,7 +59,9 @@ public class Ventana extends JFrame {
 	public static Usuario usu = new Usuario();
 	public static EquipoEnLiga eli = new EquipoEnLiga();
 	public static Competicion compet = new Competicion();
-
+	/*
+	 * Funcion ventana 
+	 */
 	public Ventana() {
 		// Variables Iniciales
 		this.setSize(450, 650);

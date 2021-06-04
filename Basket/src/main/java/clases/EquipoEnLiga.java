@@ -4,32 +4,51 @@ import java.util.Collections;
 
 import interfaces.Ventana;
 
-/*
+/**
+ * 
+ * @version 1.0
+ * @author pablo
  * Clase EquipoEnLiga con Poliformismo Usando un Comparable<EquipoEnLiga>
  */
 public class EquipoEnLiga implements Comparable<EquipoEnLiga> {
 	private Equipo equipo;
 	private byte puntos;
 
-	//Constructor + Getters  Setters
+	/**
+	 * constructor de la clase Equipo en liga
+	 * @param equipo de la liga
+	 * @param puntos de la liga
+	 */
 	public EquipoEnLiga(Equipo equipo, byte puntos) {
 		super();
 		this.equipo = equipo;
 		this.puntos = puntos;
 	}
-
+	/**
+	 * recoge el equipo
+	 * @return equipo
+	 */
 	public Equipo getEquipo() {
 		return equipo;
 	}
-
+	/**
+	 * asigna el equipo 
+	 * @param equipo
+	 */
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
 	}
-
+	/**
+	 * recoge elos puntos
+	 * @return puntos
+	 */
 	public byte getPuntos() {
 		return puntos;
 	}
-
+	/**
+	 * asigna los puntos
+	 * @param puntos
+	 */
 	public void setPuntos(byte puntos) {
 		this.puntos = puntos;
 	}
@@ -48,7 +67,8 @@ public class EquipoEnLiga implements Comparable<EquipoEnLiga> {
 	}
 	
 
-	/*
+	/**
+	 * 
 	 * Funcion CompareTo - Usada para comprobar si un equipo tiene mas puntos que el otro
 	 * param: EquipoEnLiga - Comparamos con la siguiente instancia 
 	 */
@@ -65,7 +85,9 @@ public class EquipoEnLiga implements Comparable<EquipoEnLiga> {
 	}
 
 	
-	//Constructor vacio que usaremos para instancias generales
+	/**
+	 * Constructor vacio que usaremos para instancias generales
+	 */
 	public EquipoEnLiga() {
 	}	
 }

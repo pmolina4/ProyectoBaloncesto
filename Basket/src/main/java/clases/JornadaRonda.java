@@ -17,21 +17,31 @@ import interfaces.Ventana;
  * partidos, y emulamos dichos partidos
  * 
  * @author pablo
- *
+ *@version1.0
  */
 public class JornadaRonda extends CosaConNombre {
 	private ArrayList<Partido> partidos;
 
-	// Constructor + Getters + Setters
+	/**
+	 * constructor de la clase JornadaRonda
+	 * @param nombre de la jornada
+	 * @param partidos de la jornada
+	 */
 	public JornadaRonda(String nombre, ArrayList<Partido> partidos) {
 		super(nombre);
 		this.partidos = partidos;
 	}
-
+	/**
+	 * recoge el array list de partidos
+	 * @return partidos
+	 */
 	public ArrayList<Partido> getPartidos() {
 		return partidos;
 	}
-
+	/**
+	 * asigna el arrayList de partidos en la jornada
+	 * @param partidos en la jornada
+	 */
 	public void setPartidos(ArrayList<Partido> partidos) {
 		this.partidos = partidos;
 	}
@@ -104,7 +114,9 @@ public class JornadaRonda extends CosaConNombre {
 		return index;
 	}
 
-	// Constructor vacio para Instancia General
+	/**
+	 * Constructor vacio para Instancia General
+	 */
 	public JornadaRonda() {
 	}
 

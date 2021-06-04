@@ -19,7 +19,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
 
-/*
+/**
+ * 
+ * @author pablo	
+ * @version 1.0
  * Funcion Reproductor 
  * Unicamente utilizada para generar sonidos en funcion de la interaccion del usuario con los distintos elementos dela vista
  */
